@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>kevin | blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="portfolio website for kevin">
+    <meta name="keywords" content="django, restapi, graphql, react, python, html, css, javascript, jquery">
+    <meta name="author" content="kevin">
+
+    <link rel="stylesheet" href="css/vendor/icomoon/style.css">
+    <link rel="stylesheet" href="css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/vendor/aos.css">
+    <link rel="stylesheet" href="css/vendor/animate.min.css">
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vendor/jquery.fancybox.min.css">
+    
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
+
+    <nav class="unslate_co--site-mobile-menu">
+      <div class="close-wrap d-flex">
+        <a href="#" class="d-flex ml-auto js-menu-toggle">
+          <span class="close-label">Close</span>
+          <div class="close-times">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+          </div>
+        </a>
+      </div>
+      <div class="site-mobile-inner"></div>
+    </nav>
+
+
+    <div class="unslate_co--site-wrap">
+
+      <div class="unslate_co--site-inner">
+
+        <div class="lines-wrap">
+          <div class="lines-inner">
+            <div class="lines"></div>
+          </div>
+        </div>
+        <!-- END lines -->
+      
+      <nav class="unslate_co--site-nav site-nav-target">
+
+        <div class="container">
+        
+          <div class="row align-items-center justify-content-between text-left">
+            <div class="col-md-5 text-right">
+              <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
+                <li><a href="index.html#home-section" class="nav-link">home</a></li>
+                <li><a href="index.html#portfolio-section" class="nav-link">portfolio</a></li>
+                <li><a href="index.html#about-section" class="nav-link">about</a></li>
+              </ul>
+            </div>
+            <div class="site-logo pos-absolute">
+              <a href="index.html" class="unslate_co--site-logo">kevin<span>.</span></a>
+            </div>
+            <div class="col-md-5 text-right text-lg-left">
+              <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
+                <li><a href="index.html#services-section" class="nav-link">services</a></li>
+                <li><a href="index.html#journal-section" class="nav-link">blog</a></li>
+                <li><a href="index.html#contact-section" class="nav-link">contact</a></li>
+              </ul>
+
+              <ul class="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">
+                <li><a href="#" class="js-menu-toggle">Menu</a></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+      </nav>
+      <!-- END nav -->
+
+      <div class="cover-v1 jarallax overlay" style="background-image: url('images/work_1_full.jpg');">
+        <div class="container">
+          <div class="row align-items-center">
+              
+            <div class="col-md-8 mx-auto text-center">
+              <h1 class="blog-heading" data-aos="fade-up" data-aos-delay="0">Djano AttributeError: 'NoneType' object has no attribute 'some_field'.</h1>
+              <div class="post-meta" data-aos="fade-up" data-aos-delay="100">by kevin on January 2, 2024 &bullet; 5 mins read</div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- dov -->
+        <a href="#blog-single-section" class="mouse-wrap smoothscroll">
+          <span class="mouse">
+            <span class="scroll"></span>
+          </span>
+          <span class="mouse-label">Scroll</span>
+        </a>
+
+      </div>
+      <!-- END .cover-v1 -->
+
+      <div class="unslate_co--section" id="blog-single-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-7">
+              <h3 class="mb-4">it's a foreign key related issue</h3>
+              <p>This is a common error when a queryset attempt to make a call probably declared in views. In the above error, it implies that one of the values for the error field, `some_field` have no results. For instance, the call may be to a foreign key referencing a primary key field in another table. This AttributeError means that one of the values of the queryset being returned that is referencing the primary key field has no value attached to the field being referenced by the foreign key.</p>
+              <p>To solve for this error, make sure that all foreign key references that may be included as serializer fields do not have a method or source (a reference to any other field other than the primary key)attached to them. Foreign key by default always reference the primary key field of the related model and in most scenarios this is an integer. Since returning an integer for a refenced fields, say ‘author’ in the serializer would default to the primary key, a serializer would return this pair as {“author”:”1”}. To avoid this, it is intuitive to return declare this field in the serializer explicitly like below:</p>
+              <p>class BookSerializer(ModelSerializer):
+                author = serializers.CharField(source='author.name')
+                class Meta:
+                    model = Books
+                    fields = […,"author"]</p>
+              <p>The above code has a field on the Book model named ‘author’ that is a foreign key to the model with author details. The key word argument (source=’author.name’) is bypassing calling the author id and instead references the name of the author. In our foregoing example, this would result in the serializer as returning {“author”:”John”} if the id “1” is attached to a person named John.</p>
+              <p>Trying to call a queryset with the serializer where some records have null on the author name would return an AttributeError as above since the source field would be calling a method “.name” that does not exist for some fields and thus the NoneType which implies there is no returned value.</p>
+              <p>In this case, removing the explicitly declared ‘author’ field in the serializer and including it in the Meta fields only would work as the queryset will simply return the fields on the referenced model with null values as null.</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      </div> 
+
+      
+      <footer class="unslate_co--footer unslate_co--section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-7">
+              
+              <div class="footer-site-logo"><a href="#">kevin<span>.</span></a></div>
+
+              <ul class="footer-site-social">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Dribbble</a></li>
+                <li><a href="#">Behance</a></li>
+              </ul>
+
+              <p class="site-copyright">
+                
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script> All rights reserved. <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      
+    </div>
+
+    <!-- Loader -->
+    <div id="unslate_co--overlayer"></div>
+    <div class="site-loader-wrap">
+      <div class="site-loader"></div>
+    </div>
+
+    <script src="js/scripts-dist.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
