@@ -159,7 +159,6 @@ a, a:hover {
 
 .unslate_co--site-nav .container {
   position: relative;
-  width: 100vw;
 }
 
 .unslate_co--site-nav .site-logo {
@@ -550,7 +549,7 @@ span .accent {
   z-index: 1009;
   height: 100vh;
   background: #fff;
-  width: 200px;
+  width: 280px;
   overflow: auto;
   padding-top: 30px;
   padding-bottom: 70px;
