@@ -146,6 +146,10 @@ a, a:hover {
   transform: translate(-50%, -50%);
 }
 
+.unslate_co--site-wrap {
+  width: 100vw;
+}
+
 .unslate_co--site-nav {
   padding-top: 30px;
   padding-bottom: 30px;
