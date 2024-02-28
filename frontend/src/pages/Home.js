@@ -111,7 +111,7 @@ function Home() {
                 </div>
                 <div className="col-lg-4 pr-lg-5">
                 <h3 className="mb-4 heading-h3"><span className="gsap-reveal">who am i</span></h3>
-                <p className="lead gsap-reveal">i'm a <a href="http:odhiambokevin">full stack web devloper</a> with practical experience in both frontend development and backend design </p>
+                <p className="lead gsap-reveal">i'm a <a href="http://github.com/odhiambokevin">full stack web devloper</a> with practical experience in both frontend development and backend design </p>
                 <p className="mb-4 gsap-reveal">my core competencies in SQL database design and api development with both graphql and restful apis ensure seamless integration for optimal product functionality </p>
                 <p className="mb-4 gsap-reveal">i specialize in geospatial development with a focus on mapping and GIS apps with fully fledged geospatial database design</p>
                 </div>
