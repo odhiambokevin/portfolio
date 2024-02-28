@@ -10,7 +10,7 @@ export const blogs = [
         credit:"unsplash.com",
         image:"pip.jpg",
         date: "January 2 2024"
-    },
+    }, 
     {
         id:2,
         title:"React Dispatch not working: ReduxToolkit",
@@ -68,7 +68,7 @@ export const blogs = [
         time:"5",
         size: "small",
         credit:"https://www.roastycoffee.com",
-        image:"assets/images/appvsdbuser.jpg",
+        image:"appvsdbuser.jpg",
         date: "January 2 2024"
     },
     {
@@ -80,7 +80,7 @@ export const blogs = [
         time:"5",
         size: "small",
         credit:"blog.finxter.com",
-        image:"assets/images/nontype.png",
+        image:"nontype.png",
         date: "January 2 2024"
     },
     ]
