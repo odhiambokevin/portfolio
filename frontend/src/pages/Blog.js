@@ -7,7 +7,7 @@ import { blogs } from '../data/blogData';
 function Blog() {
     const {slug} = useParams();
     const blog = blogs.find((blog)=> blog.slug === slug);
-    const {title, subtitle,author, time, image, date} = blog;
+    const {title, subtitle,author,content, time, image, date} = blog;
         
     useEffect(() => {
         AOS.init();
@@ -43,11 +43,7 @@ function Blog() {
           <div className="row justify-content-center">
             <div className="col-md-7">
               <h3 className="mb-4">{subtitle}</h3>
-              <p>Some of us may have had the occasional urge to test out some code using an already existing virtual environment dependencies. The rule of the thumb is that we should always keep python projects concerns/dependencies separate from each other for well known reasons.</p>
-              <p>However, I have come across a situation where I just needed to try out some code without necessarily creating an entirely new virtual environment using Pipenv. Well it's easy as creating a .venv file in your new project and including in it the location of the virtual environment. This is the folder that holds the pipenv files and folders. It normally includes some hashed code at the end of the folder name.</p>
-              <p>So your .venv file would have in it a line as shown below:</p>
-              <p>C:\Users\User Name\.virtualenvs\Pipenvfolder-TVgiFkue</p>
-              <p>Note: There are no quotes in the path.</p>
+              <p> {content}</p>
             </div>
             </div>
           </div>
