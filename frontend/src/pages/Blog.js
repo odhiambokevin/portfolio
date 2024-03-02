@@ -1,16 +1,27 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from "react";
+import MarkDown from 'markdown-to-jsx';
+import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { blogs } from '../data/blogData';
 
 function Blog() {
     const {slug} = useParams();
     const blog = blogs.find((blog)=> blog.slug === slug);
-    const {title, subtitle,author,content, time, image, date} = blog;
+    const {title, subtitle,author, time, image, date} = blog;
+    const [content, setContent] = useState("")
         
     useEffect(() => {
         AOS.init();
+        import(`../data/markdown/${slug}.md`)
+        .then(
+          res => {
+            fetch(res.default)
+            .then(res=> res.text())
+            .then(res=> setContent(res))
+          }
+        )
+        .catch(err => console.log(err));
     }, []);
     return (
         <>
@@ -43,7 +54,11 @@ function Blog() {
           <div className="row justify-content-center">
             <div className="col-md-7">
               <h3 className="mb-4">{subtitle}</h3>
-              <p> {content}</p>
+              <p>
+                <MarkDown>
+                {content}
+                </MarkDown>
+              </p>
             </div>
             </div>
           </div>

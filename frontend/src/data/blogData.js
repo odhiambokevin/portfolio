@@ -9,8 +9,7 @@ export const blogs = [
         size: "big",
         credit:"unsplash.com",
         image:"pip.jpg",
-        date: "January 2 2024",
-        content: `Some of us may have had the occasional urge to test out some code using an already existing virtual environment dependencies. The rule of the thumb is that we should always keep python projects concerns/dependencies separate from each other for well known reasons. However, I have come across a situation where I just needed to try out some code without necessarily creating an entirely new virtual environment using Pipenv. Well it's easy as creating a .venv file in your new project and including in it the location of the virtual environment. This is the folder that holds the pipenv files and folders. It normally includes some hashed code at the end of the folder name. So your .venv file would have in it a line as shown below: C:\\Users\\User Name\\.virtualenvs\\Pipenvfolder-TVgiFkue Note: There are no quotes in the path.`
+        date: "January 2 2024"
     }, 
     {
         id:2,
@@ -22,8 +21,7 @@ export const blogs = [
         size: "small",
         credit:"unsplash.com/@jeshoots",
         image:"dispatch.jpg",
-        date: "January 2 2024",
-        content: "At times, you may notice that your redux actions are not getting dispatched. You've looked at the code and everything seems fine. So what could be the problem? There could be several issues but I'll focus on two that I recently encountered. 1. Make sure that the different actiontypes constants i.e pending, fullfiled, rejected, in reduxTK are properly spelled. 2. Look at the backend api serializer and identify whether the actual payload (data that you want) is nested in another property eg.. results. This would mean that a successful dispatch i.e action.Fullfiled calls the right property eg payload.results"
+        date: "January 2 2024"
     },
     {
         id:3,
@@ -35,8 +33,7 @@ export const blogs = [
         size: "small",
         credit:"unsplash.com/elimendeinagella",
         image:"data.jpg",
-        date: "January 2 2024",
-        content: "We are living in a world where data has become so central to our survival yet its obvious ubiquity is barely understood by most of us. This can be in a way compared to oxygen, we know it exists, but we don’t really think much about it other than the fact that we need it for survival. You have probably heard that data is the new oil. This becomes more intriguing when you hear the staggering fact that 90% of data available on earth was just created in the last two years. Pervasiveness of data requires that we become acquainted with what it means every time we interact with data, especially when it does not belong to us, as is mostly the case. We see words such as copyright, creative commons, all rights reserved, open licenses and so on, but do we really understand what they mean? It is important that biodiversity practitioners, data scientists and professionals who use data frequently in their fields become conversant with the implications of these terms. A copyright is a legal instrument that shows who owns the intellectual property such as image, or code, or music, or data and so on. Any use of such work must have permission from the owner who has all rights reserved. In some jurisdictions, data is not explicitly copyrighted since it is not regarded as an original creation of someone’s mind. It is however protected by some other forms of intellectual property (IP) rights. Licenses on the other perspective determine how the item which is under a copyright may be used. They give the terms of use. Open licenses have fewer restrictions and in most instances allow access, modifications and redistribution of work. Local copyright laws or commercial license laws apply to those works that do not have explicit licences indicated and one needs to be careful in such circumstances not to infringe on intellectual property rights of others. Several types of open licenses are available and it is important to read the terms of the license to find out the level of freedom it allows third parties. Some open licenses might have restrictions on how the work is redistributed or whether it can be reused for commercial purposes."
+        date: "January 2 2024"
     },
     {
         id:4,
@@ -48,8 +45,7 @@ export const blogs = [
         size: "big",
         credit:"unsplash.com/@cookiethepom",
         image:"debug.jpg",
-        date: "January 2 2024",
-        content: "These are quick tips to quickly fix that bug during development to help quickly get back to coding (AKA triggering other bugs down your code pipeline.) 1. Use incognito mode. Sometimes data stored in your browser cache can cause new code not to work as expected. Try going incognito and if the code works, clear your cached data and cookies to reset the browser. 2. There’s always that urge to quickly open a new Stack Overflow tab (next to the 10 already launched in your browser) to look up an error. But to become a better coder, I recommend that you always try to fix the bug error yourself, at first. Always read the error code and message keenly. Most error messages actually can tell you in simple English what caused the error in your code. A careful reading of the error can give hints on what exactly went wrong. In some instances, the error can even have an explicit location where the error occurred as in Django’s Exception Location. 3. Stack Overflow. This is the debugging bible that comes in handy. Search for a Stack Overflow post with a similar error. Some posts with little engagement or one that was posted many years back could just give you a hint on what to do. Try to refactor your code as much as possible to conform to a solution. If the error persists, rinse, repeat with a different solution. 4. Take a break. A good break can be all you need to get your mind juiced up and recharged to find the solution. Never underestimate the power of taking a short break from your code to relax your mind a bit. 5. Developer docs, although written at times in abstract language, can be the last resort to fixing an error. Take your time and read about the part of the code that can be source of the error to understand how different tools of the language can give rise to the error."
+        date: "January 2 2024"
     },
     {
         id:5,
@@ -61,8 +57,7 @@ export const blogs = [
         size: "small",
         credit:"gis.stackexchange.com",
         image:"layergeoserv.jpg",
-        date: "January 2 2024",
-        content: "I encountered this problem when running Geoserver on my local machine with Java version 17. As the documentation states, though in a not very direct way for non-native English speakers, all you need to do is go to your directory where Geoserver is installed and delete a file called marlin-0.9.3.jar. Once you are in the location of your Geoserver directory (eg. C:\\Program Files\\GeoServer) the marlin file is found in the following location:\\webapps\\geoserver\\WEB-INF\\lib\\marlin-0.9.3.jar"
+        date: "January 2 2024"
     },
     {
         id:6,
@@ -74,8 +69,7 @@ export const blogs = [
         size: "small",
         credit:"https://www.roastycoffee.com",
         image:"appvsdbuser.jpg",
-        date: "January 2 2024",
-        content: "I was surprised at how little info explaining the differences between an application user and a database user is out there. This is despite how important it is in understanding how the two relate especially to new developer. Django applications have a section in the settings.py file where database configurations and connection settings are declared. The user declared here is the database user, that is to say, how your database will identify your application. This is because different applications can have access to the same database, but with access restrictions. In your application code, a model can have users registered or created and stored in the default user model or a custom user model (always use a custom user model). These are the application users. Whenever you interact with your database, it is always the database user declared in the settings.py file (that is the whole of your Django application) that is allowed access to the database. So how do we restrict the actions a user (logged in from our application) can perform? All these restrictions are done in the code. It thus becomes clear how essential it is to enforce permissions and restrict access to serializers and CRUD actions. This is because any leaks or vulnerabilities that are exploited in our code will give access to the database resources. The database trusts our application (as declared in the settings.py file) and would not know that a breach has occurred in the code to enforce extra measures. Some people prefer to create a database user for every application user created. This will depend on what the needs of the project are. In most cases, a well-designed code that controls access and restrictions both in frontend and backend would be enough. However, there exists architecture to further protect our database itself during authentication breaches from the code. These are for advanced users. I hope the differences between database users and application users is more clear for some."
+        date: "January 2 2024"
     },
     {
         id:7,
@@ -87,7 +81,6 @@ export const blogs = [
         size: "small",
         credit:"blog.finxter.com",
         image:"nontype.png",
-        date: "January 2 2024",
-        content: "This is a common error when a queryset attempt to make a call probably declared in views. In the above error, it implies that one of the values for the error field, `some_field` have no results. For instance, the call may be to a foreign key referencing a primary key field in another table. This AttributeError means that one of the values of the queryset being returned that is referencing the primary key field has no value attached to the field being referenced by the foreign key. To solve for this error, make sure that all foreign key references that may be included as serializer fields do not have a method or source (a reference to any other field other than the primary key)attached to them. Foreign key by default always reference the primary key field of the related model and in most scenarios this is an integer. Since returning an integer for a refenced fields, say ‘author’ in the serializer would default to the primary key, a serializer would return this pair as {“author”:”1”}. To avoid this, it is intuitive to return declare this field in the serializer explicitly like below: class BookSerializer(ModelSerializer): author = serializers.CharField(source='author.name') class Meta: model = Books fields = […,'author'] The above code has a field on the Book model named ‘author’ that is a foreign key to the model with author details. The key word argument (source=’author.name’) is bypassing calling the author id and instead references the name of the author. In our foregoing example, this would result in the serializer as returning {“author”:”John”} if the id “1” is attached to a person named John. Trying to call a queryset with the serializer where some records have null on the author name would return an AttributeError as above since the source field would be calling a method “.name” that does not exist for some fields and thus the NoneType which implies there is no returned value. In this case, removing the explicitly declared ‘author’ field in the serializer and including it in the Meta fields only would work as the queryset will simply return the fields on the referenced model with null values as null."
+        date: "January 2 2024"
     },
     ]

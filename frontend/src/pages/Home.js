@@ -194,7 +194,7 @@ function Home() {
                 {blogs.map((blog)=>(
                     <div className={blog.size === 'big' ? "col-sm-6 col-md-6 col-lg-8 blog-post-entry" : "col-sm-6 col-md-6 col-lg-4 blog-post-entry" } data-aos="fade-up" data-aos-delay="0" key={blog.id}>
                         <Link to={`blog/${blog.slug}`} className="grid-item blog-item w-100 h-100">
-                            <div className="overlay">
+                            <div className="overlay"> 
                                 <div className="portfolio-item-content">
                                     <h3>{blog.title}</h3>
                                     <p className="post-meta">by {blog.author} <span className="small">&bull;</span> {blog.time} mins read</p>
