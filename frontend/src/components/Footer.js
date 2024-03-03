@@ -12,10 +12,7 @@ function Home() {
               </ul>
 
               <p className="site-copyright">
-                Copyright &copy;
-                <script>
-                  document.write(new Date().getFullYear());
-                </script> All rights reserved. <a href="http://colorlib.com" target="_blank" style={{cursor: "pointer"}}>Colorlib</a>
+                Copyright &copy; {(new Date().getFullYear())} All rights reserved. <a href="http://colorlib.com" target="_blank">Colorlib</a>
  
               </p>
             </div>

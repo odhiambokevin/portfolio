@@ -79,12 +79,11 @@ a, a:hover {
   right: 0;
   bottom: 0px;
   z-index: -1;
-  height: 110px;
+  height: auto;
 }
 
 @media (max-width: 991.98px) {
   .unslate_co--footer {
-    height: auto !important;
     position: relative !important;
   }
 }
@@ -1762,12 +1761,11 @@ figure.dotted-bg:before {
   color: #D63447;
 }
 
- 
+
 .unslate_co--footer .footer-site-social {
   padding: 0;
   margin: 0;
   margin-bottom: 30px;
-  cursor: pointer;
 }
 
 .unslate_co--footer .footer-site-social li {
