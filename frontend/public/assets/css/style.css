@@ -1762,11 +1762,12 @@ figure.dotted-bg:before {
   color: #D63447;
 }
 
-
+ 
 .unslate_co--footer .footer-site-social {
   padding: 0;
   margin: 0;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .unslate_co--footer .footer-site-social li {
