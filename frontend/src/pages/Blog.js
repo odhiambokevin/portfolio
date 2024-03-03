@@ -3,7 +3,19 @@ import 'aos/dist/aos.css';
 import MarkDown from 'markdown-to-jsx';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { blogs } from '../data/blogData';
+
+const Code = ({children, language}) => {
+  return ( 
+      <SyntaxHighlighter style={a11yDark} language={language}>
+        {children}
+      </SyntaxHighlighter>
+    
+   );
+}
+ 
 
 function Blog() {
     const {slug} = useParams();
@@ -22,7 +34,7 @@ function Blog() {
           }
         )
         .catch(err => console.log(err));
-    }, []);
+    }, [slug]);
     return (
         <>
         <div className="cover-v1 jarallax overlay" style={{backgroundImage: `url(/assets/images/${image})`}} >
@@ -54,11 +66,24 @@ function Blog() {
           <div className="row justify-content-center">
             <div className="col-md-7">
               <h3 className="mb-4">{subtitle}</h3>
-              <p>
-                <MarkDown>
+
+              
+              
+                <MarkDown 
+                options={{
+                  overrides: {
+                    Code: {
+                      component: Code
+                    }
+                  }
+                }}>
+                
                 {content}
+                
                 </MarkDown>
-              </p>
+               
+                
+             
             </div>
             </div>
           </div>

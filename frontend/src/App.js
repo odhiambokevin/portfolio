@@ -7,12 +7,12 @@ import {
 } from 'react-router-dom';
 
 import ScrollToTop from './ScrollToTop';
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Blog from "./pages/Blog";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Portfolio from "./pages/Portfolio";
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Blog from './pages/Blog';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import Portfolio from './pages/Portfolio';
 
 export const AppLayout = ()=>{
   return(
