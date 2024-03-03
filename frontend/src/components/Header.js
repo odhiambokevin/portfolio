@@ -18,7 +18,7 @@ function Home() {
             </div>
             <div className="col-md-5 text-right text-lg-left">
               <ul className="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                <li><a href="/#services-section" className="nav-link">services</a></li>
+                <li><a href="/#services-section" className="nav-link">skills</a></li>
                 <li><a href="/#journal-section" className="nav-link">blog</a></li>
                 <li><a href="/#contact-section" className="nav-link">contact</a></li>
               </ul>

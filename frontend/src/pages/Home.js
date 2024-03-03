@@ -123,7 +123,7 @@ function Home() {
             <div className="container">
 
                 <div className="section-heading-wrap text-center mb-5">
-                    <h2 className="heading-h2 text-center divider"><span className="gsap-reveal">services</span></h2>
+                    <h2 className="heading-h2 text-center divider"><span className="gsap-reveal">skills</span></h2>
                     <span className="gsap-reveal"><img src="assets/images/divider.png" alt="divider" width="76" /></span>
                 </div>
 
