@@ -15,7 +15,7 @@ function Home() {
                 Copyright &copy;
                 <script>
                   document.write(new Date().getFullYear());
-                </script> All rights reserved. <a href="http://colorlib.com" target="_blank">Colorlib</a>
+                </script> All rights reserved. <a href="http://colorlib.com" target="_blank" style={{cursor: "pointer"}}>Colorlib</a>
  
               </p>
             </div>
