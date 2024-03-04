@@ -2,7 +2,7 @@ This is a common error when a *queryset* attempts to make a call probably declar
 
 To solve for this error, make sure that all *foreign key* references that may be included as *serializer fields* do not have a `method` or `source` (*a reference to any other field other than the primary key*) attached to them. Foreign key by default always reference the primary key field of the related model and in most scenarios this is an integer. Since returning an integer for a refenced fields, say `'author'` in the serializer would default to the *primary key*, a *serializer* would return this pair as `{"author":"1"}`. To avoid this, it is intuitive to return declare this field in the serializer explicitly like below:
 
-<Code language="python">
+<Code language="django">
     class BookSerializer(ModelSerializer):
         author = serializers.CharField(source='author.name')
         

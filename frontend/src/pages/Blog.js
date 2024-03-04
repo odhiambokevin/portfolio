@@ -37,7 +37,7 @@ function Blog() {
     }, [slug]);
     return (
         <>
-        <div className="cover-v1 jarallax overlay" style={{backgroundImage: `url(/assets/images/${image})`}} >
+        <div className="cover-v1 jarallax overlay" style={{backgroundImage: `url(/assets/images/blog/${image})`}} >
         <div className="container">
           <div className="row align-items-center">
               

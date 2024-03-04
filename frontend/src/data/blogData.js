@@ -83,4 +83,16 @@ export const blogs = [
         image:"nontype.png",
         date: "January 2 2024"
     },
+    {
+        id:8,
+        title:"working with postgres and django apps",
+        subtitle:"setting up properly",
+        slug: "django-postgres-schema",
+        author:"kevin",
+        time:"6",
+        size: "big",
+        credit:"unsplash.com/@kellysikkema",
+        image:"schema.jpg",
+        date: "March 3 2024"
+    },
     ]

@@ -201,7 +201,7 @@ function Home() {
                                     <p className="post-meta">image credit: <span className="small"></span> {blog.credit}</p>
                                 </div>
                             </div>
-                            <img src={`assets/images/${blog.image}`} className="lazyload" alt="blog" />
+                            <img src={`assets/images/blog/${blog.image}`} className="lazyload" alt="blog" />
                         </Link>
                     </div>
                      ))}
