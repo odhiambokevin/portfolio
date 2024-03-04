@@ -5,8 +5,7 @@ Basic security setup can be set as per preferences and is not discussed in detai
 
 1. login to your database instance as a superuser with the *psql* cli tool. We assume the DATABASE name for this example as `mydatabase`
 
-2. create a database user(s) with the same name(s) as your Django project. Give the same password as
-your  If your project is called Dashboard: 
+2. create a database user(s) with the same name(s) as your Django project. Give the same password as the one that will be used for connection settings on your Django app. Let us assume we have a Django project called Dashboard: 
 
 <Code language="sql">
     CREATE USER dashboard WITH PASSWORD 'password123'
