@@ -1134,6 +1134,12 @@ span .accent {
   color: #fff;
 }
 
+#journal-section .container .row {
+ height: 350px;
+ overflow-y: auto;
+}
+
+
 .heading-h2 {
   font-size: 32px;
   color: #fff;
