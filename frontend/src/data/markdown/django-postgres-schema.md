@@ -47,10 +47,10 @@ to the database. All user applications (using the database) can now have connect
 	REVOKE ALL ON SCHEMA dashboard FROM public;
 </Code>
 
-8. *optional* Give the django project ( the user we created ) access to the schema name that matches the project.
+8. Consequently grant the django project ( the user we created ) access to the schema name that matches the project.
 
 <Code language="sql">
-	REVOKE ALL ON SCHEMA dashboard TO dashboard;
+	GRANT ALL ON SCHEMA dashboard TO dashboard;
 </Code>
 
 9. Set the `search path` for the django project (our database user here) to be limited to the specific schema that matches their access.
@@ -67,12 +67,6 @@ to the database. All user applications (using the database) can now have connect
 	GRANT ALL ON ALL TABLES IN SCHEMA dashboard TO dashboard
 </Code>
 
-
-11. Permanently add the new schemas to the search path of the superuser becausse by defaul they will not be included;
-
-<Code language="sql">
-	ALTER USER `superuser` SET SEARCH_PATH =  "$user",public,dashboard;
-</Code>
 
 
 
