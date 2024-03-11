@@ -25,7 +25,7 @@ The role will be created with login since the create user is similar to creating
     REVOKE ALL ON DATABASE mydatabase from public;
 </Code>
 
-55. *optional* create a role group called "apps" and give this role connect privilege
+5. *optional* create a role group called "apps" and give this role connect privilege
 to the database. All user applications (using the database) can now have connect privilege to the database.
 
 <Code language="sql">
