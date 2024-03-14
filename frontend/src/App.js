@@ -53,8 +53,8 @@ export const AppLayout = ()=>{
 };
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path='/' element={<AppLayout />} errorElement={<NotFound />}>
-    <Route index element={<Home />} />
+  <Route path='/' element={<AppLayout />} >
+    <Route index element={<Home />} errorElement={<NotFound />}/>
     <Route path='blog/:slug' element={<Blog />} />
     <Route path='portfolio/:work' element={<Portfolio />} />
   </Route>
