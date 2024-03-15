@@ -114,8 +114,8 @@ DOMAIN = config('DOMAIN')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 SITE_NAME = config('SITE_NAME')
 ADMINS = (
-    ('Yaspi Admin', 'contactyaspi@gmail.com'),
-    ('Kevin Odhiambo', 'kevinabrahamsodhiambo@gmail.com'),
+    ('Yaspi Admin', config('DEFAULT_FROM_EMAIL')),
+    ('Kevin Odhiambo', config('ADMIN_EMAIL')),
 )
 MANAGERS = ADMINS
 
