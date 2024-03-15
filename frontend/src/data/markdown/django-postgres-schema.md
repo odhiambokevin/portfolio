@@ -32,7 +32,7 @@ to the database. All user applications (using the database) can now have connect
 	CREATE ROLE apps;
 </Code>
 <Code language="sql">
-	GRANT CONNECT ON DATABASE nydatabse TO apps;
+	GRANT CONNECT ON DATABASE mydatabse TO apps;
 </Code>
 
 6. Revoke the privileges of public schema from creating tables and other objects; Only superuser can create object on the database.
