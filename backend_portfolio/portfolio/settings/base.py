@@ -73,6 +73,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config('ENGINE'),
+        'OPTIONS': {'options': '-c search_path=portfolioschema'},
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
