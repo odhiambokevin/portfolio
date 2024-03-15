@@ -44,7 +44,7 @@ function Home() {
         feedbackFormData.append('subject', formData.subject)
         feedbackFormData.append('message', formData.message)
         try {
-            await axios.post("http://127.0.0.1:8000/api/v1/feedback/", feedbackFormData)
+            await axios.post("http://portfolio-be-three.vercel.app/api/v1/feedback/", feedbackFormData)
             .then((res)=>{
                 const timeout1 = ()=>setTimeout(() => {
                 console.log(res);
