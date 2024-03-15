@@ -2,9 +2,9 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['yaspi-be.vercel.app']
+ALLOWED_HOSTS = ['portfolio-be-three.vercel.app']
 
-CORS_ALLOWED_ORIGINS = ["yaspikenya.com", "http://yaspi.vercel.app"]
+CORS_ALLOWED_ORIGINS = ["kevin-neon.vercel.app"]
 CORS_ALLOWED_METHODS = ["DELETE","GET","OPTIONS","PATCH","POST","PUT",]
 
 # HTTPS SETTINGS
