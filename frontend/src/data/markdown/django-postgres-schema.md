@@ -26,11 +26,16 @@ The role will be created with login since the create user is similar to creating
 </Code>
 
 5. *optional* create a role group called "apps" and give this role connect privilege
-to the database. All user applications (using the database) can now have connect privilege to the database.
+to the database. All user applications (using the database) can now have connect privilege to the database. Give the database user "dashboard" this connect privilege too if you don't create the group role "apps".
 
 <Code language="sql">
 	CREATE ROLE apps;
 </Code>
+
+<Code language="sql">
+	GRANT CONNECT ON DATABASE mydatabse TO dashboard;
+</Code>
+
 <Code language="sql">
 	GRANT CONNECT ON DATABASE mydatabse TO apps;
 </Code>
