@@ -63,9 +63,9 @@ function Home() {
                 'status':'',
             }))        
         } catch (error) {
-            
+            console.log(error)
              const timeouterr = setTimeout(() => {
-                setFormData({'status':'error', 'error': `something went wrong: ${error.message}`});
+                setFormData({'status':'error', 'error': `something went wrong: ${error.response ? error.response.statusText : error.message}`});
                 setLoading(false);
                 setOpen(true); 
              }, 5000);
@@ -311,7 +311,7 @@ function Home() {
                             }}                         
                              />}
                             {formData.status === 'error' && <Snackbar message={formData.error}
-                            autoHideDuration={2500}
+                            autoHideDuration={4000}
                             open={open}
                             onClose={handleClose}
                             anchorOrigin={{
