@@ -29,7 +29,7 @@ export const projects = [
         skills: "dashboard, secuirty, database",
         image:"awm.png",
         stack:"react django",
-        url:"http://awms-gumx.onrender.com",
+        url:"http://aviation-nu.vercel.app",
         date:"June 23 2024"
     },
     
