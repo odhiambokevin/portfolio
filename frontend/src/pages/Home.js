@@ -46,10 +46,10 @@ function Home() {
         try {
             await axios.post("https://portfolio-be-three.vercel.app/api/v1/feedback/", feedbackFormData)
             .then((res)=>{
+                setLoading(false);
                 const timeout1 = ()=>setTimeout(() => {
                 console.log(res);
                 setFormData({'status':'success'});
-                setLoading(false);
                 setOpen(true);
             }, 5000);
             return function ()  {

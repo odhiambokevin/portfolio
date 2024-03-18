@@ -9,7 +9,7 @@ class Feedback(models.Model):
     email = models.EmailField(verbose_name='Email Address')
     subject = models.CharField(max_length=100)
     message = models.TextField()
-    posted_on = models.DateField(auto_now_add=True)
+    posted_on = models.DateTimeField(auto_now_add=True)
 
     def save(self,*args, **kwargs):
         message = f"Message from {self.name}, {self.email}. \n {self.message}"
