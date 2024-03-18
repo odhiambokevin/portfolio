@@ -114,7 +114,6 @@ DOMAIN = config('DOMAIN')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 SITE_NAME = config('SITE_NAME')
 ADMINS = (
-    ('Portfolio Admin', config('DEFAULT_FROM_EMAIL')),
     ('Kevin Odhiambo', config('ADMIN_EMAIL')),
 )
 MANAGERS = ADMINS
