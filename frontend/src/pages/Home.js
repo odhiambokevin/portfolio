@@ -1,9 +1,8 @@
-import { LinearProgress, Snackbar } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import axios from 'axios';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from 'react-router-dom';
+import Contact from '../components/Contact';
 import { blogs } from '../data/blogData';
 
 function Home() {
@@ -12,75 +11,6 @@ function Home() {
         AOS.init();
     }, []);
 
-    const [ formData , setFormData ] = useState({
-        'name':'',
-        'email':'',
-        'subject':'',
-        'message':'',
-        'status':'',
-        'error':''
-    })
-
-   
-
-    const handleChange = (e)=>{
-        setFormData({...formData, [e.target.name]:e.target.value})
-    }
-    const [open, setOpen] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const handleClose = (event, reason)=>{
-        if(reason === 'clickaway') {
-            return
-        }
-        setOpen(false)
-    }
-    
-    const sendEmail = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        const feedbackFormData = new FormData();
-        feedbackFormData.append('name', formData.name)
-        feedbackFormData.append('email', formData.email)
-        feedbackFormData.append('subject', formData.subject)
-        feedbackFormData.append('message', formData.message)
-        try {
-            await axios.post("https://portfolio-be-three.vercel.app/api/v1/feedback/", feedbackFormData)
-            .then((res)=>{
-                setLoading(false);
-                const timeout1 = ()=>setTimeout(() => {
-                console.log(res);
-                setFormData({'status':'success'});
-                setOpen(true);
-            }, 5000);
-            return function ()  {
-                clearTimeout(timeout1)}
-        })
-            .then(setFormData({
-                'name':'',
-                'email':'',
-                'subject':'',
-                'message':'',
-                'status':'',
-            }))        
-        } catch (error) {
-            console.log(error)
-             const timeouterr = setTimeout(() => {
-                setFormData({'status':'error', 'error': `something went wrong: ${error.response ? error.response.statusText : error.message}`});
-                setLoading(false);
-                setOpen(true); 
-             }, 5000);
-            
-             return function ()  {
-                clearTimeout(timeouterr)}  
-
-            // setFormData({
-            //     formData
-            // })
-        }
-            
-                          
-        
-    };
 
     return (
         <>
@@ -163,7 +93,7 @@ function Home() {
 
             </div>
         </div>
-
+        
 
         <div className="unslate_co--section" id="about-section">
             <div className="container">
@@ -282,87 +212,8 @@ function Home() {
                
             </div>
         </div>
-    
-        <div className="unslate_co--section" id="contact-section">
-            <div className="container">
-            <div className="section-heading-wrap text-center mb-5">
-                <h2 className="heading-h2 text-center divider"><span className="gsap-reveal">contact me</span></h2>
-                <span className="gsap-reveal"><img src="assets/images/divider.png" alt="divider" width="76" /></span>
-            </div>
-
-
-            <div className="row justify-content-between">
-                
-                <div className="col-md-6">
-                <form method="post" className="form-outline-style-v1" id="contactForm">
-                    {loading && <LinearProgress color='inherit' />}
-                {formData.status === 'success' && 
-                            <Snackbar
-                            message="Sent Successfully"
-                            autoHideDuration={3000}
-                            open={open}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                                horizontal:'center',
-                                vertical:'bottom'
-                            }}
-                            sx={{
-                                marginBottom: '250px',
-                            }}                         
-                             />}
-                            {formData.status === 'error' && <Snackbar message={formData.error}
-                            autoHideDuration={4000}
-                            open={open}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                                horizontal:'center',
-                                vertical:'bottom'
-                            }}
-                            sx={{
-                                marginBottom: '250px',
-                            }}
-                             />}
-                    <div className="form-group row mb-0">
-
-                    <div className="col-lg-6 form-group gsap-reveal">
-                        
-                        <input name="name" type="text" className="form-control" id="name" required value={formData.name} autoComplete='given-name' onChange={handleChange}  placeholder="name"/>
-                    </div>
-                    <div className="col-lg-6 form-group gsap-reveal">
-                        
-                        <input name='email' required value={formData.email} autoComplete='off' onChange={handleChange} className="form-control" id="email" placeholder="email" type="email" />
-                    </div>
-                    <div className="col-lg-6 form-group gsap-reveal">
-                        
-                        <input name='subject' required value={formData.subject} onChange={handleChange} className="form-control" id="subject" placeholder="subject" type="text" />
-                    </div>
-                    <div className="col-lg-12 form-group gsap-reveal">
-                        
-                        <textarea name="message" id="message" cols="5" rows="5" className="form-control" required value={formData.message} onChange={handleChange}   placeholder="type message here"></textarea>
-                       
-                    </div>
-                    </div>
-                    <div className="form-group row gsap-reveal">
-                    <div className="col-md-12 d-flex align-items-center">
-                        <button type="submit" className="btn btn-outline-pill btn-custom-light mr-3" onClick={sendEmail}>SEND MESSAGE</button>
-                    </div>
-                    </div>
-                </form>
-               
-                </div>
-
-                <div className="col-md-4">
-                <div className="contact-info-v1">
-                    <div className="gsap-reveal d-block">
-                    <span className="d-block contact-info-label">address</span>
-                    <address className="contact-info-val">nairobi, <br/>kenya</address>
-                    </div>
-                </div>
-                </div>
-
-            </div>
-            </div>
-        </div>
+        <Contact />
+        
         </>
      );
 }
