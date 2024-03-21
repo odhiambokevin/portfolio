@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function Home() {
     return (
@@ -8,23 +9,23 @@ function Home() {
           <div className="row align-items-center justify-content-between text-left">
             <div className="col-md-5 text-right">
               <ul className="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                <li><a href="/" className="nav-link">home</a></li>
-                <li><a href="/#portfolio-section" className="nav-link">portfolio</a></li>
-                <li><a href="/#about-section" className="nav-link">about</a></li>
+                <li><Link to="/" className="nav-link">home</Link></li>
+                <li><Link to="/#portfolio-section" className="nav-link">portfolio</Link></li>
+                <li><Link to="/#about-section" className="nav-link">about</Link></li>
               </ul>
             </div>
             <div className="site-logo pos-absolute">
-              <a href="/" className="unslate_co--site-logo">kevin<span>.</span></a>
+              <Link to="/" className="unslate_co--site-logo">kevin<span>.</span></Link>
             </div>
             <div className="col-md-5 text-right text-lg-left">
               <ul className="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                <li><a href="/#services-section" className="nav-link">skills</a></li>
-                <li><a href="/#journal-section" className="nav-link">blog</a></li>
-                <li><a href="/#contact-section" className="nav-link">contact</a></li>
+                <li><Link to="/#services-section" className="nav-link">skills</Link></li>
+                <li><Link to="/#journal-section" className="nav-link">blog</Link></li>
+                <li><Link to="/#contact-section" className="nav-link">contact</Link></li>
               </ul>
 
               <ul className="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">
-                <li><a href="#" className="js-menu-toggle">menu</a></li>
+                <li><Link to="#" className="js-menu-toggle">menu</Link></li>
               </ul>
 
             </div>

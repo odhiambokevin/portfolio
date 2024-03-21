@@ -6,7 +6,7 @@ function Home() {
           <div className="row justify-content-center">
             <div className="col-md-7">
               
-              <div className="footer-site-logo"><a href="#">kevin<span>.</span></a></div>
+              <div className="footer-site-logo"><Link to="#home-section" spy={true} smooth={true} offset={-2} duration={1500}>kevin<span>.</span></a></div>
               <ul className="footer-site-social"> 
                 <li><a href="http://github.com/odhiambokevin" target="_blank" rel="noopener"><span className="icon-github" style={{fontSize: "20px"}}><i ></i></span></a></li>
               </ul>

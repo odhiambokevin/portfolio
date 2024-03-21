@@ -114,9 +114,9 @@ function Home() {
                 </div>
                 <div className="col-lg-4 pr-lg-5">
                 <h3 className="mb-4 heading-h3"><span className="gsap-reveal">who am i</span></h3>
-                <p className="lead gsap-reveal">i'm a <Link to="http://github.com/odhiambokevin">full stack web devloper</Link> with practical experience in both frontend development and backend design </p>
-                <p className="mb-4 gsap-reveal">my core competencies in SQL database design and api development with both graphql and restful apis ensure seamless integration for optimal product functionality </p>
-                <p className="mb-4 gsap-reveal">i specialize in geospatial development with a focus on mapping and GIS apps with fully fledged geospatial database design</p>
+                <p className="lead gsap-reveal">i'm a <Link to="http://github.com/odhiambokevin">full stack web devloper</Link> (not just a backend dev that can center a div 😅) with practical experience in both frontend fluid and responsive development and backend design</p>
+                <p className="mb-4 gsap-reveal">i'm into SQL,api development with both graphql and restful apis, Javascript, automation of code and databse tasks. And all those thingamajigs. basically  ensuring seamless integration of code to make kickass apps for optimal product functionality </p>
+                <p className="mb-4 gsap-reveal">i'm really really blown away by geospatial development focussing on mapping and GIS apps with fully fledged geospatial database design. i'd do it for free, at an affordable fee of course 😜 Leaflet, Geodjango, postgis,Geoserver,Nginx, React.. the whole gang. you get the drift.. <Link to="/#contact-section">you can hit me up here</Link></p>
                 </div>
             </div>
             </div>
