@@ -25,13 +25,13 @@ function Header() {
           <div className="row align-items-center justify-content-between text-left">
             <div className="col-md-5 text-right">
               <ul className="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                <li><Link to="/" className="nav-link">home</Link></li>
+                <li><a href="/" className="nav-link">home</a></li>
                 <li><Link to="/#portfolio-section" className="nav-link">portfolio</Link></li>
                 <li><Link to="/#about-section" className="nav-link">about</Link></li>
               </ul>
             </div>
             <div className="site-logo pos-absolute">
-              <Link to="/" className="unslate_co--site-logo">kevin<span>.</span></Link>
+              <a href="/" className="unslate_co--site-logo">kevin<span>.</span></a>
             </div>
             <div className="col-md-5 text-right text-lg-left">
               <ul className="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
