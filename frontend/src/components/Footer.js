@@ -1,3 +1,4 @@
+import {Link} from 'react-scroll';
 
 function Home() {
     return (
