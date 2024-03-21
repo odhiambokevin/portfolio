@@ -1761,6 +1761,7 @@ figure.dotted-bg:before {
   font-weight: 900;
   font-family: "Raleway", sans-serif;
   color: #fff;
+  cursor: pointer;
 }
 
 .unslate_co--footer .footer-site-logo a span {

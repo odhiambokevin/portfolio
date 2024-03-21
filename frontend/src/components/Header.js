@@ -1,6 +1,22 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-function Home() {
+function Header() {
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split('/');
+
+  useEffect(() => {
+    if (location.hash) {
+        let elem = document.getElementById(location.hash.slice(1))
+        if (elem) {
+            elem.scrollIntoView({behavior: 'smooth'})
+        }
+    } else {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+    }
+    
+}, [location]);
     return (
         <nav className="unslate_co--site-nav site-nav-target">
 
@@ -36,4 +52,4 @@ function Home() {
      );
 }
 
-export default Home;
+export default Header;
