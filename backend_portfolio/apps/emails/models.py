@@ -11,15 +11,15 @@ class Feedback(models.Model):
     message = models.TextField()
     posted_on = models.DateTimeField(auto_now_add=True)
 
-    def save(self,*args, **kwargs):
-        message = f"Message from {self.name}, {self.email}. \n {self.message}"
-        send_mail(
-            self.subject,
-            message,
-            settings.DEFAULT_FROM_EMAIL,
-            settings.ADMINS
-        )
-        super(Feedback, self).save(*args, **kwargs)
+    # def save(self,*args, **kwargs):
+    #     message = f"Message from {self.name}, {self.email}. \n {self.message}"
+    #     send_mail(
+    #         self.subject,
+    #         message,
+    #         settings.DEFAULT_FROM_EMAIL,
+    #         settings.ADMINS
+    #     )
+    #     super(Feedback, self).save(*args, **kwargs)
 
   
 
