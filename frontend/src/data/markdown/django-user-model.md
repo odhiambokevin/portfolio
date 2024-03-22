@@ -11,15 +11,18 @@ i'll give Spartan-degree laconic reply and explain briefly
         '..',         # base django apps
         'books',       # get_user_model() used here
         'categories',
-        'users,
+        'users',
     ]
  </Code>
 
- `AUTH_USER_MODEL` will always delays the import of the user model specified untill all models (model classes) have been imported. the only catch here is if the custom user model define in the `AUTH_USER_MODEL` in the ***settings.py*** file is changed and the foreign key field references a field that does not exist in the defined model.
+you can see that at the time `get_user_model()` is called in the `books` app, it is referencing an app, `users`, that, in order of the hierarchy of imports in Django, has yet to be imported. this can break the import and the whole code. 
+
+`AUTH_USER_MODEL` will always delay the import of the user model specified untill all models (model classes) have been imported. the only catch here is if the custom user model define in the `AUTH_USER_MODEL` in the ***settings.py*** file is changed and the foreign key field references a field that does not exist in the defined model.
 
  the two are imported as below;
 
 *get_user_model*
+
 <Code language="python">
     from django.db import models
     from django.contrib.auth import get_user_model
@@ -31,6 +34,7 @@ i'll give Spartan-degree laconic reply and explain briefly
 </Code>
 
 *AUTH_USER_MODEL*
+
 <Code language="python">
     from django.conf import settings
     from django.db import models
