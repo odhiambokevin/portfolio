@@ -20,6 +20,7 @@ i'll give Spartan-degree laconic reply and explain briefly
  the two are imported as below;
 
 *get_user_model*
+
 <Code language="python">
     from django.db import models
     from django.contrib.auth import get_user_model
@@ -31,6 +32,7 @@ i'll give Spartan-degree laconic reply and explain briefly
 </Code>
 
 *AUTH_USER_MODEL*
+
 <Code language="python">
     from django.conf import settings
     from django.db import models
