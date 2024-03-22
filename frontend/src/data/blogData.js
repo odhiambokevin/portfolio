@@ -95,4 +95,16 @@ export const blogs = [
         image:"schema.jpg",
         date: "March 3 2024"
     },
+    {
+        id:9,
+        title:"Django: AUTH_USER_MODEL vs get_user_model TLDR version",
+        subtitle:"decisions..decisions..",
+        slug: "django-user-model",
+        author:"kevin",
+        time:"3",
+        size: "small",
+        credit:"dreager1.com",
+        image:"ml.jpg",
+        date: "March 22 2024"
+    },
     ]
