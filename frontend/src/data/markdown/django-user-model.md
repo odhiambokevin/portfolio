@@ -4,7 +4,7 @@ i'll give Spartan-degree laconic reply and explain briefly
 
  just know the limitations
 
- `get_user_model()` give the current active user model, even if it is a custom one. however, it runs (since it's a function call) when the app using it is first imported. it returns the current active user model. if used (called) in an app higher in the `INSTALLED APPS` hierachy than the referenced user model (if it's a custom one), it might break the import.  you are referencing a non-existent user model aka *it has not been imported*. eg using it in a `books` app that refences a user in custom user model in a `users` app with `INSTALLED APPS` in your ***settings.py*** looking as below;
+ `get_user_model()` returns the current active user model, even if it is a custom one. however, it runs (since it's a function call) when the app using it is first imported. if used (called) in an app higher in the `INSTALLED_APPS` hierachy than the referenced user model (if it's a custom one), it might break the import.  you are referencing a non-existent user model aka *it has not been imported*. eg using it in a `books` app that refences a user in custom user model in a `users` app with `INSTALLED_APPS` in your ***settings.py*** looking as below;
 
  ```language="python"
     INSTALLED_APPS = [
