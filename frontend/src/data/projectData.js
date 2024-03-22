@@ -26,7 +26,7 @@ export const projects = [
         title:"wildlife",
         slug:"wildlife",
         sector:"airport management dashboard",
-        skills: "dashboard, secuirty, database",
+        skills: "dashboard, security, database",
         image:"awm.png",
         stack:"react django",
         url:"http://aviation-nu.vercel.app",
