@@ -1,4 +1,4 @@
-"""Views for feedback app"""
+"""Views for emails app"""
 from rest_framework import permissions, filters, generics
 from apps.emails.pagination import FeedbackPagination
 from .models import Feedback

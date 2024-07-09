@@ -1,4 +1,4 @@
-"""Serializers for feedback app"""
+"""Serializers for emails app"""
 from rest_framework import serializers
 from .models import Feedback
 

@@ -107,4 +107,28 @@ export const blogs = [
         image:"ml.jpg",
         date: "March 22 2024"
     },
+    {
+        id:9,
+        title:"postgres is empty after installation on Ubuntu",
+        subtitle:"where do i set my default password?",
+        slug: "postgres-not-working-ubuntu",
+        author:"kevin",
+        time:"3",
+        size: "small",
+        credit:"redswitches.com/blog/postgresql-on-ubuntu/",
+        image:"postubuntu.jpg",
+        date: "June 17 2024"
+    },
+    {
+        id:10,
+        title:"cant't set JAVA_HOME for Tomcat on Ubuntu",
+        subtitle:"why is Tomcat not getting my JAVA_HOME path?",
+        slug: "tomcat-java-home-ubuntu",
+        author:"kevin",
+        time:"3",
+        size: "big",
+        credit:"redswitches.com/blog/install-apache-tomcat-on-ubuntu/",
+        image:"tomcat.png",
+        date: "July 9 2024"
+    },
     ]
