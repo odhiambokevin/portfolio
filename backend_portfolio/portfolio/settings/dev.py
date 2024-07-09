@@ -14,7 +14,7 @@ if os.name == 'nt':
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost', 'backend', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1','localhost', 'backend', '0.0.0.0','*odhiambos-projects.vercel.app']
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000", "http://0.0.0.0"]
 CORS_ALLOW_CREDENTIALS = True
