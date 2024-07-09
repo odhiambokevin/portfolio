@@ -5,7 +5,7 @@ This happens at time when you have installed a java runtime version greater than
 If you open that file, the `tomcat-start.sh` with a text editor such as nano, you'll notice there a line that tries to locate the java runtime. It is might look as below
 
 <Code language="shell">
-    #Find the Java runtime and set JAVA_HOME
+    /# Find the Java runtime and set JAVA_HOME
     . /usr/libexec/tomcat9/tomcat-locate-java.sh
 </Code>
 
@@ -13,14 +13,14 @@ This `tomcat-locate-java.sh` is the file we want to edit. Open it in a text edit
 
 Add your java version in the code where it lists the java version. In this case, let us add a java-17 runtime that was installed using the opejdk. In the code below we add `17` just before `11`.
 
-<Code language="sql">
+<Code language="shell">
     do
         for java_version in 17 11 10 9 8
 </Code>
 
 Then in the loop where it loops through possible java directories, add the correct wildcard that matches your java. We add below java 17 installed through the openjdk project.
 
-<Code language="sql">
+<Code language="shell">
     for jvmdir in ..................
                 /usr/lib/jvm/java-${java-version}-openjdk-* \
 </Code>

@@ -123,7 +123,7 @@ export const blogs = [
         id:10,
         title:"cant't set JAVA_HOME for Tomcat on Ubuntu",
         subtitle:"why is Tomcat not getting my JAVA_HOME path?",
-        slug: "tomcat-java-home-ubuntu",
+        slug: "tomcat",
         author:"kevin",
         time:"3",
         size: "big",
