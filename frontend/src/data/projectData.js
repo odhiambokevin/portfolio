@@ -32,5 +32,16 @@ export const projects = [
         url:"http://aviation-nu.vercel.app",
         date:"June 23 2024"
     },
+    {
+        id:4,
+        title:"african lakes hub",
+        slug:"lakes-hub",
+        sector:"airport management dashboard",
+        skills: "security, biodiveristy, database",
+        image:"alh.png",
+        stack:"react django",
+        url:"https://www.africanlakeshub.org",
+        date:"October 31 2024"
+    },
     
     ]
