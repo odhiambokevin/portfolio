@@ -34,6 +34,17 @@ export const projects = [
     },
     {
         id:4,
+        title:"wildlife",
+        slug:"wildlife",
+        sector:"airport management dashboard",
+        skills: "dashboard, security, database",
+        image:"awm.png",
+        stack:"react django",
+        url:"http://aviation-nu.vercel.app",
+        date:"June 23 2024"
+    },
+    {
+        id:5,
         title:"africanlakeshub",
         slug:"lakes-hub",
         sector:"airport management dashboard",
