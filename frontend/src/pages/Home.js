@@ -86,7 +86,7 @@ function Home() {
                     </Link>
                 </div>
                 <div className="item branding packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2 ">
-                    <Link to="portfolio/lakes-shub" className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
+                    <Link to="portfolio/lakes-hub" className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
                         <div className="overlay">
                         <span className="wrap-icon icon-link2"></span>
                         <div className="portfolio-item-content">
