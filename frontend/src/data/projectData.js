@@ -34,7 +34,7 @@ export const projects = [
     },
     {
         id:4,
-        title:"african lakes hub",
+        title:"africanlakeshub",
         slug:"lakes-hub",
         sector:"airport management dashboard",
         skills: "security, biodiveristy, database",
