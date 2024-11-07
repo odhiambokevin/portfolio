@@ -85,8 +85,27 @@ function Home() {
                         <img src="assets/images/yaspi.png" className="lazyload  img-fluid" alt="yaspi" />
                     </Link>
                 </div>
+    
+                </div>
+                
+            </div>
+
+
+            </div>
+            <div className="container">
+            <div className="relative"><div className="loader-portfolio-wrap"><div className="loader-portfolio"></div></div> </div>
+            <div id="portfolio-single-holder"></div>
+
+            <div className="portfolio-wrapper">
+
+                <div className="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter">
+                <h2 className="mr-auto heading-h2"><span className="gsap-reveal">portfolio</span></h2>
+                </div>
+      
+                <div id="posts" className="row gutter-isotope-item">
+                
                 <div className="item branding packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2 ">
-                    <Link to="portfolio/yaspi" className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
+                    <Link to="portfolio/africanlakeshub     " className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
                         <div className="overlay">
                         <span className="wrap-icon icon-link2"></span>
                         <div className="portfolio-item-content">
