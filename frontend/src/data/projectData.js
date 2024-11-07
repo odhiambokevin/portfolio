@@ -38,8 +38,8 @@ export const projects = [
         slug:"lakes-hub",
         sector:"airport management dashboard",
         skills: "security, biodiveristy, database",
-        image:"alh.png",
-        stack:"react django",
+        image:"awm.png",
+        stack:"nextjs django",
         url:"https://www.africanlakeshub.org",
         date:"October 31 2024"
     },
