@@ -6,7 +6,7 @@ class Feedback(models.Model):
     id = models.AutoField(primary_key=True, editable=False)
     name = models.CharField(max_length=100)
     email = models.EmailField(verbose_name='Email Address')
-    phone = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
     message = models.TextField()
     posted_on = models.DateTimeField(auto_now_add=True)
 
