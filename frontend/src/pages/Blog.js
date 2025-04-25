@@ -4,12 +4,12 @@ import MarkDown from 'markdown-to-jsx';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { a11yDark, atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { blogs } from '../data/blogData';
 
 const Code = ({children, language}) => {
   return ( 
-      <SyntaxHighlighter style={a11yDark} language={language}>
+      <SyntaxHighlighter style={atomDark} language={language}>
         {children}
       </SyntaxHighlighter>
     

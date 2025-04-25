@@ -86,7 +86,7 @@ export const blogs = [
     {
         id:8,
         title:"working with postgres and django apps",
-        subtitle:"setting up properly",
+        subtitle:"how i set up",
         slug: "django-postgres-schema",
         author:"kevin",
         time:"6",
