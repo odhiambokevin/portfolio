@@ -3,7 +3,7 @@ Here is how I prefer to setup.
 
 ***Note: Basic security setup can be set as per preferences and is not discussed in detail.***
 
-1.&nbsp;Login as the default database superuser and create a user with superuser privileges. I typically name the user the same name as my Django project. In the example below my django project is called `dashboard`. Remember the password needs to be the same as the one you use for database password credentials in Django.
+1.&nbsp;Login as the default database superuser and create a user with superuser privileges. I typically name the user the same name as my Django project. In the example below my Django project is called `dashboard`. Remember the password needs to be the same as the one you use for database password credentials in Django.
 
 <Code language="sql">
     CREATE USER dashboard WITH PASSWORD 'secure123' SUPERUSER;
@@ -12,16 +12,16 @@ Here is how I prefer to setup.
 2.&nbsp;Logout of the database and log in again with the new created user.
 <br>
 <br>
-3.&nbsp;Create a database logged in as the new user. I typically name the database the name of my django project then append db. So for instance if my Django project is called `dashboard` I would do;
+3.&nbsp;Create a database logged in as the new user. I typically name the database the name of my Django project then append db. So for instance if my Django project is called `dashboard` I would do;
 <Code language="sql">
 	CREATE DATABASE dashboarddb;
 </Code>
 This naming convention, which I also apply for schemas, just makes it easy for me to understand how things are organized when I interact with the database and clusters.
 <br>
 <br>
-4.&nbsp;Then create a schema. I typically append ***schema*** to the name of my django app
+4.&nbsp;Then create a schema. I typically append ***schema*** to the name of my Django app
 <Code language="sql">
-CREATE SCHEMA dasboardschema;
+CREATE SCHEMA dashboardschema;
 </Code>
 <br>
 5.&nbsp;Edit the search path of the database user to ensure that the new schema is declared first since this is where most of the database objects such as tables will be stored by default. Also edit the default search path of the database to ensure this schema is always used first. This helps me keep different databases concerned isolated on the server based on their schemas. We enter these in one command as below;
@@ -59,7 +59,7 @@ ALTER EXTENSION postgis_topology UPDATE;
 </Code>
 
 
-Move any new extensions to the new default schema as above if they are not created there by default. Please note some extensions with interelated functionality may need to be installed in the same schema for them to work correctly. Eg some geospatial extensions as explained [here](https://postgis.net/documentation/tips/tip-move-postgis-schema/#:~:text=Luckily%20there%20is%20a%20way,other%20PostgreSQL%20tool%20you%20want.) must always be installed in the same location/schema as postgis.
+Move any new extensions to the new default schema as above if they are not created there by default. Please note some extensions with interrelated functionality may need to be installed in the same schema for them to work correctly. Eg some geospatial extensions as explained [here](https://postgis.net/documentation/tips/tip-move-postgis-schema/#:~:text=Luckily%20there%20is%20a%20way,other%20PostgreSQL%20tool%20you%20want.) must always be installed in the same location/schema as postgis.
 
 8.&nbsp;Since we created the `dashboardschema` as user `dashboard`, by default, we have all privileges granted on this schema. There is an implied `public` role in postgres which all new users inherit and it has some default access to some objects in a database. If you need to revoke this access of this implied `public` role from accessing the new schema at all, you can run the following command.
 <Code language="sql">
@@ -76,4 +76,4 @@ REVOKE CREATE ON SCHEMA public FROM public;
 </Code>
 <br>
 
-For other django projects, `rinse and repeat`.
+For other Django projects, `rinse and repeat`.
