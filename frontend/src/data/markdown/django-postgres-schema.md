@@ -30,6 +30,17 @@ ALTER ROLE dashboard IN DATABASE dashboarddb SET search_path to dashboardschema,
 </Code>
 Database objects are created in the dashboardschema first. Ensure to include any other schemas that any extensions you might use might come with eg `topology` in the search path above is included as it is the default schema for extension `postgis_topology`. I later move the `postgis_topology` extension to my default schema after installation.
 
+In your database settings in Django you might have something similar to the one below; Note that the intended schemas are indicated under `"OPTIONS"` key.
+<Code language="python">
+  DATABASES = {
+      "default": {
+          "ENGINE": config("DB_ENGINE"),
+          "OPTIONS": {"options": "-c search_path=dashboardschema,topology,public"},
+          ....other database connection settings
+      }
+  }
+</Code>
+
 6.&nbsp;Since I use `postgis` extension, it is installed by default in the `dashboardschema` since this is where the default database objects are stored. But for `postgis_topology`, I will install it first in its default schema, `topology` then move it later.
 <Code language="sql">
 CREATE EXTENSION postgis;
