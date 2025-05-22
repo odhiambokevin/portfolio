@@ -126,9 +126,9 @@ function Home() {
                 </div>
                 <div className="col-lg-4 pr-lg-5">
                 <h3 className="mb-4 heading-h3"><span className="gsap-reveal">who am i</span></h3>
-                <p className="lead gsap-reveal">i'm a <Link to="http://github.com/odhiambokevin">full stack web devloper</Link>.. and i don't mean a backend dev that can center a div 😅.. good with both frontend fluid and responsive development and backend design</p>
-                <p className="mb-4 gsap-reveal">i'm into SQL,api development with both graphql and restful apis, Javascript, automation of code and database scheduling. and all those thingamajigs. basically  ensuring seamless integration of code to make kickass apps for optimal product functionality </p>
-                <p className="mb-4 gsap-reveal">i'm really really blown away by geospatial development focussing on mapping and GIS apps with fully fledged geospatial database design. i'd do it for free, at an affordable fee of course 😜 Leaflet, Geodjango, postgis,Geoserver,Nginx, React... you get the drift.. you can hit me up <Link to="/#contact-section">here</Link></p>
+                <p className="lead gsap-reveal">i'm a <Link to="http://github.com/odhiambokevin">full stack web devloper</Link>.. and i don't mean a backend dev that can center a div 😅</p>
+                <p className="mb-4 gsap-reveal">my range of super powers include kickass database design, secure api development, frontend user interface design (i'm really getting good at this.. for real), automation..basically the whole thingamajig. </p>
+                <p className="mb-4 gsap-reveal">i'm really really good at geospatial development focussing on mapping and GIS apps with fully fledged geospatial database design. i'd do it for free if you can convince me 😜... you get the drift.. you can hit me up <Link to="/#contact-section">here</Link></p>
                 </div>
             </div>
             </div>
