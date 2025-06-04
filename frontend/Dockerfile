@@ -1,6 +1,6 @@
 FROM node:18-alpine AS base
 
-LABEL description="Frontend client for Yaspi Website"
+LABEL description="Frontend client for Kevin Portfolio Website"
 LABEL maintainer="Yaspi Team"
 LABEL version="1.0.0"
 
