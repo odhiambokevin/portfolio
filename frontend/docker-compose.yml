@@ -1,17 +1,13 @@
 services:
   frontend:
-    build:
-      context: frontend
+    build: .
     container_name: c_frontend
     ports:
       - "3001:3000"
-    volumes:
-      - ./frontend:/frontend
+   
     networks:
       - net_portfolio
 
 networks:
   net_portfolio:
     driver: bridge
-volumes:
-  frontend:
