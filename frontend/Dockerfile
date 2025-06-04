@@ -10,7 +10,7 @@ RUN addgroup --system --gid 1001 nodejs && \
 
 FROM base AS deps
 WORKDIR /frontend
-COPY package.json package-lock.json* .npmrc* ./
+COPY package.json package-lock.json* .npmrc* ./frontend/
 RUN npm ci
 
 FROM base AS builder
