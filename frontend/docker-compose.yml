@@ -4,10 +4,6 @@ services:
     container_name: c_frontend
     ports:
       - "3001:3000"
-   
-    networks:
-      - net_portfolio
-
 networks:
-  net_portfolio:
-    driver: bridge
+  default:
+    name: yaspi_default
