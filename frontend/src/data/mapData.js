@@ -7,7 +7,7 @@ export const maps = [
         author:"kevin",
         time:"5",
         size: "big",
-        credit:"unsplash.com",
+        credit:"unsplas.com",
         image:"siaya.png",
         date: "January 2 2024"
     }, 
