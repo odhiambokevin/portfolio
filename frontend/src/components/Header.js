@@ -28,7 +28,6 @@ function Header() {
                 <li><a href="/" className="nav-link">home</a></li>
                 <li><Link to="/#portfolio-section" className="nav-link">portfolio</Link></li>
                 <li><Link to="/#maps-section" className="nav-link">maps</Link></li>
-                <li><Link to="/#reading-section" className="nav-link">reading list</Link></li>
               </ul>
             </div>
             <div className="site-logo pos-absolute">
@@ -36,7 +35,6 @@ function Header() {
             </div>
             <div className="col-md-5 text-right text-lg-left">
               <ul className="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                <li><Link to="/#services-section" className="nav-link">skills</Link></li>
                 <li><Link to="/#journal-section" className="nav-link">blog</Link></li>
                 <li><Link to="/#about-section" className="nav-link">about me</Link></li>
                 <li><Link to="/#contact-section" className="nav-link">contact</Link></li>
