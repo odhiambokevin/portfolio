@@ -21,7 +21,7 @@ function Home() {
                 
                 <div className="col-md-7 mx-auto text-center">
                 <h1 className="heading gsap-reveal-hero">kevin<span className="accent">.</span></h1>
-                <h2 className="subheading gsap-reveal-hero">i’m a web developer from Kenya</h2>
+                <h2 className="subheading gsap-reveal-hero">i’m a geospatial developer from Kenya</h2>
                 </div>
 
             </div>
