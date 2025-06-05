@@ -13,6 +13,9 @@ import Blog from './pages/Blog';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Portfolio from './pages/Portfolio';
+import Map from './pages/Map';
+import BlogDetail from './pages/BlogDetail';
+import MapDetail from './pages/MapDetail';
 
 export const AppLayout = ()=>{
   return(
@@ -55,7 +58,10 @@ export const AppLayout = ()=>{
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<AppLayout />} >
     <Route index element={<Home />} errorElement={<NotFound />}/>
-    <Route path='blog/:slug' element={<Blog />} />
+    <Route path='maps' element={<Map />} />
+     <Route path='maps/map/:slug' element={<MapDetail />} />
+    <Route path='blogs' element={<Blog />} />
+     <Route path='blogs/blog/:slug' element={<BlogDetail />} />
     <Route path='portfolio/:work' element={<Portfolio />} />
   </Route>
  
