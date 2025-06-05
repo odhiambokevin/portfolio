@@ -9,25 +9,27 @@ RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 reactowner
 
 FROM base AS deps
-
+RUN mkdir /app
+WORKDIR /app
 COPY package*.json .
 RUN npm ci
 
 FROM base AS builder
-
-COPY --from=deps /node_modules ./node_modules
+WORKDIR /app
 COPY . .
+RUN npm install
 RUN npm run build
 
 FROM base AS runner
+WORKDIR /app
 RUN npm install -g serve
 
 
 ENV NODE_ENV=production
-COPY --from=builder /public ./public
-COPY --from=builder /node_modules ./node_modules
-COPY --from=builder /package.json ./package.json
-COPY --from=builder --chown=reactowner:nodejs /build/ ./build/
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder --chown=reactowner:nodejs /app/build/ ./build/
 USER reactowner
 EXPOSE 3001
 ENV PORT=3000
