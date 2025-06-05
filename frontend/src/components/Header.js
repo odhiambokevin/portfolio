@@ -28,7 +28,6 @@ function Header() {
                 <li><a href="/" className="nav-link">home</a></li>
                 <li><Link to="/#portfolio-section" className="nav-link">portfolio</Link></li>
                 <li><Link to="/#maps-section" className="nav-link">maps</Link></li>
-                <li><Link to="/#reading-section" className="nav-link">reading list</Link></li>
               </ul>
             </div>
             <div className="site-logo pos-absolute">
