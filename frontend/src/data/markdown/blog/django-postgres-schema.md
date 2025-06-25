@@ -21,21 +21,24 @@ This naming convention, which I also apply for schemas, just makes it easy for m
 <br>
 <br>
 4.&nbsp;Then create a schema. I typically append ***schema*** to the name of my Django app
+
 <Code language="sql">
 CREATE SCHEMA dashboardschema;
 </Code>
 <br>
 5.&nbsp;Edit the search path of the database user to ensure that the new schema is declared first since this is where most of the database objects such as tables will be stored by default. Also edit the default search path of the database to ensure this schema is always used first. This helps me keep different databases concerned isolated on the server based on their schemas. We enter these in one command as below;
+
 <Code language="sql">
 ALTER ROLE dashboard IN DATABASE dashboarddb SET search_path to dashboardschema,public,topology;
 </Code>
 Database objects are created in the dashboardschema first. Ensure to include any other schemas that any extensions you might use might come with eg `topology` in the search path above is included as it is the default schema for extension `postgis_topology`. I later move the `postgis_topology` extension to my default schema after installation.
 
 In your database settings in Django you might have something similar to the one below; Note that the intended schemas are indicated under `"OPTIONS"` key.
+
 <Code language="python">
   DATABASES = {
       "default": {
-          "ENGINE": config("DB_ENGINE"),
+          "ENGINE": config("DB\_ENGINE"),
           "OPTIONS": {"options": "-c search_path=dashboardschema,topology,public"},
           ....other database connection settings
       }
@@ -48,26 +51,25 @@ CREATE EXTENSION postgis;
 </Code>
 
 7.&nbsp;Install the postgis_topology extension then move it to the new schema as explained [here](https://postgis.net/documentation/tips/tip-move-postgis-schema/#:~:text=Luckily%20there%20is%20a%20way,other%20PostgreSQL%20tool%20you%20want.)
+
 <Code language="sql">
 CREATE EXTENSION postgis_topology;
 </Code>
 
 <Code language="sql">
-UPDATE pg_extension
+UPDATE pg\_extension
   SET extrelocatable = true
-	WHERE extname = 'postgis_topology';
+	WHERE extname = 'postgis\_topology';
 
-ALTER EXTENSION postgis_topology
+ALTER EXTENSION postgis\_topology
   SET SCHEMA dashboardschema;
 
-
 -- try to 'dummy' upgrade
-ALTER EXTENSION postgis_topology
+ALTER EXTENSION postgis\_topology
   UPDATE TO "ANY";
 
-
 -- then look for any updates
-ALTER EXTENSION postgis_topology UPDATE;
+ALTER EXTENSION postgis\_topology UPDATE;
 </Code>
 
 
