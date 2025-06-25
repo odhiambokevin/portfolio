@@ -13,6 +13,7 @@ Here is how I prefer to setup.
 <br>
 <br>
 3.&nbsp;Create a database logged in as the new user. I typically name the database the name of my Django project then append db. So for instance if my Django project is called `dashboard` I would do;
+
 <Code language="sql">
 	CREATE DATABASE dashboarddb;
 </Code>
