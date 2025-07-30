@@ -18,7 +18,7 @@ export const projects = [
         skills: "gis, remote sensing, mapping",
         image:"yaspi.png",
         stack:"react django",
-        url:"http://yaspi.vercel.app",
+        url:"http://yaspi.tech",
         date:"June 23 2024"
     },
     {
@@ -29,7 +29,7 @@ export const projects = [
         skills: "dashboard, security, database",
         image:"awm.png",
         stack:"react django",
-        url:"http://aviation-nu.vercel.app",
+        url:"http://aviation.yaspi.tech",
         date:"June 23 2024"
     },
     {
