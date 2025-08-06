@@ -51,7 +51,7 @@ function Home() {
       
                 <div id="posts" className="row gutter-isotope-item">
                 <div className="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                <Link to="portfolio/wildlife" className="portfolio-item isotope-item gsap-reveal-img" data-id="1">
+                <Link to="angani.yaspi.tech" target="_blank" rel="noopener noreferrer" className="portfolio-item isotope-item gsap-reveal-img" data-id="1">
                         <div className="overlay">
                         <span className="wrap-icon icon-link2"></span>
                         <div className="portfolio-item-content">
@@ -63,7 +63,7 @@ function Home() {
                     </Link>
                 </div> 
                 <div className="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <Link to="portfolio/crabstack" className="portfolio-item isotope-item gsap-reveal-img" data-id="1">
+                    <Link to="crabstack.vercel.app" target="_blank" rel="noopener noreferrer" className="portfolio-item isotope-item gsap-reveal-img" data-id="1">
                         <div className="overlay">
                         <span className="wrap-icon icon-link2"></span>
                         <div className="portfolio-item-content">
@@ -75,7 +75,7 @@ function Home() {
                     </Link>
                 </div>
                 <div className="item branding packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2 ">
-                    <Link to="portfolio/yaspi" className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
+                    <Link to="yaspi.tech" target="_blank" rel="noopener noreferrer" className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
                         <div className="overlay">
                         <span className="wrap-icon icon-link2"></span>
                         <div className="portfolio-item-content">
@@ -87,7 +87,7 @@ function Home() {
                     </Link>
                 </div>
                 <div className="item branding packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2 ">
-                    <Link to="portfolio/lakes-hub" className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
+                    <Link to="africanlakeshub.org" target="_blank" rel="noopener noreferrer" className="portfolio-item item-portrait isotope-item gsap-reveal-img" data-id="3">
                         <div className="overlay">
                         <span className="wrap-icon icon-link2"></span>
                         <div className="portfolio-item-content">
