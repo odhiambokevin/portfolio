@@ -11,12 +11,12 @@ RUN addgroup --system --gid 1001 nodejs && \
 FROM base AS deps
 RUN mkdir /app
 WORKDIR /app
-COPY package*.json .
+COPY package*.json ./
 RUN npm ci
 
 FROM base AS builder
 WORKDIR /app
-COPY . .
+COPY . ./
 RUN npm install
 RUN npm run build
 
