@@ -15,7 +15,7 @@ export const maps = [
         id:2,
         title:"species richness",
         subtitle:"plant species richness in kenya",
-        slug: "species",
+        slug: "richness",
         author:"kevin",
         time:"5",
         size: "big",
