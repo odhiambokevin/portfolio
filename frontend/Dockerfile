@@ -17,7 +17,7 @@ RUN npm ci
 FROM base AS builder
 WORKDIR /app
 COPY . .
-# RUN npm install
+RUN npm install
 RUN npm run build
 
 FROM base AS runner
