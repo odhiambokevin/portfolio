@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Quicksand, Farsan } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  weight: "variable",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
+  weight: "variable",
+  subsets: ["latin"],
+});
+
+const farsan = Farsan({
+  variable: "--font-farsan",
+  weight:"400",
   subsets: ["latin"],
 });
 
@@ -25,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased pt-[74px]`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${montserrat.variable} ${quicksand.variable} ${farsan.variable} antialiased`}>
         <Header />
         {children}
         <Footer />
