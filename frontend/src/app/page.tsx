@@ -1,5 +1,3 @@
-import StackedCards from "@/components/stackedCards";
-
 
 export default function Home() {
   return (
