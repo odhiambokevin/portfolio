@@ -1,0 +1,12 @@
+This is a common error when a *queryset* attempts to make a call probably declared in *views*. In the above error, it implies that one of the values for the error field, `'some_field'` has no results. For instance, the call may be to a foreign key referencing a primary key field in another table. This AttributeError means that one of the values of the queryset being returned that is referencing the primary key field has no value attached to the field being referenced by the foreign key.
+
+To solve for this error, make sure that all *foreign key* references that may be included as *serializer fields* do not have a `method` or `source` (*a reference to any other field other than the primary key*) attached to them. Foreign key by default always reference the primary key field of the related model and in most scenarios this is an integer. Since returning an integer for a refenced fields, say `'author'` in the serializer would default to the *primary key*, a *serializer* would return this pair as `{"author":"1"}`. To avoid this, it is intuitive to return declare this field in the serializer explicitly like below:
+
+<Code language="django">
+    class BookSerializer(ModelSerializer):
+        author = serializers.CharField(source='author.name')
+        
+        class Meta: model = Books fields = […,'author']
+</Code>
+
+The above code has a field on the Book model named `'author'` that is a *foreign key* to the model with **author details**. The key word argument **(source='author.name')** is bypassing calling the author id (which is the default behavior as foregin keys make referrence to the **primary key** field which in most cases is the *id* field) and instead referrences the name of the author. In our foregoing example, this would result in the serializer as returning `{'author':'John'}` if the id **'1'** is attached to a person named John. Trying to call a queryset with the serializer where `some records` have null on the author name would return an **AttributeError** as above since the source field would be calling a method `'.name'` that does not exist for some fields and thus the `NoneType` which implies there is no returned value. In this case, removing the explicitly declared `author` field in the serializer and including it in the Meta fields only would work as the queryset will simply return the fields on the referenced model with *null* values as null.
