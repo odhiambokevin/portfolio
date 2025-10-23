@@ -19,7 +19,7 @@
     <header className="sticky top-0 z-1">
       <div className="flex justify-between items-center py-[12px] px-[24px]">
         {/* logo */}
-        <Link href="/#home" className="shrink-0 flex items-center">
+        <Link href="/" className="shrink-0 flex items-center">
           <Image src="/images/logo.png" alt="Logo" width={100} height={0} className="object-contain" priority/><span className="-ml-[25px] text-[40px]">evin</span>
         </Link>
 
