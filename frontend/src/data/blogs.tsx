@@ -1,6 +1,6 @@
 import {BlogType} from '@/lib/types/Blog.types';
 
-export const blogdata: BlogType[] = [
+export const blogData: BlogType[] = [
   {
         id:1,
         title:"how to re-use Pipenv environment",
@@ -70,7 +70,7 @@ export const blogdata: BlogType[] = [
         time:"5",
         size: "small",
         credit:"https://www.roastycoffee.com",
-        image:"appvsdbuser.jpg",
+        image:"app.jpg",
         date: "January 2 2024"
     },
     {

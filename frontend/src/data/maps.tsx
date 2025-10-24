@@ -1,6 +1,6 @@
 import {MapType} from '@/lib/types/Map.types';
 
-export const mapdata: MapType[] = [
+export const mapData: MapType[] = [
     {
         id:1,
         title:"siaya circle",

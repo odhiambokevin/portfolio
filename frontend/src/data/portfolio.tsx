@@ -1,6 +1,6 @@
 import {PortfolioType} from '@/lib/types/Portfolio.types';
 
-export const portfoliodata: PortfolioType[] = [
+export const portfolioData: PortfolioType[] = [
   {
         id:1,
         title:"crabstack",

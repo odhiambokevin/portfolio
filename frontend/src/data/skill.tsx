@@ -1,6 +1,6 @@
 import {SkillType} from '@/lib/types/Skill.types';
 
-export const skilldata: SkillType[] = [
+export const skillData: SkillType[] = [
     {
         id:1,
         title:"backend development",
