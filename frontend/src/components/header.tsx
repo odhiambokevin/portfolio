@@ -20,7 +20,7 @@
       <div className="flex justify-between items-center py-[12px] px-[24px]">
         {/* logo */}
         <Link href="/" className="shrink-0 flex items-center">
-          <Image src="/images/logo.png" alt="Logo" width={100} height={0} className="object-contain" priority/><span className="-ml-[25px] text-[40px]">evin</span>
+          <Image src="/images/logo.png" alt="Logo" width={100} height={0} className="object-contain" priority/><span className="-ml-[25px] text-[40px]">evin<span className="text-accent">.</span></span>
         </Link>
 
         {/* desktop nav */}
