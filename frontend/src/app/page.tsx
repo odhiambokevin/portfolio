@@ -15,13 +15,13 @@ export default function Home() {
     <section id="home" className="flex h-[100svh] scroll-mt-[120px] bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
           <div className="relative z-2 pt-8">
-              <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl dark:text-white">geospatial developer<span className="text-accent text-5xl text-accent">.</span></h1>
-              <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">hi, i&apos;m kevin, a fullstack geospatial developer from kenya. i specialize in <span className="text-accent">GIS</span> apps with secure and automated spatial database design</p>
-              <Link href="/#portfolio" className="relative inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-1 focus:ring-accent dark:focus:ring-primary-900">
+              <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">geospatial developer<span className="text-accent text-5xl text-accent">.</span></h1>
+              <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">hi, i&apos;m kevin, a fullstack geospatial developer from kenya. i specialize in <span className="text-accent">GIS</span> apps with secure and automated spatial database design</p>
+              <Link href="/#portfolio" className="relative inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-1 focus:ring-accent/60">
                   my work
                   <span className="absolute top-0 bottom-0 right-0 hover:text-accent w-full flex items-center justify-end"><svg className="w-5 h-3.5 ml-2 -mr- " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg></span>
               </Link>
-              <Link href="#contact" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-400 rounded-lg hover:bg-accent focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-accent/70 dark:focus:ring-accent">
+              <Link href="#contact" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-400 rounded-lg hover:bg-accent focus:ring-4 focus:ring-accent/60">
                   contact me
               </Link> 
           </div>
@@ -45,7 +45,7 @@ export default function Home() {
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{portfolio.title}</h5>
                   </Link>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                  <Link href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <Link href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-accent/60">
                       Read more
                       <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -60,15 +60,14 @@ export default function Home() {
 
     <section id="skill" className="h-[100svh] scroll-mt-[120px] py-4">
       <h1 className="text-center text-5xl text-accent">skills</h1>
-      <div className="grid grid-cols-3 gap-4 mx-[40px] pt-[56px]">
+      <div className="flex flex-wrap gap-8 mx-[40px] pt-[56px]">
       {skillData.slice(0,6).map((skill,index)=>(
-        <div key={index} className="transition duration-300 ease-in-out  ">
-          <div className="max-w-sm bg-white border border-gray-200 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-              
+        <div key={index} className="basis-sm transition duration-300 ease-in-out  ">
+          <div className="max-w-sm bg-white border border-gray-200 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
               <div className="p-5">
-                  <Link href="#">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{skill.title}</h5>
-                  </Link>
+                  
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{skill.title}</h5>
+                
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{skill.description}</p>
                 
               </div>
@@ -116,8 +115,8 @@ export default function Home() {
       </div>
     </section>
 
-    <section id="map" className="h-[100svh] scroll-mt-[120px] text-center py-4">
-      <h1 className="text-5xl text-accent"> maps</h1>
+    <section id="map" className="h-[100svh] scroll-mt-[120px] py-4">
+      <h1 className="text-center text-5xl text-accent"> maps</h1>
       <div className="flex flex-wrap pt-[56px]">
       {mapData.slice(0,6).map((map,index)=>(
        
@@ -130,7 +129,7 @@ export default function Home() {
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{map.title}</h5>
                   </Link>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                  <Link href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <Link href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-accent/60">
                       Read more
                       <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -141,31 +140,33 @@ export default function Home() {
       
       ))}
       </div>
-      <Link href="/map" className="mt-4 mx-auto inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <Link href="/map" className="mt-4 mx-auto inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
         view all
       </Link>
     </section>
 
     <section id="blog" className="scroll-mt-[120px] py-4">
-      <h1 className="text-5xl text-accent text-center">blogs</h1>
+      <h1 className="text-5xl text-accent text-center">latest blogs</h1>
       <div className="flex flex-wrap gap-4 justify-center pt-[56px]">
       {blogData.slice(0,6).map((blog,index)=>(
         <BlogCard blog={blog} key={index}/>
       ))}
       </div>
-      <Link href="blog" className="mt-4 mx-auto inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <div className="mx-auto">
+      <Link href="blog" className="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
         view all
       </Link>
+      </div>
     </section>
 
     <section id="contact" className="h-[100svh] scroll-mt-[100px] py-4">
       <div className="text-center text-5xl text-accent">contact</div>
       <div className="grid lg:grid-cols-2 items-start gap-16 pt-[56px] mx-auto max-w-5xl max-lg:max-w-2xl">
       <div>
-        <h2 className="text-slate-900 text-3xl font-bold">Let&apos;s Talk</h2>
+        <h2 className="text-text-mild text-3xl font-bold">Let&apos;s Talk</h2>
         <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Have some big idea or brand to develop and need help? Then reach out we&apos;d love to hear about your project  and provide help.</p>
         <div className="mt-12">
-          <h2 className="text-slate-900 text-base font-semibold">email</h2>
+          <h2 className="text-text-mild text-base font-semibold">email</h2>
           <ul className="mt-4">
             <li className="flex items-center">
               <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -231,7 +232,7 @@ export default function Home() {
         <textarea placeholder='Message' rows={6}
           className="w-full rounded-md px-4 bg-slate-100 text-slate-900 text-sm pt-3 border border-gray-200 focus:border-slate-900 outline-none focus:bg-transparent"></textarea>
         <button type='button'
-          className="text-white bg-slate-900 hover:bg-slate-800 tracking-wide rounded-md text-sm font-medium px-4 py-3 w-full cursor-pointer !mt-2 border-0">Send message</button>
+          className="text-white bg-accent/90 hover:bg-accent tracking-wide rounded-md text-sm font-medium px-4 py-3 w-full cursor-pointer !mt-2 border-0">Send message</button>
       </form>
     </div>
     </section>
