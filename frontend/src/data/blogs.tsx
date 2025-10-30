@@ -4,7 +4,7 @@ export const blogData: BlogType[] = [
   {
         id:1,
         title:"how to re-use Pipenv environment",
-        subtitle:"want to reuse pipenv?",
+        subtitle:"Some of us may have had the occasional urge to test out some code using an already existing virtual environment dependencies...",
         slug: "re-use-pipenv",
         author:"kevin",
         time:"5",
@@ -16,7 +16,7 @@ export const blogData: BlogType[] = [
     {
         id:2,
         title:"React Dispatch not working: ReduxToolkit",
-        subtitle:"dispatch action just not working",
+        subtitle:"At times, you may notice that your redux actions are not getting dispatched...",
         slug: "react-dispatch-not-working",
         author:"kevin",
         time:"5",
@@ -28,7 +28,7 @@ export const blogData: BlogType[] = [
     {
         id:3,
         title:"digital literacy for the modern data user",
-        subtitle:"disclaimer: content herein is meant for general knowledge and should not be construed as legal advice.",
+        subtitle:"We are living in a world where data has become so central to our survival yet its...",
         slug: "modern-data-user",
         author:"kevin",
         time:"5",
@@ -40,7 +40,7 @@ export const blogData: BlogType[] = [
     {
         id:4,
         title:"debugging tips: tldr version",
-        subtitle:"when you get stuck debugging",
+        subtitle:"These are quick tips to quickly fix that bug during development to help quickly get back to coding...",
         slug: "debugging-tips",
         author:"kevin",
         time:"5",
@@ -52,7 +52,7 @@ export const blogData: BlogType[] = [
     {
         id:5,
         title:"Geoserver layer preview not working",
-        subtitle:"nothing displays in preview on new installation",
+        subtitle:"I encountered this problem when running Geoserver on my local machine with Java version 17...",
         slug: "layer-preview-not-working-geoserver",
         author:"kevin",
         time:"5",
@@ -64,7 +64,7 @@ export const blogData: BlogType[] = [
     {
         id:6,
         title:"application users vs database users: django",
-        subtitle:"this can be confusing for beginners at times",
+        subtitle:"I was surprised at how little info explaining the differences between an application user and...",
         slug: "app-vs-db-users",
         author:"kevin",
         time:"5",

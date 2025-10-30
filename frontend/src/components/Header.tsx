@@ -8,6 +8,7 @@
       {href: "/#home", label: "home"},
       {href: "/#portfolio", label: "portfolio"},
       {href: "/#skill", label: "skills"},
+      {href: "/#experience", label: "experience"},
       {href: "/#map", label: "maps"},
       {href: "/#blog", label: "blog"},
       {href: "/#contact", label: "contact"},
@@ -16,7 +17,7 @@
   const handlenav = ()=>{setMobileMenuOpen(!mobileMenuOpen)}
 
   return (
-    <header className="sticky top-0 z-2">
+    <header className="sticky top-0 z-2 bg-background">
       <div className="flex justify-between items-center py-[12px] px-[24px]">
         {/* logo */}
         <Link href="/" className="shrink-0 flex items-center">
