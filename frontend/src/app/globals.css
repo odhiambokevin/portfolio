@@ -96,7 +96,7 @@
   :root {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --text-mild: #51545d;
+  --text-mild: #8892b0;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
