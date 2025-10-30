@@ -162,8 +162,8 @@ export default function Home() {
       <div className="text-center text-5xl text-accent">contact</div>
       <div className="grid lg:grid-cols-2 items-start gap-16 pt-[56px] mx-auto max-w-5xl max-lg:max-w-2xl">
       <div>
-        <h2 className="text-slate-900 text-3xl font-bold">Let's Talk</h2>
-        <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project  and provide help.</p>
+        <h2 className="text-slate-900 text-3xl font-bold">Let&apos;s Talk</h2>
+        <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Have some big idea or brand to develop and need help? Then reach out we&apos;d love to hear about your project  and provide help.</p>
         <div className="mt-12">
           <h2 className="text-slate-900 text-base font-semibold">email</h2>
           <ul className="mt-4">

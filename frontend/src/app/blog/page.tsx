@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { blogData } from "@/data/blogs";
-import Link from "next/link";
 import BlogCard from "@/components/BlogCard";
 
 export default function Blog() {
