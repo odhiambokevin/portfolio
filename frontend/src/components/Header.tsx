@@ -17,7 +17,7 @@
   const handlenav = ()=>{setMobileMenuOpen(!mobileMenuOpen)}
 
   return (
-    <header className="sticky top-0 z-2 bg-red-500">
+    <header className="sticky top-0 z-2 bg-background">
       <div className="flex justify-between items-center py-[12px] px-[24px]">
         {/* logo */}
         <Link href="/" className="shrink-0 flex items-center">
