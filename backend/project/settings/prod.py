@@ -2,7 +2,7 @@
 
 from .base import *
 
-CORS_ALLOWED_ORIGINS = ["https://odhiambok.vercel.app"]
+CORS_ALLOWED_ORIGINS = ["https://odhiambok.vercel.app","https://odhiambok-staged.vercel.app"]
 CORS_ALLOWED_METHODS = ["DELETE","GET","OPTIONS","PATCH","POST","PUT",]
 
 # HTTPS SETTINGS
