@@ -10,5 +10,5 @@ logger = logging.getLogger(__name__)
 @receiver(post_save, sender=Feedback)
 def send_feedback_email(sender, instance, created, **kwargs):
   if created:
-    message = f"Message from {instance.name}, {instance.email}. \n {instance.message}"
+    message = f"Message from my Portfolio website sent by {instance.name}, Email: {instance.email}. \nMessage: {instance.message}"
     send_mail(instance.subject,message, settings.DEFAULT_FROM_EMAIL,settings.ADMINS)

@@ -1,6 +1,3 @@
-import Link from "next/link";
-import {FaInstagram, FaFacebook, FaTwitter} from "react-icons/fa";
-
 export default function Footer() {
   return (
     <div className="flex text-[15px] text-text-mild mb-2 justify-center items-center h-[20px]">
