@@ -1,3 +1,4 @@
+"use client"
 import BlogCard from "@/components/BlogCard";
 import { blogData } from "@/data/blogs";
 import { mapData } from "@/data/maps";
@@ -7,8 +8,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { experienceData } from "@/data/experience";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import * as yup from "yup";
+import { FormEvent, useState } from "react";
+
 
 export default function Home() {
+  const formData = {'name':'','email':'','subject':'','message':''}
+  const submitSchema = yup.object().shape({
+    name: yup.string().required("your name goes here 😊"),
+    email: yup.string().email("invalid email").required("you know the drill.."),
+    message: yup.string().required("please type in your message"),
+  });
+  const sendEmail = ()=>console.log('form submitted');
+  const [open, setOpen] = useState(false);
+  const [failed, setFailed] = useState(null);
+  const [errormsg, setErrorMsg] = useState('');
+  const handleClose = (event:FormEvent<HTMLFormElement>, reason:string)=>{
+      if(reason === 'clickaway') {
+          return
+      }
+      setOpen(false)
+  }
   
   return (
    <main className="">
@@ -164,7 +185,7 @@ export default function Home() {
       <div className="grid lg:grid-cols-2 items-start gap-16 pt-[56px] mx-auto max-w-5xl max-lg:max-w-2xl">
       <div>
         <h2 className="text-text-mild text-3xl font-bold">Let&apos;s Talk</h2>
-        <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Have some big idea or brand to develop and need help? Then reach out we&apos;d love to hear about your project  and provide help.</p>
+        <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Do you have a project requiring a digital solution? I'd love to hear more about it as we enage and move it from idea an into a digital product.</p>
         <div className="mt-12">
           <h2 className="text-text-mild text-base font-semibold">email</h2>
           <ul className="mt-4">
@@ -177,63 +198,53 @@ export default function Home() {
                     data-original="#000000" />
                 </svg>
               </div>
-              <a href="javascript:void(0)" className="text-sm ml-4">
-                <small className="block text-slate-900">Mail</small>
+              <Link href="javascript:void(0)" className="text-sm ml-4">
                 <span className="font-light text-accent">odhiambosiaya@proton.me</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
         <div className="mt-12">
-          <h2 className="text-slate-900 text-base font-semibold">Socials</h2>
-          <ul className="flex mt-4 space-x-4">
-            <li className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-              <a href="javascript:void(0)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#000'
+          <h2 className="text-text-mild text-base font-semibold">Socials</h2>
+          
+            <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+              <Link href="https://github.com/odhiambokevin" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill='#000'
                   viewBox="0 0 24 24">
                   <path
-                    d="M6.812 13.937H9.33v9.312c0 .414.335.75.75.75l4.007.001a.75.75 0 0 0 .75-.75v-9.312h2.387a.75.75 0 0 0 .744-.657l.498-4a.75.75 0 0 0-.744-.843h-2.885c.113-2.471-.435-3.202 1.172-3.202 1.088-.13 2.804.421 2.804-.75V.909a.75.75 0 0 0-.648-.743A26.926 26.926 0 0 0 15.071 0c-7.01 0-5.567 7.772-5.74 8.437H6.812a.75.75 0 0 0-.75.75v4c0 .414.336.75.75.75zm.75-3.999h2.518a.75.75 0 0 0 .75-.75V6.037c0-2.883 1.545-4.536 4.24-4.536.878 0 1.686.043 2.242.087v2.149c-.402.205-3.976-.884-3.976 2.697v2.755c0 .414.336.75.75.75h2.786l-.312 2.5h-2.474a.75.75 0 0 0-.75.75V22.5h-2.505v-9.312a.75.75 0 0 0-.75-.75H7.562z"
+                    d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm3.163 21.783h-.093a.513.513 0 0 1-.382-.14.513.513 0 0 1-.14-.372v-1.406c.006-.467.01-.94.01-1.416a3.693 3.693 0 0 0-.151-1.028 1.832 1.832 0 0 0-.542-.875 8.014 8.014 0 0 0 2.038-.471 4.051 4.051 0 0 0 1.466-.964c.407-.427.71-.943.885-1.506a6.77 6.77 0 0 0 .3-2.13 4.138 4.138 0 0 0-.26-1.476 3.892 3.892 0 0 0-.795-1.284 2.81 2.81 0 0 0 .162-.582c.033-.2.05-.402.05-.604 0-.26-.03-.52-.09-.773a5.309 5.309 0 0 0-.221-.763.293.293 0 0 0-.111-.02h-.11c-.23.002-.456.04-.674.111a5.34 5.34 0 0 0-.703.26 6.503 6.503 0 0 0-.661.343c-.215.127-.405.249-.573.362a9.578 9.578 0 0 0-5.143 0 13.507 13.507 0 0 0-.572-.362 6.022 6.022 0 0 0-.672-.342 4.516 4.516 0 0 0-.705-.261 2.203 2.203 0 0 0-.662-.111h-.11a.29.29 0 0 0-.11.02 5.844 5.844 0 0 0-.23.763c-.054.254-.08.513-.081.773 0 .202.017.404.051.604.033.199.086.394.16.582A3.888 3.888 0 0 0 5.702 10a4.142 4.142 0 0 0-.263 1.476 6.871 6.871 0 0 0 .292 2.12c.181.563.483 1.08.884 1.516.415.422.915.75 1.466.964.653.25 1.337.41 2.033.476a1.828 1.828 0 0 0-.452.633 2.99 2.99 0 0 0-.2.744 2.754 2.754 0 0 1-1.175.27 1.788 1.788 0 0 1-1.065-.3 2.904 2.904 0 0 1-.752-.824 3.1 3.1 0 0 0-.292-.382 2.693 2.693 0 0 0-.372-.343 1.841 1.841 0 0 0-.432-.24 1.2 1.2 0 0 0-.481-.101c-.04.001-.08.005-.12.01a.649.649 0 0 0-.162.02.408.408 0 0 0-.13.06.116.116 0 0 0-.06.1.33.33 0 0 0 .14.242c.093.074.17.131.232.171l.03.021c.133.103.261.214.382.333.112.098.213.209.3.33.09.119.168.246.231.381.073.134.15.288.231.463.188.474.522.875.954 1.145.453.243.961.364 1.476.351.174 0 .349-.01.522-.03.172-.028.343-.057.515-.091v1.743a.5.5 0 0 1-.533.521h-.062a10.286 10.286 0 1 1 6.324 0v.005z"
                     data-original="#000000" />
                 </svg>
-              </a>
-            </li>
-            <li className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-              <a href="javascript:void(0)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#000'
-                  viewBox="0 0 511 512">
-                  <path
-                    d="M111.898 160.664H15.5c-8.285 0-15 6.719-15 15V497c0 8.285 6.715 15 15 15h96.398c8.286 0 15-6.715 15-15V175.664c0-8.281-6.714-15-15-15zM96.898 482H30.5V190.664h66.398zM63.703 0C28.852 0 .5 28.352.5 63.195c0 34.852 28.352 63.2 63.203 63.2 34.848 0 63.195-28.352 63.195-63.2C126.898 28.352 98.551 0 63.703 0zm0 96.395c-18.308 0-33.203-14.891-33.203-33.2C30.5 44.891 45.395 30 63.703 30c18.305 0 33.195 14.89 33.195 33.195 0 18.309-14.89 33.2-33.195 33.2zm289.207 62.148c-22.8 0-45.273 5.496-65.398 15.777-.684-7.652-7.11-13.656-14.942-13.656h-96.406c-8.281 0-15 6.719-15 15V497c0 8.285 6.719 15 15 15h96.406c8.285 0 15-6.715 15-15V320.266c0-22.735 18.5-41.23 41.235-41.23 22.734 0 41.226 18.495 41.226 41.23V497c0 8.285 6.719 15 15 15h96.403c8.285 0 15-6.715 15-15V302.066c0-79.14-64.383-143.523-143.524-143.523zM466.434 482h-66.399V320.266c0-39.278-31.953-71.23-71.226-71.23-39.282 0-71.239 31.952-71.239 71.23V482h-66.402V190.664h66.402v11.082c0 5.77 3.309 11.027 8.512 13.524a15.01 15.01 0 0 0 15.875-1.82c20.313-16.294 44.852-24.907 70.953-24.907 62.598 0 113.524 50.926 113.524 113.523zm0 0"
-                    data-original="#000000" />
-                </svg>
-              </a>
-            </li>
-            <li className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-              <a href="javascript:void(0)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#000'
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M12 9.3a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm0-1.8a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm5.85-.225a1.125 1.125 0 1 1-2.25 0 1.125 1.125 0 0 1 2.25 0ZM12 4.8c-2.227 0-2.59.006-3.626.052-.706.034-1.18.128-1.618.299a2.59 2.59 0 0 0-.972.633 2.601 2.601 0 0 0-.634.972c-.17.44-.265.913-.298 1.618C4.805 9.367 4.8 9.714 4.8 12c0 2.227.006 2.59.052 3.626.034.705.128 1.18.298 1.617.153.392.333.674.632.972.303.303.585.484.972.633.445.172.918.267 1.62.3.993.047 1.34.052 3.626.052 2.227 0 2.59-.006 3.626-.052.704-.034 1.178-.128 1.617-.298.39-.152.674-.333.972-.632.304-.303.485-.585.634-.972.171-.444.266-.918.299-1.62.047-.993.052-1.34.052-3.626 0-2.227-.006-2.59-.052-3.626-.034-.704-.128-1.18-.299-1.618a2.619 2.619 0 0 0-.633-.972 2.595 2.595 0 0 0-.972-.634c-.44-.17-.914-.265-1.618-.298-.993-.047-1.34-.052-3.626-.052ZM12 3c2.445 0 2.75.009 3.71.054.958.045 1.61.195 2.185.419A4.388 4.388 0 0 1 19.49 4.51c.457.45.812.994 1.038 1.595.222.573.373 1.227.418 2.185.042.96.054 1.265.054 3.71 0 2.445-.009 2.75-.054 3.71-.045.958-.196 1.61-.419 2.185a4.395 4.395 0 0 1-1.037 1.595 4.44 4.44 0 0 1-1.595 1.038c-.573.222-1.227.373-2.185.418-.96.042-1.265.054-3.71.054-2.445 0-2.75-.009-3.71-.054-.958-.045-1.61-.196-2.185-.419A4.402 4.402 0 0 1 4.51 19.49a4.414 4.414 0 0 1-1.037-1.595c-.224-.573-.374-1.227-.419-2.185C3.012 14.75 3 14.445 3 12c0-2.445.009-2.75.054-3.71s.195-1.61.419-2.185A4.392 4.392 0 0 1 4.51 4.51c.45-.458.994-.812 1.595-1.037.574-.224 1.226-.374 2.185-.419C9.25 3.012 9.555 3 12 3Z">
-                  </path>
-                </svg>
-              </a>
-            </li>
-          </ul>
+              </Link>
+            </div>
+         
+         
         </div>
       </div>
-
-      <form className="lg:ml-auto space-y-4">
-        <input type='text' placeholder='Name'
-          className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none focus:bg-transparent" />
-        <input type='email' placeholder='Email'
-          className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none focus:bg-transparent" />
-        <input type='text' placeholder='Subject'
-          className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none focus:bg-transparent" />
-        <textarea placeholder='Message' rows={6}
-          className="w-full rounded-md px-4 bg-slate-100 text-slate-900 text-sm pt-3 border border-gray-200 focus:border-slate-900 outline-none focus:bg-transparent"></textarea>
-        <button type='button'
+<Formik onSubmit={sendEmail} initialValues={formData} validationSchema={submitSchema}>  
+                {({ isSubmitting }) => (
+      <Form className="lg:ml-auto space-y-4">
+        <Field type='text' placeholder='Name' name="name" id="name"
+          className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
+        <ErrorMessage name="name" />
+        
+        <Field type='email' placeholder='Email' name="email" id="email"
+          className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
+         <ErrorMessage name="email" />
+        
+        <Field type='text' placeholder='Subject' name="subject" id="subject"
+          className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
+       
+        <Field placeholder='Message' rows={6} as="textarea" name="messgae" id="messgae"
+          className="w-full rounded-md px-4 bg-slate-100 text-slate-900 text-sm pt-3 border border-gray-200 focus:border-slate-900 outline-none"
+           />
+           <ErrorMessage name="message" className="" />
+        <button type='submit' disabled={isSubmitting}
           className="text-white bg-accent/90 hover:bg-accent tracking-wide rounded-md text-sm font-medium px-4 py-3 w-full cursor-pointer !mt-2 border-0">Send message</button>
-      </form>
+      </Form>
+      )}
+            </Formik>
     </div>
     </section>
 
