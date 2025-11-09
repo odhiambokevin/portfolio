@@ -14,7 +14,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 CORS_ALLOW_CREDENTIALS = True
 
