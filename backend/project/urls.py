@@ -10,7 +10,7 @@ from .views import home
 
 urlpatterns = [
     path('vault/', admin.site.urls),
-    path('', home),
+    # path('', home),
     path('api/feedback/', include('apps.feedback.urls')),
 ]
 
