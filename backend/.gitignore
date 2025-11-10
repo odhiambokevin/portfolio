@@ -10,7 +10,7 @@ staticfiles_build/
 media/
 staticfiles/
 static/
-!favicon.ico
+!project/static/favicon.ico
 
 # Distribution / packaging
 .Python
