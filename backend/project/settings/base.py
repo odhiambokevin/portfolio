@@ -12,8 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
-
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 CORS_ALLOW_CREDENTIALS = True
@@ -25,6 +23,7 @@ DJANGO_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic", #whitenoise third party app but needs to be above static file
     "django.contrib.staticfiles",
 ]
 
@@ -46,6 +45,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware", # for djangocorsheaders
     'django.middleware.common.CommonMiddleware',
@@ -134,6 +134,7 @@ USE_TZ = True
 # Static files
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATICFILES_DIRS = []
 
 
 # Media files

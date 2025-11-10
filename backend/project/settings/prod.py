@@ -2,6 +2,10 @@
 
 from .base import *
 
+DEBUG = False
+
+ALLOWED_HOSTS = ['kevin-be.vercel.app','kevin-phi-azure.vercel.app']
+
 CORS_ALLOWED_ORIGINS = ["https://odhiambok.vercel.app","https://odhiambok-staged.vercel.app"]
 CORS_ALLOWED_METHODS = ["DELETE","GET","OPTIONS","PATCH","POST","PUT",]
 
