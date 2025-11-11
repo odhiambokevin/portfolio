@@ -1,4 +1,4 @@
-"""Pagination for feedback app"""
+"""pagination for feedback app"""
 from rest_framework.pagination import PageNumberPagination
 
 class FeedbackPagination(PageNumberPagination):

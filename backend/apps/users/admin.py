@@ -1,5 +1,4 @@
-"""Admin settings for users app"""
-
+"""admin settings for users app"""
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import CustomUserChangeForm, CustomUserCreationForm

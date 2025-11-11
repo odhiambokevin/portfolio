@@ -1,4 +1,4 @@
-"""Admin settings for feedback app"""
+"""admin settings for feedback app"""
 from django.contrib import admin
 from .models import Feedback
 

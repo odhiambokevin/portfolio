@@ -1,4 +1,4 @@
-"""Views for feedback app"""
+"""views for feedback app"""
 from rest_framework import permissions, filters, generics
 from apps.feedback.pagination import FeedbackPagination
 from .models import Feedback

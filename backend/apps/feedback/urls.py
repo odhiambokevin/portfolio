@@ -1,4 +1,4 @@
-"""Urls for feedback app"""
+"""urls for feedback app"""
 from django.urls import path
 from .views import FeedbackListAPIView
 

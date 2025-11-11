@@ -1,3 +1,4 @@
+"""custom authentication for users app"""
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.conf import settings
 
