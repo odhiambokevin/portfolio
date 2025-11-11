@@ -1,3 +1,4 @@
+"""views for users app"""
 from django.conf import settings
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView,TokenVerifyView
 from rest_framework.views import APIView

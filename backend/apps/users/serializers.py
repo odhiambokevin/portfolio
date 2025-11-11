@@ -1,4 +1,4 @@
-"""Serializers for users app"""
+"""serializers for users app"""
 from django.contrib.auth import get_user_model
 from djoser.serializers import UserCreateSerializer
 from rest_framework import serializers

@@ -1,5 +1,4 @@
-"""Forms for users app"""
-
+"""form for users app"""
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from .models import User
 

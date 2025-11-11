@@ -1,3 +1,4 @@
+"""urls for users app"""
 from django.urls import path
 from .views import CustomTokenObtainPairView, CustomTokenRefreshView, CustomTokenVerifyView, LogoutView
 
