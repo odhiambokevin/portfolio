@@ -12,6 +12,7 @@ import { experienceData } from "@/data/experience";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
+import { backendUrl } from '@/lib/constants';
 
 
 export default function Home() {
@@ -26,29 +27,20 @@ export default function Home() {
 
   const handleSubmit = async (values: typeof formData)=>{
     const { email, subject, name, message } = values;
-  //   await sleep(7000);
-  //   try {
-  //       await axios.post("http://localhost:8000/api/feedback/", values)
-  //       .then(()=>console.log('done'))
-    
-  //  } catch (error) {
-  //   if(error)
-  //   setErrorMsg(`${!errormsg.length? 'something went wrong' : `${errormsg}`}`)
-  //  }
-  fetch(`http://localhost:8000/api/feedback/`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, subject, name, message }),
-    }).then((res) => {
-      console.log("Response received");
-      if (res.status === 200) {
-        console.log("Response succeeded!");
-      }
-    });
 
+    fetch(`${backendUrl}/api/feedback/`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, subject, name, message }),
+      }).then((res) => {
+        console.log("Response received");
+        if (res.status === 200) {
+          console.log("Response succeeded!");
+        }
+      });
   }
 
   
