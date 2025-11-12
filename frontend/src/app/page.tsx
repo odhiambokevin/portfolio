@@ -13,40 +13,22 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
 import { backendUrl } from '@/lib/constants';
-
+import { toast } from "sonner";
 
 export default function Home() {
   const formData = {'name':'','email':'','subject':'','message':''};
   const sleep = (ms:number) => new Promise(r => setTimeout(r, ms));
   const [errormsg, setErrorMsg] = useState('');
   const submitSchema = yup.object().shape({
-    name: yup.string().required("your name goes here 😊"),
+    name: yup.string().required("your name goes up here 😊"),
     email: yup.string().email("invalid email").required("you know the drill.."),
+    message: yup.string().required("please write a brief message"),
    
   });
-
-  const handleSubmit = async (values: typeof formData)=>{
-    const { email, subject, name, message } = values;
-
-    fetch(`${backendUrl}/api/feedback/`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, subject, name, message }),
-      }).then((res) => {
-        console.log("Response received");
-        if (res.status === 200) {
-          console.log("Response succeeded!");
-        }
-      });
-  }
-
   
   return (
    <main className="">
-    <section id="home" className="flex h-[100svh] scroll-mt-[120px] bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
+    <section id="home" className="flex h-[100svh] scroll-mt-[120px] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
           <div className="relative z-2 pt-8">
               <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">geospatial developer<span className="text-accent text-5xl text-accent">.</span></h1>
@@ -65,50 +47,44 @@ export default function Home() {
       <Image src="/images/me.png" alt="mockup" className="relative z-[1] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority/>              
     </section>
 
-    <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
-      <h1 className="text-center text-5xl text-accent">portfolio</h1>
-      <div className="flex flex-wrap pt-[56px]">
+  <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
+   <h1 className="text-center text-5xl text-accent">portfolio</h1>
+    <div className="columns-2 md:columns-3 lg:columns-4 space-y-4 mt-[40px] px-4">
       {portfolioData.slice(0,6).map((portfolio,index)=>(
-        <div key={index}>
-          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-              <Link href="#">
-                  <Image className="rounded-t-lg" src={`/images/portfolio/${portfolio.image}`} alt="" width={200} height={200} priority/>
-              </Link>
-              <div className="p-5">
-                  <Link href="#">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{portfolio.title}</h5>
-                  </Link>
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                  <Link href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-accent/60">
-                      Read more
-                      <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                      </svg>
-                  </Link>
-              </div>
+        <Link key={index} href={'/#portfolio'}>
+          <div className="bg-gray-100 rounded-lg overflow-hidden">
+            <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
+              className="h-auto max-w-full object-cover object-top" width={600} height={400} />
           </div>
-        </div>
+        </Link>
       ))}
-      </div>
+
+    </div>
     </section>
 
-    <section id="skill" className="h-[100svh] scroll-mt-[120px] py-4">
-      <h1 className="text-center text-5xl text-accent">skills</h1>
-      <div className="flex flex-wrap gap-8 mx-[40px] pt-[56px]">
-      {skillData.slice(0,6).map((skill,index)=>(
-        <div key={index} className="basis-sm transition duration-300 ease-in-out  ">
-          <div className="max-w-sm bg-white border border-gray-200 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
-              <div className="p-5">
-                  
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{skill.title}</h5>
-                
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{skill.description}</p>
-                
-              </div>
-          </div>
+
+    <section id="skill" className="h-[100svh] scroll-mt-[90px] py-4">
+      <div className="py-4">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-center text-5xl text-accent">skills</h1>
         </div>
-      ))}
+
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
+          {skillData.slice(0,6).map((skill,index)=>(
+            <div key={index} className="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
+            
+              <Image src={`/images/skill/${skill.image}`} alt="img-1"
+          className="w-[25px]" width={25} height={25} />
+            <h3 className="text-slate-900 text-lg font-medium mb-2">{skill.title}</h3>
+            
+            <p className="text-[15px] leading-relaxed text-slate-600">{skill.description}</p>
+          </div>
+
+          ))}
+        </div>
       </div>
+    </div>
     </section>
 
     <section id="experience" className="h-[100svh] scroll-mt-[120px] py-4">
@@ -143,36 +119,19 @@ export default function Home() {
           </TabsContent>
         ))}
       </Tabs>
-    </div>
-
-      
+    </div>      
       </div>
     </section>
 
-    <section id="map" className="h-[100svh] scroll-mt-[120px] py-4">
-      <h1 className="text-center text-5xl text-accent"> maps</h1>
-      <div className="flex flex-wrap pt-[56px]">
-      {mapData.slice(0,6).map((map,index)=>(
-       
-          <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-              <Link href="#">
-                  <Image className="rounded-t-lg" src={`/images/map/${map.image}`} alt="" width={200} height={200} priority/>
-              </Link>
-              <div className="p-5">
-                  <Link href="#">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{map.title}</h5>
-                  </Link>
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                  <Link href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-accent/60">
-                      Read more
-                      <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                      </svg>
-                  </Link>
-              </div>
-          </div>
-      
-      ))}
+    <section className="max-w-screen-xl mx-auto scroll-mt-[120px] h-[100svh]" id='map'>
+      <h1 className="text-center text-5xl text-accent mb-[40px]"> maps</h1>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        {mapData.slice(0,6).map((map,index)=>(
+          <Link href={`map/${map.slug}`} key={index} className=" bg-gray-100 overflow-hidden relative before:absolute before:inset-0 before:bg-black before:opacity-30 hover:before:bg-orange-600">
+            <Image src={`/images/map/${map.image}`} alt={`${map.slug}`} width={400} height={100}
+              className="h-full max-w-full object-cover object-top" />
+          </Link>
+        ))}
       </div>
       <Link href="/map" className="mt-4 mx-auto inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
         view all
@@ -230,9 +189,49 @@ export default function Home() {
               </div>
           </div>
         </div>
-        <Formik onSubmit={handleSubmit} initialValues={formData} validationSchema={submitSchema}>  
+        <Formik
+        onSubmit={async (values,{setSubmitting,resetForm})=>{
+          setSubmitting(true);
+          await sleep(3000);
+          try {
+              await axios.post(`${backendUrl}/api/feedback/`, values)
+              .then((res)=>{ toast.success("sent successfully");setSubmitting(false);resetForm() })
+          
+        } catch (error) {
+          setSubmitting(false);
+          if (error instanceof Error) {
+            console.log('block 1' + error);
+            setErrorMsg(`${error.message}`);
+            toast.error(errormsg)
+          } else if (error && typeof error === 'object' && 'message' in error) {
+            console.log('block 2' + error);
+            setErrorMsg(`${error.message}`);
+            toast.error(errormsg);
+          } else if (typeof error === "string"){
+            console.log('block 3' + error);
+            setErrorMsg(`${error}`);
+            toast.error(errormsg);
+
+          } else {
+            toast.error('something went wrong')
+          }         
+          
+        }
+
+        }}
+        initialValues={formData}
+        validationSchema={submitSchema}>  
                         {({ isSubmitting }) => (
-              <Form className="lg:ml-auto space-y-4">
+              <Form className="relative lg:ml-auto space-y-4">
+                  {isSubmitting && (<div className="flex flex-wrap gap-16 max-w-md mx-auto mt-12">
+                  <div className="spinner-4 absolute w-12 animate-spin top-[70%] left-[45%]">
+                    <div className="absolute top-0 left-0  bg-accent w-4 h-4 rounded-full"></div>
+                    <div className="absolute top-1/2 right-0 bg-slate-400 w-4 h-4 rounded-full"></div>
+                  </div>
+                </div>)}
+               
+
+
                 <Field type='text' placeholder='Name' name="name" id="name"
                   className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
                 <ErrorMessage name="name" />
@@ -247,12 +246,16 @@ export default function Home() {
                 <Field placeholder='Message' rows={6} as="textarea" name="message" id="message"
                   className="w-full rounded-md px-4 bg-slate-100 text-slate-900 text-sm pt-3 border border-gray-200 focus:border-slate-900 outline-none"
                   />
-                  <ErrorMessage name="message" className="" />
+                
+                  <ErrorMessage name="message" className=""/>
                 <button type='submit' disabled={isSubmitting}
                   className="text-white bg-accent/90 hover:bg-accent tracking-wide rounded-md text-sm font-medium px-4 py-3 w-full cursor-pointer !mt-2 border-0">Send message</button>
+            
               </Form>
+              
               )}
-        </Formik>
+        </Formik>     
+        
       </div>
     </section>
 
