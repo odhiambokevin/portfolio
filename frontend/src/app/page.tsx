@@ -195,12 +195,26 @@ export default function Home() {
           await sleep(3000);
           try {
               await axios.post(`${backendUrl}/api/feedback/`, values)
-              .then((res)=>{res && toast.success("sent successfully");setSubmitting(false);resetForm() })
+              .then((res)=>{ toast.success("sent successfully");setSubmitting(false);resetForm() })
           
-        } catch (error:any) {
+        } catch (error) {
           setSubmitting(false);
-          setErrorMsg(`${error.response ? error.response.statusText : error.message}`)
-          toast.error(errormsg)
+          if (error instanceof Error) {
+            console.log('block 1' + error);
+            setErrorMsg(`${error.message}`);
+            toast.error(errormsg)
+          } else if (error && typeof error === 'object' && 'message' in error) {
+            console.log('block 2' + error);
+            setErrorMsg(`${error.message}`);
+            toast.error(errormsg);
+          } else if (typeof error === "string"){
+            console.log('block 3' + error);
+            setErrorMsg(`${error}`);
+            toast.error(errormsg);
+
+          } else {
+            toast.error('something went wrong')
+          }         
           
         }
 
