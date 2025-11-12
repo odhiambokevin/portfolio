@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { Toaster } from "@/components/ui/sonner"
 
 
 const montserrat = Montserrat({
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${quicksand.variable} ${farsan.variable} antialiased`}>
         <Header />
         {children}
+        <Toaster />
         <Footer />
         <ScrollToTop />
       </body>
