@@ -29,7 +29,7 @@ export const portfolioData: PortfolioType[] = [
         slug:"angani",
         sector:"airport management dashboard",
         skills: "dashboard, security, database",
-        image:"awm.png",
+        image:"crab.png",
         stack:"react django",
         url:"http://aviation.yaspi.tech",
         date:"June 23 2024"

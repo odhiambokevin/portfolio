@@ -65,7 +65,7 @@ export default function Home() {
       <Image src="/images/me.png" alt="mockup" className="relative z-[1] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority/>              
     </section>
 
-    <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
+    {/* <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
       <h1 className="text-center text-5xl text-accent">portfolio</h1>
       <div className="flex flex-wrap pt-[56px]">
       {portfolioData.slice(0,6).map((portfolio,index)=>(
@@ -90,25 +90,48 @@ export default function Home() {
         </div>
       ))}
       </div>
+    </section> */}
+  <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
+   <h1 className="text-center text-5xl text-accent">portfolio</h1>
+    <div className="columns-2 md:columns-3 lg:columns-4 space-y-4 mt-[40px] px-4">
+      {portfolioData.slice(0,6).map((portfolio,index)=>(
+        <div key={index}>
+        <div className="bg-gray-100 rounded-lg overflow-hidden">
+        <img src={`/images/portfolio/${portfolio.image}`} alt="img-1"
+          className="h-auto max-w-full object-cover object-top" />
+      </div>
+      </div>
+      ))}
+
+    </div>
     </section>
 
-    <section id="skill" className="h-[100svh] scroll-mt-[120px] py-4">
-      <h1 className="text-center text-5xl text-accent">skills</h1>
-      <div className="flex flex-wrap gap-8 mx-[40px] pt-[56px]">
-      {skillData.slice(0,6).map((skill,index)=>(
-        <div key={index} className="basis-sm transition duration-300 ease-in-out  ">
-          <div className="max-w-sm bg-white border border-gray-200 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
-              <div className="p-5">
-                  
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{skill.title}</h5>
-                
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{skill.description}</p>
-                
-              </div>
-          </div>
+
+    <section id="skill" className="h-[100svh] scroll-mt-[90px] py-4">
+      <div className="py-4">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-center text-5xl text-accent">skills</h1>
         </div>
-      ))}
+
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
+          {skillData.slice(0,6).map((skill,index)=>(
+            <div key={index} className="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
+            
+              <img src={`/images/skill/${skill.image}`} alt="img-1"
+          className="w-[25px]" />
+            <h3 className="text-slate-900 text-lg font-medium mb-2">{skill.title}</h3>
+            
+            <p className="text-[15px] leading-relaxed text-slate-600">{skill.description}</p>
+          </div>
+
+          ))}
+
+      
+          
+        </div>
       </div>
+    </div>
     </section>
 
     <section id="experience" className="h-[100svh] scroll-mt-[120px] py-4">
@@ -149,7 +172,7 @@ export default function Home() {
       </div>
     </section>
 
-    <section id="map" className="h-[100svh] scroll-mt-[120px] py-4">
+    {/* <section  className="h-[100svh] scroll-mt-[120px] py-4">
       <h1 className="text-center text-5xl text-accent"> maps</h1>
       <div className="flex flex-wrap pt-[56px]">
       {mapData.slice(0,6).map((map,index)=>(
@@ -177,7 +200,22 @@ export default function Home() {
       <Link href="/map" className="mt-4 mx-auto inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
         view all
       </Link>
-    </section>
+    </section> */}
+
+    <div className="max-w-screen-xl mx-auto scroll-mt-[120px] h-[100svh]" id='map'>
+      <h1 className="text-center text-5xl text-accent mb-[40px]"> maps</h1>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        {mapData.slice(0,6).map((map,index)=>(
+          <Link href={`map/${map.slug}`} key={index} className=" bg-gray-100 overflow-hidden relative before:absolute before:inset-0 before:bg-black before:opacity-30 hover:before:bg-orange-600">
+            <img src={`/images/map/${map.image}`} alt="img-1"
+              className="h-full max-w-full object-cover object-top" />
+          </Link>
+        ))}
+      </div>
+      <Link href="/map" className="mt-4 mx-auto inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
+        view all
+      </Link>
+    </div>
 
     <section id="blog" className="scroll-mt-[120px] py-4">
       <h1 className="text-5xl text-accent text-center">latest blogs</h1>
