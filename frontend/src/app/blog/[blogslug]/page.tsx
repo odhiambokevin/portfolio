@@ -12,25 +12,6 @@ export default async function Page({
   const { blogslug } = await params;
   const { default: Post } = await import(`@/data/markdown/blog/${blogslug}.md`);
   const blog = blogData.find((blog)=> blog.slug === blogslug);
-
-  // const [isAnimating, setIsAnimating] = useState(false);
-  // const [searchString, setSearchString] = useState('');
-  // const handleSearchInput = (e:React.ChangeEvent<HTMLInputElement >)=>{setSearchString(e.currentTarget.value)}
-  //   const inputref = useRef<HTMLInputElement>(null);
-  //   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-  //       e.preventDefault();
-  //       if(searchString.length > 0)
-  //       {
-  //           inputref.current!.value = '' ;
-  //           setSearchString('')
-  //       } else {
-  //           setIsAnimating(true);
-  //       }}
-
-  //   useEffect(()=>{
-  //       const timeout = setTimeout(()=> {setIsAnimating(false)},1000);
-  //       return () => clearTimeout(timeout);
-  //   })
    
   return (
   <div className="flex flex-wrap">

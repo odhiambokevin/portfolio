@@ -2,6 +2,7 @@
   import Link from "next/link";
   import { useState } from "react";
   import Image from "next/image";
+  import { usePathname } from "next/navigation";
 
   export default function Header() {
     const navLinks = [
@@ -13,8 +14,9 @@
       {href: "/#blog", label: "blog"},
       {href: "/#contact", label: "contact"},
     ]
-     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const handlenav = ()=>{setMobileMenuOpen(!mobileMenuOpen)}
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const handlenav = ()=>{setMobileMenuOpen(!mobileMenuOpen)}
+    const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-2 bg-background">
@@ -27,7 +29,7 @@
         {/* desktop nav */}
           <nav className="hidden md:flex gap-2 justify-center items-center scroll-smooth">
             {navLinks.map((link, index) => (
-                  <Link key={index} className="" href={link.href}>
+                  <Link key={index} className={`${pathname.concat('#portfolio') === '#portfolio' && 'text-accent'} hover:text-accent`} href={link.href}>
                       {link.label}
                   </Link>
                   ))}

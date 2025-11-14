@@ -4,5 +4,5 @@ export type ExperienceType = {
     company:string
     startPeriod:string
     endPeriod:string
-    resposibilities:string[]
+    responsibilities:{id:number, description:string}[]
 }

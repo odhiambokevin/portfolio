@@ -16,167 +16,175 @@ import { backendUrl } from '@/lib/constants';
 import { toast } from "sonner";
 
 export default function Home() {
-  const formData = {'name':'','email':'','subject':'','message':''};
-  const sleep = (ms:number) => new Promise(r => setTimeout(r, ms));
+  const formData = { 'name': '', 'email': '', 'subject': '', 'message': '' };
+  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
   const [errormsg, setErrorMsg] = useState('');
   const submitSchema = yup.object().shape({
     name: yup.string().required("your name goes up here 😊"),
     email: yup.string().email("invalid email").required("you know the drill.."),
     message: yup.string().required("please write a brief message"),
-   
+
   });
-  
+
   return (
-   <main className="">
-    <section id="home" className="flex h-[100svh] scroll-mt-[120px] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
-      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
+    <main className="">
+      <section id="home" className="flex h-[100svh] scroll-mt-[120px] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
+        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
           <div className="relative z-2 pt-8">
-              <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">geospatial developer<span className="text-accent text-5xl text-accent">.</span></h1>
-              <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">hi, i&apos;m kevin, a fullstack geospatial developer from kenya. i specialize in <span className="text-accent">GIS</span> apps with secure and automated spatial database design</p>
-              <Link href="/#portfolio" className="relative inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-1 focus:ring-accent/60">
-                  my work
-                  <span className="absolute top-0 bottom-0 right-0 hover:text-accent w-full flex items-center justify-end"><svg className="w-5 h-3.5 ml-2 -mr- " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg></span>
-              </Link>
-              <Link href="#contact" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-400 rounded-lg hover:bg-accent focus:ring-4 focus:ring-accent/60">
-                  contact me
-              </Link> 
+            <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">geospatial developer<span className="text-accent text-5xl text-accent">.</span></h1>
+            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">hi, i&apos;m kevin, a fullstack geospatial developer from kenya. i specialize in <span className="text-accent">GIS</span> apps with secure and automated spatial database design</p>
+            <Link href="/#portfolio" className="relative inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-1 focus:ring-accent/60">
+              my work
+              <span className="absolute top-0 bottom-0 right-0 hover:text-accent w-full flex items-center justify-end"><svg className="w-5 h-3.5 ml-2 -mr- " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg></span>
+            </Link>
+            <Link href="#contact" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-gray-400 rounded-lg hover:bg-accent focus:ring-4 focus:ring-accent/60">
+              contact me
+            </Link>
           </div>
-          
-          
-      </div>
-      <Image src="/images/me.png" alt="mockup" className="relative z-[1] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority/>              
-    </section>
-
-  <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
-   <h1 className="text-center text-5xl text-accent">portfolio</h1>
-    <div className="columns-2 md:columns-3 lg:columns-4 space-y-4 mt-[40px] px-4">
-      {portfolioData.slice(0,6).map((portfolio,index)=>(
-        <Link key={index} href={'/#portfolio'}>
-          <div className="bg-gray-100 rounded-lg overflow-hidden">
-            <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
-              className="h-auto max-w-full object-cover object-top" width={600} height={400} />
-          </div>
-        </Link>
-      ))}
-
-    </div>
-    </section>
 
 
-    <section id="skill" className="h-[100svh] scroll-mt-[90px] py-4">
-      <div className="py-4">
-      <div className="max-w-screen-xl mx-auto">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-center text-5xl text-accent">skills</h1>
         </div>
+        <Image src="/images/me.png" alt="mockup" className="relative z-[1] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority />
+      </section>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
-          {skillData.slice(0,6).map((skill,index)=>(
-            <div key={index} className="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
-            
-              <Image src={`/images/skill/${skill.image}`} alt="img-1"
-          className="w-[25px]" width={25} height={25} />
-            <h3 className="text-slate-900 text-lg font-medium mb-2">{skill.title}</h3>
-            
-            <p className="text-[15px] leading-relaxed text-slate-600">{skill.description}</p>
-          </div>
-
-          ))}
-        </div>
-      </div>
-    </div>
-    </section>
-
-    <section id="experience" className="h-[100svh] scroll-mt-[120px] py-4">
-      <h1 className=" text-center text-5xl text-accent">experience</h1>
-       <div className="grid grid-cols-3 gap-4 pt-[56px] mx-[40px]">
-     
-        <div className='w-full max-w-md'>
-      <Tabs defaultValue='yaspi' className='flex-row'>
-        <TabsList className='bg-background h-full flex-col rounded-none p-0'>
-          {experienceData.map(experience => (
-            <TabsTrigger
-              key={experience.id}
-              value={experience.company}
-              className='bg-background data-[state=active]:border-primary dark:data-[state=active]:border-primary h-full w-full justify-start rounded-none border-0 border-l-2 border-transparent data-[state=active]:shadow-none'
-            >
-              {experience.company}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-
-        {experienceData.map(experience => (
-          <TabsContent key={experience.id} value={experience.company}>
-            <div>
-              <h1>{experience.role}</h1>
-              <div className="flex gap-4 items-center">
-               <p className='text-muted-foreground text-sm'>{experience.startPeriod}</p> - <p className='text-muted-foreground text-sm'>{experience.endPeriod}</p>
-
+      <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
+        <h1 className="text-center text-5xl text-accent">portfolio</h1>
+        <div className="columns-2 md:columns-3 lg:columns-4 space-y-4 mt-[40px] px-4">
+          {portfolioData.slice(0, 6).map((portfolio, index) => (
+            <Link key={index} href={'/#portfolio'}>
+              <div className="bg-gray-100 rounded-lg overflow-hidden">
+                <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
+                  className="h-auto max-w-full object-cover object-top" width={600} height={400} />
               </div>
+            </Link>
+          ))}
 
+        </div>
+      </section>
+
+      <section id="skill" className="h-[100svh] scroll-mt-[90px] py-4">
+        <div className="py-4">
+          <div className="max-w-screen-xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-center text-5xl text-accent">skills</h1>
             </div>
-            
-          </TabsContent>
-        ))}
-      </Tabs>
-    </div>      
-      </div>
-    </section>
 
-    <section className="max-w-screen-xl mx-auto scroll-mt-[120px] h-[100svh]" id='map'>
-      <h1 className="text-center text-5xl text-accent mb-[40px]"> maps</h1>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        {mapData.slice(0,6).map((map,index)=>(
-          <Link href={`map/${map.slug}`} key={index} className=" bg-gray-100 overflow-hidden relative before:absolute before:inset-0 before:bg-black before:opacity-30 hover:before:bg-orange-600">
-            <Image src={`/images/map/${map.image}`} alt={`${map.slug}`} width={400} height={100}
-              className="h-full max-w-full object-cover object-top" />
-          </Link>
-        ))}
-      </div>
-      <Link href="/map" className="mt-4 mx-auto inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
-        view all
-      </Link>
-    </section>
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
+              {skillData.slice(0, 6).map((skill, index) => (
+                <div key={index} className="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
 
-    <section id="blog" className="scroll-mt-[120px] py-4">
-      <h1 className="text-5xl text-accent text-center">latest blogs</h1>
-      <div className="flex flex-wrap gap-4 justify-center pt-[56px]">
-      {blogData.slice(0,6).map((blog,index)=>(
-        <BlogCard blog={blog} key={index}/>
-      ))}
-      </div>
-      <div className="mx-auto">
-      <Link href="blog" className="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
-        view all
-      </Link>
-      </div>
-    </section>
+                  <Image src={`/images/skill/${skill.image}`} alt="img-1"
+                    className="w-[25px]" width={25} height={25} />
+                  <h3 className="text-slate-900 text-lg font-medium mb-2">{skill.title}</h3>
 
-    <section id="contact" className="h-[100svh] scroll-mt-[100px] py-4">
-      <div className="text-center text-5xl text-accent">contact</div>
-      <div className="grid lg:grid-cols-2 items-start gap-16 pt-[56px] mx-auto max-w-5xl max-lg:max-w-2xl">
-        <div>
-          <h2 className="text-text-mild text-3xl font-bold">Let&apos;s Talk</h2>
-          <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Do you have a project requiring a digital solution? I&apos;d love to hear more about it as we enage and move it from idea an into a digital product.</p>
-          <div className="mt-12">
-            <h2 className="text-text-mild text-base font-semibold">email</h2>
-            <div className="mt-4 flex items-center">
-              <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#000'
-                  viewBox="0 0 479.058 479.058">
-                  <path
-                    d="M434.146 59.882H44.912C20.146 59.882 0 80.028 0 104.794v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159L239.529 264.631 39.173 90.982a14.902 14.902 0 0 1 5.738-1.159zm0 299.411H44.912c-8.26 0-14.971-6.71-14.971-14.971V122.615l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z"
-                    data-original="#000000" />
-                </svg>
-              </div>
-              <Link href="javascript:void(0)" className="text-sm ml-4">
-                <span className="font-light text-accent">odhiambosiaya@proton.me</span>
-              </Link>
-            </div> 
+                  <p className="text-[15px] leading-relaxed text-slate-600">{skill.description}</p>
+                </div>
+
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-12">
-            <h2 className="text-text-mild text-base font-semibold">Socials</h2>
+      <section id="experience" className="h-[100svh] scroll-mt-[120px] py-4">
+        <h1 className=" text-center text-5xl text-accent">experience</h1>
+        <div className="p-[56px] ">
+          <div className='w-full ml-[20%]'>
+            <Tabs defaultValue='yaspi' className='flex-row gap-4'>
+              <TabsList className='bg-background h-full flex-col rounded-none'>
+                {experienceData.map(experience => (
+                  <TabsTrigger
+                    key={experience.id}
+                    value={experience.company}
+                    className='bg-background text-muted-foreground dark:data-[state=active]:text-accent data-[state=active]:text-accent data-[state=active]:border-accent dark:data-[state=active]:border-accent h-full w-full justify-start rounded-none border-0 border-l-2 border-transparent data-[state=active]:shadow-none'
+                  >
+                    {experience.company}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {experienceData.map(experience => (
+                <TabsContent key={experience.id} value={experience.company}>
+                  <div className='flex flex-col gap-2'>
+                    <div className='flex gap-4'>
+                      <h1>{experience.role}&nbsp; {experience.company != 'freelance' && <><span className='text-text-mild'>@</span> <span className='text-accent'>{experience.company}</span></>}</h1>
+                    </div>
+                    <div className="flex gap-4 items-center">
+                      <p className='text-muted-foreground text-sm'>{experience.startPeriod}</p> - <p className='text-muted-foreground text-sm'>{experience.endPeriod}</p>
+                    </div>
+                    <div className='flex flex-col gap-2'>
+                      {experience.responsibilities.map((responsibility) => (
+                        <div key={responsibility.id} className='flex gap-2'>
+                          <Image src={`/images/check.svg`} alt="img-1" className="w-[15px] " width={15} height={15} />
+                          <div className='text-text-mild'>{responsibility.description}</div>
+                        </div>
+                      ))}
+
+                    </div>
+                  </div>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-screen-xl mx-auto scroll-mt-[120px] h-[100svh]" id='map'>
+        <h1 className="text-center text-5xl text-accent mb-[40px]"> maps</h1>
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {mapData.slice(0, 6).map((map, index) => (
+            <Link href={`map/${map.slug}`} key={index} className=" bg-gray-100 overflow-hidden relative before:absolute before:inset-0 before:bg-black before:opacity-30 hover:before:bg-orange-600">
+              <Image src={`/images/map/${map.image}`} alt={`${map.slug}`} width={400} height={100}
+                className="h-full max-w-full object-cover object-top" />
+            </Link>
+          ))}
+        </div>
+        <div className='mt-2 flex justify-center'>
+        <Link href="/maps" className="mt-4 inline-flex px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
+          view all
+        </Link>
+        </div>
+      </section>
+
+      <section id="blog" className="scroll-mt-[120px] py-4">
+        <h1 className="text-5xl text-accent text-center">latest blogs</h1>
+        <div className="flex flex-wrap gap-4 justify-center pt-[56px]">
+          {blogData.slice(0, 6).map((blog, index) => (
+            <BlogCard blog={blog} key={index} />
+          ))}
+        </div>
+        <div className="mt-2 flex justify-center">
+          <Link href="blog" className=" mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
+            view all
+          </Link>
+        </div>
+      </section>
+
+      <section id="contact" className="h-[100svh] scroll-mt-[100px] py-4">
+        <div className="text-center text-5xl text-accent">contact</div>
+        <div className="grid lg:grid-cols-2 items-start gap-16 pt-[56px] mx-auto max-w-5xl max-lg:max-w-2xl">
+          <div>
+            <h2 className="text-text-mild text-3xl font-bold">Let&apos;s Talk</h2>
+            <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Do you have a project requiring a digital solution? I&apos;d love to hear more about it as we enage and move it from idea an into a digital product.</p>
+            <div className="mt-12">
+              <h2 className="text-text-mild text-base font-semibold">email</h2>
+              <div className="mt-4 flex items-center">
+                <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#000'
+                    viewBox="0 0 479.058 479.058">
+                    <path
+                      d="M434.146 59.882H44.912C20.146 59.882 0 80.028 0 104.794v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159L239.529 264.631 39.173 90.982a14.902 14.902 0 0 1 5.738-1.159zm0 299.411H44.912c-8.26 0-14.971-6.71-14.971-14.971V122.615l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z"
+                      data-original="#000000" />
+                  </svg>
+                </div>
+                <Link href="javascript:void(0)" className="text-sm ml-4">
+                  <span className="font-light text-accent">odhiambosiaya@proton.me</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <h2 className="text-text-mild text-base font-semibold">Socials</h2>
               <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                 <Link href="https://github.com/odhiambokevin" target="_blank">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill='#000'
@@ -187,78 +195,78 @@ export default function Home() {
                   </svg>
                 </Link>
               </div>
+            </div>
           </div>
-        </div>
-        <Formik
-        onSubmit={async (values,{setSubmitting,resetForm})=>{
-          setSubmitting(true);
-          await sleep(3000);
-          try {
-              await axios.post(`${backendUrl}/api/feedback/`, values)
-              .then((res)=>{ toast.success("sent successfully");setSubmitting(false);resetForm() })
-          
-        } catch (error) {
-          setSubmitting(false);
-          if (error instanceof Error) {
-            console.log('block 1' + error);
-            setErrorMsg(`${error.message}`);
-            toast.error(errormsg)
-          } else if (error && typeof error === 'object' && 'message' in error) {
-            console.log('block 2' + error);
-            setErrorMsg(`${error.message}`);
-            toast.error(errormsg);
-          } else if (typeof error === "string"){
-            console.log('block 3' + error);
-            setErrorMsg(`${error}`);
-            toast.error(errormsg);
+          <Formik
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+              setSubmitting(true);
+              await sleep(3000);
+              try {
+                await axios.post(`${backendUrl}/api/feedback/`, values)
+                  .then((res) => { toast.success("sent successfully"); setSubmitting(false); resetForm() })
 
-          } else {
-            toast.error('something went wrong')
-          }         
-          
-        }
+              } catch (error) {
+                setSubmitting(false);
+                if (error instanceof Error) {
+                  console.log('block 1' + error);
+                  setErrorMsg(`${error.message}`);
+                  toast.error(errormsg)
+                } else if (error && typeof error === 'object' && 'message' in error) {
+                  console.log('block 2' + error);
+                  setErrorMsg(`${error.message}`);
+                  toast.error(errormsg);
+                } else if (typeof error === "string") {
+                  console.log('block 3' + error);
+                  setErrorMsg(`${error}`);
+                  toast.error(errormsg);
 
-        }}
-        initialValues={formData}
-        validationSchema={submitSchema}>  
-                        {({ isSubmitting }) => (
+                } else {
+                  toast.error('something went wrong')
+                }
+
+              }
+
+            }}
+            initialValues={formData}
+            validationSchema={submitSchema}>
+            {({ isSubmitting }) => (
               <Form className="relative lg:ml-auto space-y-4">
-                  {isSubmitting && (<div className="flex flex-wrap gap-16 max-w-md mx-auto mt-12">
+                {isSubmitting && (<div className="flex flex-wrap gap-16 max-w-md mx-auto mt-12">
                   <div className="spinner-4 absolute w-12 animate-spin top-[70%] left-[45%]">
                     <div className="absolute top-0 left-0  bg-accent w-4 h-4 rounded-full"></div>
                     <div className="absolute top-1/2 right-0 bg-slate-400 w-4 h-4 rounded-full"></div>
                   </div>
                 </div>)}
-               
+
 
 
                 <Field type='text' placeholder='Name' name="name" id="name"
                   className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
                 <ErrorMessage name="name" />
-                
+
                 <Field type='email' placeholder='Email' name="email" id="email"
                   className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
                 <ErrorMessage name="email" />
-                
+
                 <Field type='text' placeholder='Subject' name="subject" id="subject"
                   className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
-              
+
                 <Field placeholder='Message' rows={6} as="textarea" name="message" id="message"
                   className="w-full rounded-md px-4 bg-slate-100 text-slate-900 text-sm pt-3 border border-gray-200 focus:border-slate-900 outline-none"
-                  />
-                
-                  <ErrorMessage name="message" className=""/>
+                />
+
+                <ErrorMessage name="message" className="" />
                 <button type='submit' disabled={isSubmitting}
                   className="text-white bg-accent/90 hover:bg-accent tracking-wide rounded-md text-sm font-medium px-4 py-3 w-full cursor-pointer !mt-2 border-0">Send message</button>
-            
-              </Form>
-              
-              )}
-        </Formik>     
-        
-      </div>
-    </section>
 
-   </main>
+              </Form>
+
+            )}
+          </Formik>
+
+        </div>
+      </section>
+
+    </main>
   );
 }
