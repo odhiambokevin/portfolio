@@ -51,7 +51,7 @@ export default function Home() {
         <h1 className="text-center text-5xl text-accent">portfolio</h1>
         <div className="columns-2 md:columns-3 lg:columns-4 gap-8  mt-[40px] px-4">
           {portfolioData.slice(0, 6).map((portfolio, index) => (
-            <Link key={index} href={`${portfolio.url}`} >
+            <Link key={index} href={`${portfolio.url}`} target='_blank' >
               <div className="bg-gray-100 rounded-lg overflow-hidden">
                 <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
                   className="h-auto max-w-full object-cover object-top p-8" width={600} height={400} />
