@@ -1,4 +1,4 @@
-"""view for root path ie /"""
+"""view for root path /"""
 from django.shortcuts import render
 
 def home(request):

@@ -31,7 +31,7 @@ export default function Home() {
       <section id="home" className="flex h-[100svh] scroll-mt-[120px] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
           <div className="relative z-2 pt-8">
-            <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">geospatial developer<span className="text-accent text-5xl text-accent">.</span></h1>
+            <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">geospatial developer<span className="text-accent text-5xl">.</span></h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">hi, i&apos;m kevin, a fullstack geospatial developer from kenya. i specialize in <span className="text-accent">GIS</span> apps with secure and automated spatial database design</p>
             <Link href="/#portfolio" className="relative inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-1 focus:ring-accent/60">
               my work
@@ -49,12 +49,12 @@ export default function Home() {
 
       <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
         <h1 className="text-center text-5xl text-accent">portfolio</h1>
-        <div className="columns-2 md:columns-3 lg:columns-4 space-y-4 mt-[40px] px-4">
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-8  mt-[40px] px-4">
           {portfolioData.slice(0, 6).map((portfolio, index) => (
-            <Link key={index} href={'/#portfolio'}>
+            <Link key={index} href={`${portfolio.url}`} >
               <div className="bg-gray-100 rounded-lg overflow-hidden">
                 <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
-                  className="h-auto max-w-full object-cover object-top" width={600} height={400} />
+                  className="h-auto max-w-full object-cover object-top p-8" width={600} height={400} />
               </div>
             </Link>
           ))}
@@ -71,7 +71,7 @@ export default function Home() {
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
               {skillData.slice(0, 6).map((skill, index) => (
-                <div key={index} className="bg-purple-50 text-left border border-gray-300 rounded-3xl p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
+                <div key={index} className="bg-purple-50 text-left border border-gray-300 p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
 
                   <Image src={`/images/skill/${skill.image}`} alt="img-1"
                     className="w-[25px]" width={25} height={25} />

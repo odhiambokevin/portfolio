@@ -1,17 +1,18 @@
 import {PortfolioType} from '@/lib/types/Portfolio.types';
 
 export const portfolioData: PortfolioType[] = [
-  {
+    {
         id:1,
-        title:"crabstack",
-        slug:"crabstack",
-        sector:"media firm",
-        skills: "media, branding, photography",
-        image:"crab.png",
+        title:"wekeza",
+        slug:"wekeza",
+        sector:"finance",
+        skills: "dashboard, security, database",
+        image:"wekeza.png",
         stack:"react django",
-        url:"http://crabstack.vercel.app",
-        date:"June 23 2024"
+        url:"https://wekeza.yaspi.tech",
+        date:"June 23 2025"
     },
+  
     {
         id:2,
         title:"yaspi",
@@ -25,15 +26,16 @@ export const portfolioData: PortfolioType[] = [
     },
     {
         id:3,
-        title:"angani",
-        slug:"angani",
-        sector:"airport management dashboard",
-        skills: "dashboard, security, database",
+        title:"crabstack",
+        slug:"crabstack",
+        sector:"media firm",
+        skills: "media, branding, photography",
         image:"crab.png",
         stack:"react django",
-        url:"http://aviation.yaspi.tech",
+        url:"http://crabstack.vercel.app",
         date:"June 23 2024"
     },
+  
     {
         id:4,
         title:"african lakes hub",
