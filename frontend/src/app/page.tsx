@@ -51,8 +51,8 @@ export default function Home() {
         <h1 className="text-center text-5xl text-accent">portfolio</h1>
         <div className="columns-2 md:columns-3 lg:columns-4 gap-8  mt-[40px] px-4">
           {portfolioData.slice(0, 6).map((portfolio, index) => (
-            <Link key={index} href={`${portfolio.url}`} target='_blank' >
-              <div className="bg-gray-100 rounded-lg overflow-hidden">
+            <Link key={index} href={`${portfolio.url}`} target='_blank'className='' >
+              <div className="bg-gray-100 rounded-lg overflow-hidden hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
                 <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
                   className="h-auto max-w-full object-cover object-top p-8" width={600} height={400} />
               </div>
@@ -167,8 +167,8 @@ export default function Home() {
         <div className="text-center text-5xl text-accent">contact</div>
         <div className="grid lg:grid-cols-2 items-start gap-16 pt-[56px] mx-auto max-w-5xl max-lg:max-w-2xl">
           <div>
-            <h2 className="text-text-mild text-3xl font-bold">Jambo</h2>
-            <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Do you have a project requiring a digital solution? I&apos;d love to hear more about it as we enage and move it from idea to a digital product.</p>
+            <h2 className="text-text-mild text-3xl font-bold">jambo</h2>
+            <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">do you have a project requiring a digital solution? I&apos;d love to hear more about it as we enage and move it from idea to a digital product.</p>
             <div className="mt-12">
               <h2 className="text-text-mild text-base font-semibold">email</h2>
               <div className="mt-4 flex items-center">

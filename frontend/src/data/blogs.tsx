@@ -15,7 +15,7 @@ export const blogData: BlogType[] = [
     }, 
     {
         id:2,
-        title:"React Dispatch not working: ReduxToolkit",
+        title:"react dispatch not working: ReduxToolkit",
         subtitle:"At times, you may notice that your redux actions are not getting dispatched...",
         slug: "react-dispatch-not-working",
         author:"kevin",
@@ -51,7 +51,7 @@ export const blogData: BlogType[] = [
     },
     {
         id:5,
-        title:"Geoserver layer preview not working",
+        title:"geoserver layer preview not working",
         subtitle:"I encountered this problem when running Geoserver on my local machine with Java version 17...",
         slug: "layer-preview-not-working-geoserver",
         author:"kevin",
