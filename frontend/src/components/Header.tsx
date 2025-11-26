@@ -46,7 +46,7 @@
 
         {/* mobile nav */}
         
-          <nav className={`${mobileMenuOpen ? "fixed z-2 flex flex-col gap-[24px] top-[72px] left-0 w-full h-screen py-[32px] px-[24px] transition-all duration-300 ease-out bg-white" : "fixed flex flex-col gap-[24px] top-[72px] -left-[100%] h-screen py-[32px] px-[24px] transition-all duration-500 ease-in-out"}`}>
+          <nav className={`${mobileMenuOpen ? "fixed z-2 flex flex-col gap-[24px] top-[72px] left-0 w-full h-screen py-[32px] px-[24px] transition-all duration-300 ease-out bg-background" : "fixed flex flex-col gap-[24px] top-[72px] -left-[100%] h-screen py-[32px] px-[24px] transition-all duration-500 ease-in-out"}`}>
             {navLinks.map((link, index) => (
                   <Link key={index} className="relative left-[12px] text-[24px] transition-all duration-300" href={link.href} onClick={()=>setMobileMenuOpen(false)}>
                       {link.label}
