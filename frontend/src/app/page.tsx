@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <main className="overflow-x-hidden">
-      <section id="home" className="flex h-[100svh] scroll-mt-[120px] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
+      <section id="home"  className="flex h-[100svh] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
           <div className="relative z-1 pt-8">
             <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">geospatial developer<span className="text-accent text-5xl">.</span></h1>
@@ -47,7 +47,7 @@ export default function Home() {
         <Image src="/images/me.png" alt="mockup" className="relative z-[1] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority />
       </section>
 
-      <section id="portfolio" className="h-[100svh] scroll-mt-[120px] py-4">
+      <section id="portfolio" className="scroll-mt-[120px] py-4">
         <h1 className="text-center text-5xl text-accent">portfolio</h1>
         <div className="columns-2 md:columns-3 lg:columns-4 gap-8  mt-[40px] px-4">
           {portfolioData.slice(0, 6).map((portfolio, index) => (
@@ -62,20 +62,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skill" className="h-[100svh] scroll-mt-[90px] py-4">
+      <section id="skill" className="scroll-mt-[90px] py-4 max-md:px-4">
         <div className="py-4">
           <div className="max-w-screen-xl mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-center text-5xl text-accent">skills</h1>
             </div>
 
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-md:max-w-lg mx-auto mt-16 max-md:px-2">
               {skillData.slice(0, 6).map((skill, index) => (
-                <div key={index} className="bg-purple-50 text-left border border-gray-300 p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
+                <div key={index} className="group bg-purple-50 text-left border border-gray-300 p-6 transform hover:-translate-y-1 hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
 
                   <Image src={`/images/skill/${skill.image}`} alt="img-1"
                     className="w-[25px]" width={25} height={25} />
-                  <h3 className="text-slate-900 text-lg font-medium mb-2">{skill.title}</h3>
+                  <h3 className="text-slate-900 text-lg font-medium mb-2 group-hover:text-accent">{skill.title}</h3>
 
                   <p className="text-[15px] leading-relaxed text-slate-600">{skill.description}</p>
                 </div>
@@ -86,17 +86,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="h-[100svh] scroll-mt-[120px] py-4">
+      <section id="experience" className="scroll-mt-[120px] py-4 min-h-[100svh] relative">
         <h1 className=" text-center text-5xl text-accent">experience</h1>
-        <div className="p-[56px] ">
-          <div className='w-full ml-[20%]'>
-            <Tabs defaultValue='yaspi' className='flex-row gap-4'>
-              <TabsList className='bg-background h-full flex-col rounded-none'>
+        <div className="p-[56px]">
+          <div className='w-full md:ml-[20%] p-2'>
+            <Tabs defaultValue='yaspi' className='flex md:flex-row gap-4'>
+              <TabsList className='bg-background h-full flex-col rounded-none  p-4'>
                 {experienceData.map(experience => (
                   <TabsTrigger
                     key={experience.id}
                     value={experience.company}
-                    className='bg-background text-muted-foreground dark:data-[state=active]:text-accent data-[state=active]:text-accent data-[state=active]:border-accent dark:data-[state=active]:border-accent h-full w-full justify-start rounded-none border-0 border-l-2 border-transparent data-[state=active]:shadow-none'
+                    className='cursor-pointer data-[state=active]:bg-muted dark:bg-background text-muted-foreground dark:data-[state=active]:text-accent/85 data-[state=active]:text-accent data-[state=active]:border-accent dark:data-[state=active]:border-accent h-full w-full justify-start rounded-none border-0 border-l-2 border-muted data-[state=active]:shadow-none transition-color duration-200'
                   >
                     {experience.company}
                   </TabsTrigger>
@@ -127,9 +127,12 @@ export default function Home() {
             </Tabs>
           </div>
         </div>
+        <div className='absolute bottom-[5%] md:bottom-[30%] mx-[20%] w-2/3 sm:w-9/12 mt-8 h-[2px] bg-slate-300 dark:bg-muted'></div>
+
+        
       </section>
 
-      <section className="max-w-screen-xl mx-auto scroll-mt-[120px] h-[100svh]" id='map'>
+      <section className="max-w-screen-xl mx-auto scroll-mt-[120px]" id='map'>
         <h1 className="text-center text-5xl text-accent mb-[40px]"> maps</h1>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           {mapData.slice(0, 6).map((map, index) => (

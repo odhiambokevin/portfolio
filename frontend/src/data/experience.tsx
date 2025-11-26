@@ -35,7 +35,7 @@ export const experienceData: ExperienceType[] = [
         endPeriod:"dec 2021",
         responsibilities:[
             {id:1, description:"geospatial data quality control"},
-            {id:2, description:"assess development of portal eg. api endpoint security, spatial standards"},
+            {id:2, description:"assess api endpoints security, spatial standards"},
             {id:3, description:"digitization of natural history specimens and managing databases"},
             {id:4, description:"mining species data from literature and other databases"},
             {id:5, description:"digital mapping products for project use"},
