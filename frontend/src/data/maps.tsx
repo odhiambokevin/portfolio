@@ -25,16 +25,4 @@ export const mapData: MapType[] = [
         image:"richness.png",
         date: "July 31 2025"
     }, 
-    {
-        id:3,
-        title:"species richness",
-        subtitle:"plant species richness in kenya",
-        slug: "richness",
-        author:"kevin",
-        time:"5",
-        size: "big",
-        credit:"data from: museum.or.ke",
-        image:"siaya.png",
-        date: "July 31 2025"
-    }, 
 ]
