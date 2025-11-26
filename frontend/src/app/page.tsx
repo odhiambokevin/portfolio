@@ -142,7 +142,7 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <div className='mt-2 flex justify-center'>
+        <div className='mt-2 mb-8 flex justify-center'>
         <Link href="/maps" className="mt-4 inline-flex px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
           view all
         </Link>
@@ -168,7 +168,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 items-start gap-16 pt-[56px] mx-auto max-w-5xl max-lg:max-w-2xl">
           <div>
             <h2 className="text-text-mild text-3xl font-bold">Let&apos;s Talk</h2>
-            <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Do you have a project requiring a digital solution? I&apos;d love to hear more about it as we enage and move it from idea an into a digital product.</p>
+            <p className="text-[15px] text-slate-600 mt-4 leading-relaxed">Do you have a project requiring a digital solution? I&apos;d love to hear more about it as we enage and move it from idea to a digital product.</p>
             <div className="mt-12">
               <h2 className="text-text-mild text-base font-semibold">email</h2>
               <div className="mt-4 flex items-center">
