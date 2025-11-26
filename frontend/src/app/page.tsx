@@ -44,7 +44,7 @@ export default function Home() {
 
 
         </div>
-        <Image src="/images/me.png" alt="mockup" className="relative z-[1] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority />
+        <Image src="/images/me.png" alt="profile" className="relative max-md:-left-[70px] max-md:mt-[50px] z-[1] max-md:h-[600px] max-md:w-[250px] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority />
       </section>
 
       <section id="portfolio" className="scroll-mt-[120px] py-4">
