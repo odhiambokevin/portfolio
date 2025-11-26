@@ -157,7 +157,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-2 flex justify-center">
-          <Link href="blog" className=" mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
+          <Link href="blog" className="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-muted text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
             view all
           </Link>
         </div>
@@ -250,18 +250,18 @@ export default function Home() {
 
 
 
-                <Field type='text' placeholder='Name' name="name" id="name"
+                <Field type='text' placeholder='name' name="name" id="name"
                   className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
                 <ErrorMessage name="name" />
 
-                <Field type='email' placeholder='Email' name="email" id="email"
+                <Field type='email' placeholder='email' name="email" id="email"
                   className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
                 <ErrorMessage name="email" />
 
-                <Field type='text' placeholder='Subject' name="subject" id="subject"
+                <Field type='text' placeholder='subject' name="subject" id="subject"
                   className="w-full rounded-md py-3 px-4 bg-slate-100 text-slate-900 text-sm border border-gray-200 focus:border-slate-900 outline-none" />
 
-                <Field placeholder='Message' rows={6} as="textarea" name="message" id="message"
+                <Field placeholder='message' rows={6} as="textarea" name="message" id="message"
                   className="w-full rounded-md px-4 bg-slate-100 text-slate-900 text-sm pt-3 border border-gray-200 focus:border-slate-900 outline-none"
                 />
 
