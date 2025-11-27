@@ -1,10 +1,9 @@
+import Search from "@/components/search";
 import { blogData } from "@/data/blogs";
 import Image from "next/image";
 import Link from "next/link";
-// import { FormEvent, useEffect, useRef, useState } from "react";
-import { MdSearch } from "react-icons/md";
 
-export default async function Page({
+export default async function BlogDetail({
   params,
 }: {
   params: Promise<{ blogslug: string }>
@@ -94,7 +93,7 @@ export default async function Page({
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">
                       <h4 className="mb-3 text-sm font-medium">
-                        Popular Tags :
+                        popular tags :
                       </h4>
                       <div className="flex items-center">
                         <p>tag button 1</p>
@@ -104,7 +103,7 @@ export default async function Page({
                     </div>
                     <div className="mb-5">
                       <h5 className="mb-3 text-sm font-medium sm:text-right">
-                        Share this post :
+                        share this post :
                       </h5>
                       <div className="flex items-center sm:justify-end">
                         share post
@@ -116,29 +115,20 @@ export default async function Page({
 
     </div>
     <div className="w-full px-4 lg:w-4/12">
-      <div className="mb-10 mt-12 rounded-sm bg-text-mild/20 p-6 shadow-three lg:mt-0">
-               <div className="relative w-3/4 mx-auto">
-                <form className={`relative flex items-center gap-[8px] bg-gray-400/90 p-[4px] rounded-[8px] `}>
-                    <input type="text" placeholder="Search" className="bg-transparent px-1 text-white outline-0"/>
-                    <button className="absolute top-0 right-0 bottom-0 bg-accent rounded-md rounded-bl-none rounded-tl-none px-2 py-[px] cursor-pointer">
-                    <MdSearch className="text-2xl "/>
-                    </button>
-                </form>
-              </div>
-              </div>
+      <Search />
               <div className="mb-10 rounded-sm bg-text-mild/20 shadow-three">
                 <h3 className="border-b border-text-mild/20 border-opacity-10 px-8 py-4 text-lg font-semibold">
-                  Related Posts
+                  related Posts
                 </h3>
                 <div className="flex flex-col p-8 text-text-mild">
                   <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-                    Django is cool
+                    django is cool
                   </Link >
                   <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-                    Storing passwords in databases
+                    storing passwords in databases
                   </Link>
                   <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-                    Managing websockets
+                    managing websockets
                   </Link>
                 </div>
               </div>

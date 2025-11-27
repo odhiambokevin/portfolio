@@ -52,7 +52,7 @@ export default function Home() {
         <div className="columns-2 md:columns-3 lg:columns-4 gap-8  mt-[40px] px-4">
           {portfolioData.slice(0, 6).map((portfolio, index) => (
             <Link key={index} href={`${portfolio.url}`} target='_blank'className='' >
-              <div className="bg-gray-100 rounded-lg overflow-hidden hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
+              <div className="bg-gray-100 overflow-hidden hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
                 <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
                   className="h-auto max-w-full object-cover object-top p-8" width={600} height={400} />
               </div>
@@ -136,7 +136,7 @@ export default function Home() {
         <h1 className="text-center text-5xl text-accent mb-[40px]"> maps</h1>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           {mapData.slice(0, 6).map((map, index) => (
-            <Link href={`map/${map.slug}`} key={index} className=" bg-gray-100 overflow-hidden relative before:absolute before:inset-0 before:bg-black before:opacity-30 hover:before:bg-orange-600">
+            <Link href={`maps/${map.slug}`} key={index} className=" bg-gray-100 overflow-hidden relative before:absolute before:inset-0 before:bg-black before:opacity-30 hover:before:bg-orange-600">
               <Image src={`/images/map/${map.image}`} alt={`${map.slug}`} width={400} height={100}
                 className="h-full max-w-full object-cover object-top" />
             </Link>
