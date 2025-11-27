@@ -75,7 +75,7 @@ export const blogData: BlogType[] = [
     },
     {
         id:7,
-        title:"AttributeError: 'NoneType' object has no attribute 'some_field'",
+        title:"attributeerror: 'nonetype' object has no attribute 'some_field'",
         subtitle:"it's a foreign key related issue",
         slug: "nonetype-no-attribute",
         author:"kevin",
@@ -123,7 +123,7 @@ export const blogData: BlogType[] = [
     },
     {
         id:10,
-        title:"cant't set JAVA_HOME for Tomcat on Ubuntu",
+        title:"can't set JAVA_HOME for Tomcat on Ubuntu",
         subtitle:"why is Tomcat not getting my JAVA_HOME path?",
         slug: "tomcat",
         author:"kevin",
