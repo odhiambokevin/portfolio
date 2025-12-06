@@ -151,7 +151,7 @@ export default function Home() {
 
       <section id="blog" className="scroll-mt-[120px] py-4">
         <h1 className="text-5xl text-accent text-center">latest blogs</h1>
-        <div className="flex flex-wrap gap-4 justify-center pt-[56px]">
+        <div className="flex flex-wrap gap-4 justify-center pt-[56px] px-4">
           {blogData.slice(0, 6).map((blog, index) => (
             <BlogCard blog={blog} key={index} />
           ))}
