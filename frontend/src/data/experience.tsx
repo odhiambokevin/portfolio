@@ -17,8 +17,8 @@ export const experienceData: ExperienceType[] = [
     },
     {
         id:2,
-        role:"cci kenya",
-        company:"contact centre agent",
+        role:"contact centre agent",
+        company:"cci kenya",
         startPeriod:"aug 2024",
         endPeriod:"jan 2025",
         responsibilities:[
