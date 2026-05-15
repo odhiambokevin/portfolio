@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import createMDX from '@next/mdx'
+import nextMDX from '@next/mdx'
  
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   // Optionally, add any other Next.js config below
 }
  
-const withMDX = createMDX({
+const withMDX = nextMDX({
   extension: /\.(md|mdx)$/,
 })
  

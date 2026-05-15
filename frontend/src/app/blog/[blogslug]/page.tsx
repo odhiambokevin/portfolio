@@ -9,7 +9,7 @@ export default async function BlogDetail({
   params: Promise<{ blogslug: string }>
 }) {
   const { blogslug } = await params;
-  const { default: Post } = await import(`@/data/markdown/blog/${blogslug}.md`);
+  const { default: Post } = await import(`@/data/markdown/blog/${blogslug}.mdx`);
   const blog = blogData.find((blog)=> blog.slug === blogslug);
    
   return (
@@ -22,8 +22,7 @@ export default async function BlogDetail({
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4">
                   <div className="flex flex-wrap items-center">
                     <div className="mb-5 mr-10 flex items-center">
-                      
-                     
+                                           
                     </div>
                     <div className="mb-5 flex items-center">
                       <p className="mr-5 flex items-center text-base font-medium">
@@ -81,15 +80,16 @@ export default async function BlogDetail({
                
                 </div>
                 <div>
-                  <p className="mb-10 text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    {blog?.subtitle}
-                  </p>
+
                   <div className="mb-10 w-full overflow-hidden rounded">
-                    <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
+                    <div className="">
                        <Image className="rounded-t-lg h-[250px] object-cover" src={`/images/blog/${blog?.image}`} alt="" width={400} height={200} priority/>
                     </div>
                   </div>
-                  <Post />
+                  <div className="prose prose-invert prose-code:before:content-none prose-code:after:content-none">
+                   <Post />
+                  </div>
+                   <br /> 
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">
                       <h4 className="mb-3 text-sm font-medium">
@@ -106,7 +106,7 @@ export default async function BlogDetail({
                         share this post :
                       </h5>
                       <div className="flex items-center sm:justify-end">
-                        share post
+                       FB
                       </div>
                     </div>
                   </div>

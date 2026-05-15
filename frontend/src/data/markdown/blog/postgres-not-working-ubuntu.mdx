@@ -2,7 +2,7 @@ The way postgres installation for Ubuntu is set, there's no way to explicitly se
 
 Find the line with the user `postgres` and change it from `peer` to `trust` eg.
 
-> local     all     postgres        trust
+<code> local &nbsp;&nbsp; &nbsp;&nbsp; all &nbsp;&nbsp; &nbsp;&nbsp; postgres &nbsp;&nbsp; &nbsp;&nbsp;  trust</code>
 
 Save the file then open a terminal and restart the postgres service by typing
 `sudo systemctl restart postgresql`
@@ -12,9 +12,9 @@ Then connect using the psql client as user postgres.
 
 and alter the user `postgres` and include a password.
 
-<Code language="sql">
+```
     ALTER USER postgres PASSWORD 'mypassword'
-</Code>
+```
 
 Go back to the `pg_hba.conf` file and change from `trust` to `md5`.
 
