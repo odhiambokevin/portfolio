@@ -2,7 +2,7 @@
 import axios from 'axios';
 import BlogCard from "@/components/BlogCard";
 import { blogData } from "@/data/blogs";
-import { mapData } from "@/data/maps";
+import { projectData } from "@/data/projects";
 import { portfolioData } from "@/data/portfolio";
 import { skillData } from "@/data/skill";
 import Image from "next/image";
@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <main className="overflow-x-hidden">
-      <section id="home"  className="flex h-[100svh] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center">
+      <section id="home"  className="flex h-[100svh] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center scroll-mt-[72px]">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
           <div className="relative z-1 pt-8">
             <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">data engineer<span className="text-accent text-5xl">.</span></h1>
@@ -47,20 +47,29 @@ export default function Home() {
         <Image src="/images/me.png" alt="profile" className="relative max-md:-left-[15px] max-md:mt-[50px] z-[1] max-md:h-[600px] max-md:w-[220px] h-[700px] object-contain mt-[-40px]" width={700} height={200} priority />
       </section>
 
-      <section id="portfolio" className="scroll-mt-[120px] py-4">
-        <h1 className="text-center text-5xl text-accent">portfolio</h1>
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-8  mt-[40px] px-4">
-          {portfolioData.slice(0, 6).map((portfolio, index) => (
-            <Link key={index} href={`${portfolio.url}`} target='_blank'className='' >
-              <div className="bg-gray-100 overflow-hidden hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm">
-                <Image src={`/images/portfolio/${portfolio.image}`} alt={`${portfolio.image}`}
-                  className="h-auto max-w-full object-cover object-top p-8" width={600} height={400} />
-              </div>
-            </Link>
-          ))}
-
+<section id="portfolio" className="scroll-mt-[120px] py-4">
+  <h1 className="text-center text-5xl text-accent">portfolio</h1>
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mt-[40px] px-4 max-w-screen-xl mx-auto">
+    {portfolioData.slice(0, 6).map((portfolio, index) => (
+      <Link
+        key={index}
+        href={`${portfolio.url}`}
+        target="_blank"
+        className="block"
+      >
+        <div className="bg-gray-100 overflow-hidden hover:border-accent hover:shadow-accent hover:shadow-md transition-all duration-300 rounded-lg shadow-sm aspect-square flex items-center justify-center">
+          <Image
+            src={`/images/portfolio/${portfolio.image}`}
+            alt={`${portfolio.image}`}
+            className="h-full w-full object-contain p-8"
+            width={600}
+            height={400}
+          />
         </div>
-      </section>
+      </Link>
+    ))}
+  </div>
+</section>
 
       <section id="skill" className="scroll-mt-[90px] py-4 max-md:px-4">
         <div className="py-4">
@@ -132,20 +141,37 @@ export default function Home() {
         
       </section>
 
-      <section className="max-w-screen-xl mx-auto scroll-mt-[120px]" id='map'>
-        <h1 className="text-center text-5xl text-accent mb-[40px]"> maps</h1>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-          {mapData.slice(0, 6).map((map, index) => (
-            <Link href={`maps/${map.slug}`} key={index} className=" bg-gray-100 overflow-hidden relative before:absolute before:inset-0 before:bg-black before:opacity-30 hover:before:bg-orange-600">
-              <Image src={`/images/map/${map.image}`} alt={`${map.slug}`} width={400} height={100}
-                className="h-full max-w-full object-cover object-top" />
-            </Link>
+      <section className="max-w-screen-xl mx-auto scroll-mt-[120px] px-4" id='projects'>
+        <h1 className="text-center text-5xl text-accent mb-[40px]">projects</h1>
+        <div className="max-h-[600px] overflow-y-auto px-6 md:px-16">
+          {projectData.map((project, index) => (
+            <div key={index} className="border-t border-gray-800 first:border-t-0">
+              <Link
+                href={project.url}
+                target="_blank"
+                className="group block py-8 text-center"
+              >
+                <div className="min-w-0">
+                  <div className="flex items-baseline justify-center gap-3">
+                    <span className="text-sm text-gray-500 shrink-0">
+                      {String(index + 1).padStart(2, '0')}.
+                    </span>
+                    <h3 className="text-2xl md:text-3xl xl:text-4xl font-extrabold uppercase tracking-tight text-gray-500 group-hover:text-accent group-hover:scale-[1.02] transition-all duration-200 break-words">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-center justify-center gap-3 mt-3 text-sm text-gray-400">
+                    {project.stack?.map((tech: string, i: number) => (
+                      <span key={i} className="flex items-center gap-3">
+                        {i > 0 && <span className="w-1 h-1 rounded-full bg-gray-600 shrink-0" />}
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            </div>
           ))}
-        </div>
-        <div className='mt-2 mb-8 flex justify-center'>
-        <Link href="/maps" className="mt-4 inline-flex px-3 py-2 text-sm font-medium text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
-          view all
-        </Link>
         </div>
       </section>
 

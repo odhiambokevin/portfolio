@@ -1,24 +1,24 @@
 import Search from "@/components/search";
-import { mapData } from "@/data/maps";
+import { projectData } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
 // import { FormEvent, useEffect, useRef, useState } from "react";
 
 
-export default async function MapDetail({
+export default async function ProjectDetail({
   params,
 }: {
-  params: Promise<{ mapslug: string }>
+  params: Promise<{ projectslug: string }>
 }) {
-  const { mapslug } = await params;
-  const map = mapData.find((blog)=> blog.slug === mapslug);
+  const { projectslug } = await params;
+  const project = projectData.find((project)=> project.slug === projectslug);
    
   return (
   <div className="flex flex-wrap">
     <div className="w-full px-4 lg:w-8/12">
        <div>
                 <h1 className="mb-8 text-3xl font-bold leading-tight sm:text-4xl sm:leading-tight">
-                  {map?.title}
+                  {project?.title}
                 </h1>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4">
                   <div className="flex flex-wrap items-center">
@@ -83,11 +83,11 @@ export default async function MapDetail({
                 </div>
                 <div className=" ">
                   <p className="mb-10 text-center text-text-mild text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    {map?.subtitle}
+                    {project?.subtitle}
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded ">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44] ">
-                       <Image className="object-contain p-4" src={`/images/map/${map?.image}`} alt="" fill priority/>
+                       <Image className="object-contain p-4" src={`/images/map/${project?.image}`} alt="" fill priority/>
                     </div>
                   </div>
                 
@@ -101,17 +101,20 @@ export default async function MapDetail({
      
               <div className="mb-10 rounded-sm bg-text-mild/20 shadow-three">
                 <h3 className="border-b border-text-mild/20 border-opacity-10 px-8 py-4 text-lg font-semibold">
-                  other maps
+                  tech stack
                 </h3>
                 <div className="flex flex-col p-8 text-text-mild">
+                  
                   <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-                    hiking in kilimanjaro
+                   supabase
                   </Link >
+
+
                   <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-                    nairobi urban map
+                    django
                   </Link>
                   <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-                    Jesus in kenya
+                    nextjs
                   </Link>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-export type MapType = {
+export type ProjectType = {
     id:number,
     title: string
     subtitle: string
@@ -9,4 +9,7 @@ export type MapType = {
     credit: string
     image: string
     date: string
+    description: string
+    stack: string[]
+    url: string
 }
