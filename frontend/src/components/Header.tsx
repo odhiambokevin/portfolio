@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -11,7 +11,7 @@ export default function Header() {
     { href: "/#skill", label: "skills", id: "skill" },
     { href: "/#experience", label: "experience", id: "experience" },
     { href: "/#projects", label: "projects", id: "projects" },
-    { href: "/#blog", label: "blog", id: "blog" },
+    { href: "/#blog", label: "blog", id: "blog" },   // ← reverted to anchor link
     { href: "/#contact", label: "contact", id: "contact" },
   ]
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,7 +19,12 @@ export default function Header() {
   const pathname = usePathname();
   const [activeId, setActiveId] = useState("home");
 
+  const isBlogRoute = pathname.startsWith("/blog");
+
   useEffect(() => {
+    // Scroll-spy only makes sense on the homepage, where the sections exist
+    if (isBlogRoute) return;
+
     const sections = navLinks
       .map(link => document.getElementById(link.id))
       .filter((el): el is HTMLElement => el !== null);
@@ -28,26 +33,34 @@ export default function Header() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // pick the entry closest to the top of the viewport among those currently intersecting
         const visible = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          .filter(entry => entry.isIntersecting) //sections within the rootMargin below are brought to view
+          
+          //if a-b is -ve, a comes before b, if a-b is +ve b comes before a
+          //closest section to top comes first in sort order
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top); 
 
         if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
+          setActiveId(visible[0].target.id); //sets scrolled section to active state in navbar
         }
       },
       {
-        // trigger when a section is within this band of the viewport,
-        // roughly accounting for the sticky header height
-        rootMargin: "-72px 0px -60% 0px",
+        rootMargin: "-72px 0px -60% 0px", //ignore top 72px (header height) and bottom 60%
         threshold: 0,
       }
     );
 
     sections.forEach(section => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [isBlogRoute]);
+
+  // "blog" lights up on the /blog route OR when scrolled to the #blog section on the homepage
+  const isLinkActive = (linkId: string) => {
+    if (linkId === "blog") {
+      return isBlogRoute || activeId === "blog";
+    }
+    return !isBlogRoute && activeId === linkId; //non-blog sections in view turn green
+  };
 
   return (
     <header className="sticky top-0 z-2 bg-background">
@@ -58,18 +71,17 @@ export default function Header() {
         </Link>
 
         {/* desktop nav */}
-          <nav className="hidden md:flex gap-2 justify-center items-center scroll-smooth">
-            {navLinks.map((link, index) => (
-                  <Link
-                    key={index}
-                    className={`${activeId === link.id ? 'text-accent' : ''} hover:text-accent transition-colors duration-200`}
-                    href={link.href}
-                  >
-                      {link.label}
-                  </Link>
-                  ))}
-          </nav>
-      
+        <nav className="hidden md:flex gap-2 justify-center items-center scroll-smooth">
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              className={`${isLinkActive(link.id) ? 'text-accent' : ''} hover:text-accent transition-colors duration-200`}
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
         {/* mobile menu button */}
         <button className="md:hidden cursor-pointer" onClick={handlenav}>
@@ -78,22 +90,20 @@ export default function Header() {
           <div className={`${mobileMenuOpen ? 'translate-y-[-7px] -rotate-45 scale-[.9]' : ''} h-[2px] w-[26px] bg-accent  transition-all duration-300`}></div>
         </button>
 
-
         {/* mobile nav */}
-        
-          <nav className={`${mobileMenuOpen ? "fixed z-2 flex flex-col gap-[24px] top-[72px] left-0 w-full h-screen py-[32px] px-[24px] transition-all duration-300 ease-out bg-background" : "fixed flex flex-col gap-[24px] top-[72px] -left-[100%] h-screen py-[32px] px-[24px] transition-all duration-500 ease-in-out"}`}>
-            {navLinks.map((link, index) => (
-                  <Link
-                    key={index}
-                    className={`relative left-[12px] text-[24px] transition-all duration-300 ${activeId === link.id ? 'text-accent' : ''}`}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                      {link.label}
-                  </Link>
-                  ))}
-          </nav>
+        <nav className={`${mobileMenuOpen ? "fixed z-2 flex flex-col gap-[24px] top-[72px] left-0 w-full h-screen py-[32px] px-[24px] transition-all duration-300 ease-out bg-background" : "fixed flex flex-col gap-[24px] top-[72px] -left-[100%] h-screen py-[32px] px-[24px] transition-all duration-500 ease-in-out"}`}>
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              className={`relative left-[12px] text-[24px] transition-all duration-300 ${isLinkActive(link.id) ? 'text-accent' : ''}`}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   )
-  }
+}

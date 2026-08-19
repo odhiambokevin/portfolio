@@ -1,4 +1,4 @@
-import Search from "@/components/search";
+import Search from "@/components/Search";
 import { blogData } from "@/data/blogs";
 import Image from "next/image";
 import Link from "next/link";

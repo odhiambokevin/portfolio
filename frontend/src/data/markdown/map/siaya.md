@@ -1,1 +1,0 @@
-this is a simple map of siaya
