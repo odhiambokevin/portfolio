@@ -8,8 +8,8 @@ class Portfolio(models.Model):
     url = models.CharField(max_length=100)
   
     class Meta:
-        verbose_name = "Skills"
-        verbose_name_plural = "Skills"
+        verbose_name = "Portfolio"
+        verbose_name_plural = "Portfolio"
         db_table = "portfolio_portfolio"
 
     def __str__(self):
