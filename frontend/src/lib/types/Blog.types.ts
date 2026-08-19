@@ -4,9 +4,8 @@ export type BlogType = {
     subtitle: string
     slug: string
     author: string
-    time: string
-    size: string
     credit: string
     image: string
-    date: string
+    posted_on: string
+    content: string 
 }

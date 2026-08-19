@@ -30,6 +30,7 @@ async function safeGet<T>(path: string, fallback: T): Promise<FetchResult<T>> {
 }
 
 export const getBlogs = () => safeGet<BlogType[]>('/api/blogs/', []);
+export const getSingleBlog = (slug: string) => safeGet<BlogType | null>(`/api/blogs/${slug}/`, null);
 export const getSkills = () => safeGet<SkillType[]>('/api/skills/', []);
 export const getPortfolio = () => safeGet<PortfolioType[]>('/api/portfolio/', []);
 export const getProjects = () => safeGet<ProjectType[]>('/api/projects/', []);

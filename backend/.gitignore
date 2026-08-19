@@ -5,10 +5,11 @@ __pycache__/
 
 # C extensions
 *.so
-
+.portfolio/
 staticfiles_build/
 media/
 staticfiles/
+mediafiles/
 static/
 !project/static/favicon.ico
 

@@ -1,6 +1,5 @@
 """model for feedback app"""
 from django.db import models
-from django.core.mail import send_mail
 
 class Feedback(models.Model):
     id = models.AutoField(primary_key=True, editable=False)
