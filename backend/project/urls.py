@@ -10,6 +10,7 @@ urlpatterns = [
     path('vault/', admin.site.urls),
     path('api/feedback/', include('apps.feedback.urls')),
     path('api/blogs/', include('apps.blogs.urls')),
+    path('api/skills/', include('apps.skills.urls')),
     path('', home),
 ]
 
