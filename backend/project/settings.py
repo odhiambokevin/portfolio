@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "apps.feedback",
     "apps.blogs",
     "apps.skills",
+    "apps.portfolio",
+    "apps.projects",
 ]
 
 MIDDLEWARE = [
