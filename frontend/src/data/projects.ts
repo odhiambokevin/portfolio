@@ -15,9 +15,9 @@ export const projectData: ProjectType[] = [
     }, 
     {
         id:3,
-        title:"bank fraud",
-        stack:["flink,dbt,postgres,kafka,docker,airflow,python"],
-        url:"https://github.com/odhiambokevin/bank-fraud-detection-system"
+        title:"wekeza",
+        stack:["javascript,python"],
+        url:"https://github.com/odhiambokevin/wekeza"
     }, 
     
 ]
