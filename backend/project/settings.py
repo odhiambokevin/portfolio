@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.app' #changed to .app for deployment with vercel
+WSGI_APPLICATION = 'project.wsgi.application' #changed to .app for deployment with vercel
 
 #database
 DATABASES = {
