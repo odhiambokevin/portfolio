@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-export default function Header() {
   const navLinks = [
     { href: "/#home", label: "home", id: "home" },
     { href: "/#portfolio", label: "portfolio", id: "portfolio" },
@@ -14,6 +13,9 @@ export default function Header() {
     { href: "/#blog", label: "blog", id: "blog" },   // ← reverted to anchor link
     { href: "/#contact", label: "contact", id: "contact" },
   ]
+
+export default function Header() {
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const handlenav = () => { setMobileMenuOpen(!mobileMenuOpen) }
   const pathname = usePathname();

@@ -27,15 +27,14 @@ export default function ContactForm() {
             .then(() => { toast.success("sent successfully"); setSubmitting(false); resetForm(); });
         } catch (error) {
           setSubmitting(false);
-          if (error instanceof Error) {
-            setErrorMsg(`${error.message}`);
-            toast.error(errormsg);
-          } else if (error && typeof error === 'object' && 'message' in error) {
-            setErrorMsg(`${(error as any).message}`);
-            toast.error(errormsg);
-          } else if (typeof error === "string") {
-            setErrorMsg(`${error}`);
-            toast.error(errormsg);
+
+          if (axios.isAxiosError(error)) {
+            const message = error.response?.data?.message ?? error.message;
+            setErrorMsg(message);
+            toast.error(message);
+          } else if (error instanceof Error) {
+            setErrorMsg(error.message);
+            toast.error(error.message);
           } else {
             toast.error('something went wrong');
           }
