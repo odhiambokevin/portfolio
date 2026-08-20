@@ -3,7 +3,7 @@ import {ExperienceType} from '@/lib/types/Experience.types';
 export const experienceData: ExperienceType[] = [
     {
         id:1,
-        role:"geospatial developer",
+        role:"data engineer",
         company:"yaspi",
         startPeriod:"feb 2025",
         endPeriod:"present",
