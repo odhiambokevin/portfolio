@@ -16,7 +16,7 @@ export default async function Project() {
               <div className="min-w-0">
                 <div className="flex items-baseline justify-center gap-3">
                   <span className="text-sm text-gray-500 shrink-0">{String(index + 1).padStart(2, '0')}.</span>
-                  <h3 className="text-2xl md:text-3xl xl:text-4xl font-extrabold uppercase tracking-tight text-gray-500 group-hover:text-accent group-hover:scale-[1.02] transition-all duration-200 break-words">
+                  <h3 className="text-2xl md:text-3xl xl:text-4xl font-extrabold tracking-tight text-gray-500 group-hover:text-accent group-hover:scale-[1.02] transition-all duration-200 break-words">
                     {project.title}
                   </h3>
                 </div>
