@@ -16,9 +16,11 @@ export default async function Blog() {
         ))}
       </div>
       <div className="mt-2 flex justify-center">
+        {blogData.length == 0 ? <h1 className="text-xl "> No blogs at the moment </h1> :
         <Link href="blog" className="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-muted text-center bg-accent rounded-lg hover:bg-accent/90 focus:ring-4 focus:outline-none focus:ring-accent/60">
           view all
         </Link>
+}
       </div>
     </section>
   );

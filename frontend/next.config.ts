@@ -1,17 +1,23 @@
 import type { NextConfig } from "next";
-import nextMDX from '@next/mdx'
  
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   allowedDevOrigins:['192.168.100.2'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8000",
+        pathname: "/media/**",
+      },
+    ],
+  },
+
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   // Optionally, add any other Next.js config below
 }
  
-const withMDX = nextMDX({
-  extension: /\.(md|mdx)$/,
-})
  
-// Merge MDX config with Next.js config
-export default withMDX(nextConfig)
+export default nextConfig

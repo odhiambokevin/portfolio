@@ -23,7 +23,6 @@ async function safeGet<T>(path: string, fallback: T): Promise<FetchResult<T>> {
     const data = await res.json();
     return { data, error: null };
 
-    
   } catch (err) {
     console.error(`Failed to fetch ${path}:`, err);
     return { data: fallback, error: 'Something went wrong loading data' };
@@ -31,8 +30,14 @@ async function safeGet<T>(path: string, fallback: T): Promise<FetchResult<T>> {
 }
 
 //api calls
-export const getBlogs = () => safeGet<BlogType[]>('/api/blogs/', []);
+export const getBlogs = async () => {
+  const { data, error } = await safeGet<{ results: BlogType[] }>('/api/blogs/', { results: [] });
+  return { data: data.results, error };
+};
+
 export const getSingleBlog = (slug: string) => safeGet<BlogType | null>(`/api/blogs/${slug}/`, null);
+
+export const getRelatedBlogs = (slug: string) => safeGet<BlogType[]>(`/api/blogs/${slug}/related/`, []);
 
   //local data
 export const getSkills = async () => {

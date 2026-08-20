@@ -7,5 +7,7 @@ export type BlogType = {
     credit: string
     image: string
     posted_on: string
-    content: string 
+    content: string
+    views: number
+    tags: string[]
 }

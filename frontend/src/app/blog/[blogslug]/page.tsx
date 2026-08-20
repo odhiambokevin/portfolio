@@ -3,12 +3,13 @@ import { notFound } from "next/navigation";
 import Search from "@/components/Search";
 import Image from "next/image";
 import Link from "next/link";
-import { getSingleBlog } from "@/lib/api";
+import { getSingleBlog, getRelatedBlogs } from "@/lib/api";
 import ErrorToast from "@/components/ErrorToast";
 
 export default async function BlogDetail({params}: {params: Promise<{ blogslug: string }>}) {
   const { blogslug } = await params;
   const { data: blog, error } = await getSingleBlog(blogslug);
+  const { data: relatedBlogs, error: relatedError } = await getRelatedBlogs(blogslug);
 
   if (!blog) {
     notFound();
@@ -17,6 +18,7 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
   return (
     <div className="flex flex-wrap">
       <ErrorToast message={error ? `Blog: ${error}` : null} />
+      <ErrorToast message={relatedError ? `Related posts: ${relatedError}` : null} />
       <div className="w-full px-4 lg:w-8/12">
         <div>
           <h1 className="mb-8 text-3xl font-bold leading-tight sm:text-4xl sm:leading-tight">
@@ -40,7 +42,12 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
                       <path d="M13.2637 3.3697H7.64754V2.58105C8.19721 2.43765 8.62738 1.91189 8.62738 1.31442C8.62738 0.597464 8.02992 0 7.28906 0C6.54821 0 5.95074 0.597464 5.95074 1.31442C5.95074 1.91189 6.35702 2.41376 6.93058 2.58105V3.3697H1.31442C0.597464 3.3697 0 3.96716 0 4.68412V13.2637C0 13.9807 0.597464 14.5781 1.31442 14.5781H13.2637C13.9807 14.5781 14.5781 13.9807 14.5781 13.2637V4.68412C14.5781 3.96716 13.9807 3.3697 13.2637 3.3697ZM6.6677 1.31442C6.6677 0.979841 6.93058 0.716957 7.28906 0.716957C7.62364 0.716957 7.91042 0.979841 7.91042 1.31442C7.91042 1.649 7.64754 1.91189 7.28906 1.91189C6.95448 1.91189 6.6677 1.6251 6.6677 1.31442ZM1.31442 4.08665H13.2637C13.5983 4.08665 13.8612 4.34954 13.8612 4.68412V6.45261H0.716957V4.68412C0.716957 4.34954 0.979841 4.08665 1.31442 4.08665ZM13.2637 13.8612H1.31442C0.979841 13.8612 0.716957 13.5983 0.716957 13.2637V7.16957H13.8612V13.2637C13.8612 13.5983 13.5983 13.8612 13.2637 13.8612Z" />
                     </svg>
                   </span>
-                  {blog.posted_on}
+                  {new Date(blog.posted_on).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                  
                 </p>
                 <p className="mr-5 flex items-center text-base font-medium">
                   <span className="mr-3">
@@ -50,7 +57,7 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
                       <path d="M11.0529 6.55322H4.69668C4.41543 6.55322 4.19043 6.77822 4.19043 7.05947C4.19043 7.34072 4.41543 7.56572 4.69668 7.56572H11.0811C11.3623 7.56572 11.5873 7.34072 11.5873 7.05947C11.5873 6.77822 11.3342 6.55322 11.0529 6.55322Z" />
                     </svg>
                   </span>
-                  50
+                  0
                 </p>
                 <p className="flex items-center text-base font-medium">
                   <span className="mr-3">
@@ -59,7 +66,7 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
                       <path d="M19.7559 5.625C17.6934 2.375 14.1309 0.4375 10.2559 0.4375C6.38086 0.4375 2.81836 2.375 0.755859 5.625C0.630859 5.84375 0.630859 6.125 0.755859 6.34375C2.81836 9.59375 6.38086 11.5312 10.2559 11.5312C14.1309 11.5312 17.6934 9.59375 19.7559 6.34375C19.9121 6.125 19.9121 5.84375 19.7559 5.625ZM10.2559 10.4375C6.84961 10.4375 3.69336 8.78125 1.81836 5.96875C3.69336 3.1875 6.84961 1.53125 10.2559 1.53125C13.6621 1.53125 16.8184 3.1875 18.6934 5.96875C16.8184 8.78125 13.6621 10.4375 10.2559 10.4375Z" />
                     </svg>
                   </span>
-                  35
+                  {blog.views}
                 </p>
               </div>
             </div>
@@ -67,7 +74,7 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
           <div>
             <div className="mb-10 w-full overflow-hidden rounded">
               <div className="">
-                <Image className="rounded-t-lg h-[250px] object-cover" src={`/images/blog/${blog.image}`} alt="" width={400} height={200} priority/>
+                <Image className="rounded-t-lg h-[250px] object-cover" src={`${blog.image}`} alt="" width={400} height={200} priority/>
               </div>
             </div>
             <div className="prose prose-invert prose-code:before:content-none prose-code:after:content-none">
@@ -77,10 +84,8 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
             <div className="items-center justify-between sm:flex">
               <div className="mb-5">
                 <h4 className="mb-3 text-sm font-medium">popular tags :</h4>
-                <div className="flex items-center">
-                  <p>tag button 1</p>
-                  <p>tag button 2</p>
-                  <p>tag button 3</p>
+                <div className="flex items-center gap-2 flex-wrap">
+                 
                 </div>
               </div>
               <div className="mb-5">
@@ -95,18 +100,22 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
         <Search />
         <div className="mb-10 rounded-sm bg-text-mild/20 shadow-three">
           <h3 className="border-b border-text-mild/20 border-opacity-10 px-8 py-4 text-lg font-semibold">
-            related Posts
+            related posts
           </h3>
           <div className="flex flex-col p-8 text-text-mild">
-            <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-              django is cool
-            </Link>
-            <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-              storing passwords in databases
-            </Link>
-            <Link href="#" className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6">
-              managing websockets
-            </Link>
+            {relatedBlogs.length === 0 ? (
+              <p className="text-sm text-text-mild/60">no related posts yet</p>
+            ) : (
+              relatedBlogs.map((related) => (
+                <Link
+                  key={related.id}
+                  href={`/blog/${related.slug}`}
+                  className="hover:text-accent mb-6 border-b border-body-color border-opacity-10 pb-6"
+                >
+                  {related.title}
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </div>

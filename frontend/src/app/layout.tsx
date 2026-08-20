@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner"
+import ScrollRestoration from "@/components/ScrollRestoration";
 
 
 const montserrat = Montserrat({
@@ -43,6 +44,7 @@ export default function RootLayout({
         <Toaster />
         <Footer />
         <ScrollToTop />
+        <ScrollRestoration />
       </body>
     </html>
   );
