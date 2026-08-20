@@ -6,7 +6,7 @@ class Blog(models.Model):
     id = models.AutoField(primary_key=True, editable=False)
     title = models.CharField(max_length=100)
     subtitle = models.TextField()
-    credit = models.CharField(max_length=100,null=True)
+    credit = models.CharField(max_length=100,null=True, blank=True)
     slug = models.SlugField(max_length=200, unique=True, verbose_name='Slug Field')
     author = models.CharField(max_length=100)
     content = models.TextField()
