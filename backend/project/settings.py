@@ -43,9 +43,6 @@ INSTALLED_APPS = [
     "apps.users",
     "apps.feedback",
     "apps.blogs",
-    "apps.skills",
-    "apps.portfolio",
-    "apps.projects",
 ]
 
 MIDDLEWARE = [
