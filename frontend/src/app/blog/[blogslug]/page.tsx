@@ -3,9 +3,31 @@ import { notFound } from "next/navigation";
 import Search from "@/components/Search";
 import Image from "next/image";
 import Link from "next/link";
+import ShareLinks from "@/components/ShareLink";
+import { siteUrl } from "@/lib/constants";
 import { getSingleBlog, getRelatedBlogs } from "@/lib/api";
 import ErrorToast from "@/components/ErrorToast";
 
+//function for social media sharing for metadata
+export async function generateMetadata({ params }: { params: Promise<{ blogslug: string }> }) {
+  const { blogslug } = await params;
+  const { data: blog } = await getSingleBlog(blogslug);
+
+  if (!blog) return {};
+
+  return {
+    title: blog.title,
+    description: blog.subtitle,
+    openGraph: {
+      title: blog.title,
+      description: blog.subtitle,
+      images: [blog.image],
+      url: `${siteUrl}/blog/${blog.slug}`,
+    },
+  };
+}
+
+//main component
 export default async function BlogDetail({params}: {params: Promise<{ blogslug: string }>}) {
   const { blogslug } = await params;
   const { data: blog, error } = await getSingleBlog(blogslug);
@@ -87,11 +109,11 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
                 <div className="flex items-center gap-2 flex-wrap">
                  
                 </div>
-              </div>
-              <div className="mb-5">
-                <h5 className="mb-3 text-sm font-medium sm:text-right">share this post :</h5>
-                <div className="flex items-center sm:justify-end">FB</div>
-              </div>
+              </div> 
+            <div className="mb-5 flex gap-3 items-center justify-center">
+              <h5 className="text-sm font-medium">share this post :</h5>
+              <ShareLinks url={`${siteUrl}/blog/${blog.slug}`} title={blog.title} />
+            </div>
             </div>
           </div>
         </div>
