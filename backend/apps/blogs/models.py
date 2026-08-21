@@ -10,7 +10,7 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=200, unique=True, verbose_name='Slug Field')
     author = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.ImageField(default="/default.png",upload_to='blog_images/',blank=True, null=True, db_column='image')
+    image = models.ImageField(default="media/blog_images/default.png",upload_to='blog_images/',blank=True, null=True, db_column='image')
     posted_on = models.DateTimeField(auto_now_add=True)
     views = models.PositiveIntegerField(default=0)
     tags = ArrayField(models.CharField(max_length=50),default=list,blank=True,)
