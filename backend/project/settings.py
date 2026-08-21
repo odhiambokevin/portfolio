@@ -37,9 +37,9 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     "whitenoise.runserver_nostatic", #whitenoise third party app but needs to be above static file
-    'django.contrib.staticfiles', 
+    'django.contrib.staticfiles',
     "cloudinary_storage", #third party app for persistent image storage
-      
+
 ]
 
 #libraries and other third party apps
@@ -161,7 +161,7 @@ CLOUDINARY_STORAGE = {
 }
 
 #for legacy for backward compatibility for django-cloudinary-storage
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 #to serve static files in production
 STORAGES = {
@@ -169,7 +169,7 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
