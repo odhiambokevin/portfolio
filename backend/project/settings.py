@@ -37,6 +37,7 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     "whitenoise.runserver_nostatic", #whitenoise third party app but needs to be above static file
+    "cloudinary_storage", #third party app for persistent image storage
     'django.contrib.staticfiles',    
 ]
 
@@ -44,6 +45,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
+    "cloudinary",
 ]
 
 #my custom defined apps
@@ -150,8 +152,18 @@ STATICFILES_DIRS = [BASE_DIR / "static",]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 
+#cloudinary storage settings
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": config("CLOUDINARY_API_KEY"),
+    "API_SECRET": config("CLOUDINARY_API_SECRET"),
+}
+
 #to serve static files in production
 STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
