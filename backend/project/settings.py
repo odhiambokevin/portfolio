@@ -30,23 +30,35 @@ SECURE_HSTS_PRELOAD = config('SECURE_HSTS_PRELOAD', default=True, cast=bool)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = config('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True, cast=bool)
 
 #application definition
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "whitenoise.runserver_nostatic", #whitenoise third party app but needs to be above static file
+    'django.contrib.staticfiles',    
+]
+
+#libraries and other third party apps
+THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
-    'project',
+]
+
+#my custom defined apps
+MY_APPS = [
+    "project",
     "apps.users",
     "apps.feedback",
     "apps.blogs",
 ]
 
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware", #for static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware", # for djangocorsheaders
     'django.middleware.common.CommonMiddleware',
@@ -73,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application' #changed to .app for deployment with vercel
+WSGI_APPLICATION = 'project.wsgi.application'
 
 #database
 DATABASES = {
