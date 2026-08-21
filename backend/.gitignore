@@ -11,7 +11,7 @@ media/
 staticfiles/
 mediafiles/
 static/
-!project/static/favicon.ico
+!project/static/*
 
 # Distribution / packaging
 .Python

@@ -146,7 +146,7 @@ USE_TZ = True
 #static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-STATICFILES_DIRS = os.path.join(BASE_DIR / "static",)
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 #media files
 MEDIA_URL = "/media/"
@@ -158,6 +158,9 @@ CLOUDINARY_STORAGE = {
     "API_KEY": config("CLOUDINARY_API_KEY"),
     "API_SECRET": config("CLOUDINARY_API_SECRET"),
 }
+
+#for legacy for backward compatibility for django-cloudinary-storage
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 #to serve static files in production
 STORAGES = {
