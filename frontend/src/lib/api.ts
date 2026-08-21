@@ -9,7 +9,7 @@ type FetchResult<T> = {
 
 async function safeGet<T>(path: string, fallback: T): Promise<FetchResult<T>> {
   try {
-    const res = await fetch(`${backendUrl}${path}`, {
+    const res = await fetch(`${backendUrl}/${path}`, {
       next: { revalidate: 60 },
     });
 
