@@ -37,8 +37,9 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     "whitenoise.runserver_nostatic", #whitenoise third party app but needs to be above static file
+    'django.contrib.staticfiles', 
     "cloudinary_storage", #third party app for persistent image storage
-    'django.contrib.staticfiles',    
+      
 ]
 
 #libraries and other third party apps
