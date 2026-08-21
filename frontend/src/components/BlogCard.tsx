@@ -6,7 +6,7 @@ export default function BlogCard({blog}:{blog:BlogType}) {
   return (
         <div className="group basis-xl transition-all duration-100 ease-in-out hover:border-accent hover:shadow-accent hover:shadow-sm max-w-sm flex flex-col border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"> 
             
-            <Image className="rounded-t-lg h-[250px] object-cover" src={`${blog.image}`} alt="" width={400} height={200} priority/>
+            <Image className="rounded-t-lg h-[250px] object-contain" src={`${blog.image}`} alt="" width={400} height={250} priority/>
           
             <div className="p-5 flex flex-col">
                 <Link href={`blog/${blog.slug}`}>
