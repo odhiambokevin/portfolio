@@ -58,7 +58,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware", #for static files
+    "whitenoise.middleware.WhiteNoiseMiddleware", #for static files in vercel deploy
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware", # for djangocorsheaders
     'django.middleware.common.CommonMiddleware',
@@ -69,6 +69,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'project.urls'
+
+APPEND_SLASH = True
 
 TEMPLATES = [
     {
@@ -140,12 +142,19 @@ USE_I18N = True
 USE_TZ = True
 
 #static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 #media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
+
+#to serve static files in production
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 #default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
