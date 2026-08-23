@@ -58,7 +58,6 @@ export default async function Experience() {
           </Tabs>
         </div>
       </div>
-      <div className='absolute bottom-[5%] md:bottom-[30%] mx-[20%] w-2/3 sm:w-9/12 mt-8 h-[2px] bg-slate-300 dark:bg-muted'></div>
     </section>
   );
 }
