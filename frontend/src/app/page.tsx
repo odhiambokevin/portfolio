@@ -71,7 +71,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-12">
-              <h2 className="text-text-mild text-base font-semibold">Socials</h2>
+              <h2 className="text-text-mild text-base font-semibold">socials</h2>
               <div className="mt-4 flex items-center gap-2 sm:gap-4">
                 <div className="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                   <Link href="https://github.com/odhiambokevin" target="_blank">
