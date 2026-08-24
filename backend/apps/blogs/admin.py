@@ -4,7 +4,7 @@ from .models import Blog
 
 class BlogAdmin(admin.ModelAdmin):
     """Fields to be displayed"""
-    list_display = ["id","title","slug","author","content","image","posted_on"]
+    list_display = ["id","title","author","image","posted_on"]
     list_filter = ["author","posted_on"]
     search_fields = ("title","author","posted_on","tags")
     list_display_links = ["title"]
