@@ -99,7 +99,7 @@ export default async function BlogDetail({params}: {params: Promise<{ blogslug: 
                 <Image className="rounded-t-lg h-[250px] object-cover" src={`${blog.image}`} alt="" width={400} height={200} priority/>
               </div>
             </div>
-            <div className="prose prose-invert text-foreground max-w-none prose-code:before:content-none prose-code:after:content-none">
+            <div className="prose text-foreground dark:prose-invert max-w-none prose-code:before:content-none prose-code:after:content-none">
               <MDXRemote source={blog.content} />
             </div>
             <br />
