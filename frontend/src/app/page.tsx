@@ -13,7 +13,8 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       {/* Hero renders instantly — no data dependency */}
-      <section id="home" className="flex h-[100svh] dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center scroll-mt-[72px]">
+      <section id="home" className="flex h-[100svh] bg-[radial-gradient(circle_at_50%_45%,_#dcfce7_0%,_#dcfce7_18%,_transparent_45%),radial-gradient(circle_at_0%_0%,_#bbf7d0_0%,_transparent_38%),radial-gradient(circle_at_100%_100%,_#a7f3d0_0%,_transparent_38%)]
+ dark:bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat text-center scroll-mt-[72px]">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16">
           <div className="relative z-1 pt-8">
             <h1 className="max-w-max mb-4 text-4xl font-extrabold tracking-none leading-none md:text-5xl xl:text-6xl">data engineer<span className="text-accent text-5xl">.</span></h1>
