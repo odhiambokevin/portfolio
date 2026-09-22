@@ -27,7 +27,7 @@ export const projectData: ProjectType[] = [
         name:"skemalytic",
         description:"football matches event tagging for annotation",
         status:'exploring',
-        repo:"https://github.com/odhiambokevin/wekeza"
+        repo:"https://github.com/odhiambokevin/skemalytic"
     }, 
     
 ]
