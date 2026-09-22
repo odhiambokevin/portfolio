@@ -1,3 +1,4 @@
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, Clock } from 'lucide-react'
@@ -58,8 +59,8 @@ return (
           
           
             <section className="article-section">
-             
-              <p>{article.body}</p>
+             <MDXRemote source={article.body} />
+              {/* <p>{article.body}</p> */}
             </section>
          
 
