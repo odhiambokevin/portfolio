@@ -60,7 +60,6 @@ return (
           
             <section className="article-section">
              <MDXRemote source={article.body} />
-              {/* <p>{article.body}</p> */}
             </section>
          
 
