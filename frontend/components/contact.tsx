@@ -58,7 +58,7 @@ export function ContactSection() {
       validationSchema={submitSchema}
         >
             {({ isSubmitting }) => (
-            <Form className="contact-form" action="mailto:odhiambosiaya@proton.me" method="post" encType="text/plain">
+            <Form className="contact-form">
                 {isSubmitting && (
             <div className="flex flex-wrap gap-16 max-w-md mx-auto mt-12">
               <div className="spinner-4 absolute w-12 animate-spin top-[70%] left-[45%]">
