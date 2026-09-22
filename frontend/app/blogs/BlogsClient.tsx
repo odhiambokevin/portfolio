@@ -74,7 +74,8 @@ export default function BlogsClient({ blogs, error }: BlogsClientProps) {
           {posts.length ? posts.map((post) => (
             <Link className="archive-row" href={`/blogs/${post.slug}`} key={post.slug}>
               {post.image ? (
-                <Image 
+                <Image
+                className='!object-fill'
                   src={post.image} 
                   alt={post.title} 
                   width={320} 

@@ -35,7 +35,7 @@ return (
           </div>
           <h1>{article.title}</h1>
           {article.image && (
-            <Image 
+            <Image  
               className="article-image" 
               src={article.image} 
               alt={article.title} 
