@@ -3,30 +3,6 @@ import { use } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { BlogType } from '@/lib/types/Blog.types';
 
-
-// const posts = [
-//     { slug: 'designing-data-systems-that-last',
-//         title: 'designing data systems that last',
-//         date: 'september 12, 2026',
-//         read: '6 min read',
-//         category: 'engineering' },
-//     { slug: 'why-geospatial-data-needs-better-tools',
-//         title: 'why geospatial data needs better tools',
-//         date: 'august 28, 2026',
-//         read: '4 min read',
-//         category: 'ideas' },
-//     { slug: 'a-practical-guide-to-pipeline-observability',
-//         title: 'a practical guide to pipeline observability',
-//         date: 'july 19, 2026',
-//         read: '8 min read',
-//         category: 'engineering' },
-//     {
-//         slug: 'building-for-quiet-failure',
-//         title: 'building for quiet failure',
-//         date: 'june 04, 2026',
-//         read: '5 min read',
-//         category: 'ideas' 
-//     }]
 type BlogSectionProps = {
   blogsPromise: Promise<{ data: BlogType[]; error: string | null }>;
 }
@@ -45,7 +21,7 @@ export function BlogSection({ blogsPromise }: BlogSectionProps) {
                 </Link>
             </div>
             <div className="post-list">
-                {posts.map(post =>
+                {posts.slice(0, 4).map(post =>
                     <Link className="post-row" href={`/blogs/${post.slug}`} key={post.slug}>
                         <span className="post-category">
                             {post.category}
@@ -65,4 +41,3 @@ export function BlogSection({ blogsPromise }: BlogSectionProps) {
         </section>
 )
 }
-// export { posts }

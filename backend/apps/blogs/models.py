@@ -4,7 +4,7 @@ from django.contrib.postgres.fields import ArrayField #specific to postgres
 
 class Category(models.TextChoices):
     """codeBaseValue = 'databaseValue','adminDisplayValue"""
-    Engineering = "engineering", "Engineering"
+    Engineering = "engineering", "engineering"
     GIS = "gis", "gis"
     Database = "database", "database"
 

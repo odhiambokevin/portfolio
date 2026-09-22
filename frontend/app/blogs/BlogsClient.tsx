@@ -58,7 +58,7 @@ export default function BlogsClient({ blogs, error }: BlogsClientProps) {
             />
           </label>
           <div className="filter-list" aria-label="Filter articles">
-            {['all', 'engineering', 'gis'].map(option => (
+            {['all', 'engineering', 'gis','database','backend'].map(option => (
               <button 
                 className={filter === option ? 'active' : ''} 
                 onClick={() => setFilter(option)} 
