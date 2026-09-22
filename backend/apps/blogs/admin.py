@@ -4,9 +4,9 @@ from .models import Blog
 
 class BlogAdmin(admin.ModelAdmin):
     """Fields to be displayed"""
-    list_display = ["id","title","author","image","posted_on"]
-    list_filter = ["author","posted_on"]
-    search_fields = ("title","author","posted_on","tags")
+    list_display = ["id","title","category","tags","posted_on"]
+    list_filter = ["posted_on"]
+    search_fields = ("title","category","posted_on","tags")
     list_display_links = ["title"]
     prepopulated_fields = {'slug': ('title',)} 
 

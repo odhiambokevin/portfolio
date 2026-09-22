@@ -2,18 +2,25 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField #specific to postgres
 
+class Category(models.TextChoices):
+    """codeBaseValue = 'databaseValue','adminDisplayValue"""
+    Engineering = "engineering", "Engineering"
+    GIS = "gis", "gis"
+    Database = "database", "database"
+
 class Blog(models.Model):
     id = models.AutoField(primary_key=True, editable=False)
     title = models.CharField(max_length=100)
-    subtitle = models.TextField()
+    intro = models.TextField()
     credit = models.CharField(max_length=100,null=True, blank=True)
+    author = models.CharField(max_length=100, default='kevin')
     slug = models.SlugField(max_length=200, unique=True, verbose_name='Slug Field')
-    author = models.CharField(max_length=100)
-    content = models.TextField()
+    body = models.TextField()
     image = models.ImageField(default="media/blog_images/default.png",upload_to='blog_images/',blank=True, null=True, db_column='image')
     posted_on = models.DateTimeField(auto_now_add=True)
-    views = models.PositiveIntegerField(default=0)
+    read = models.PositiveIntegerField(default=4)
     tags = ArrayField(models.CharField(max_length=50),default=list,blank=True,)
+    category = models.CharField(choices=Category.choices,max_length=100,blank=True, null=True,db_column='category')
  
     class Meta:
         ordering = ['-posted_on',]

@@ -25,9 +25,6 @@ class BlogDetailView(APIView):
             blog = Blog.objects.get(slug=slug)
         except Blog.DoesNotExist:
             raise BlogNotFound
-        
-        Blog.objects.filter(pk=blog.pk).update(views=F('views') + 1)
-        blog.refresh_from_db(fields=['views']) 
 
         serializer = BlogSerializer(blog,context={"request": request})
         return Response(serializer.data)
