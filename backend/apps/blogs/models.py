@@ -7,6 +7,7 @@ class Category(models.TextChoices):
     Engineering = "engineering", "engineering"
     GIS = "gis", "gis"
     Database = "database", "database"
+    Backend = "backend", "backend"
 
 class Blog(models.Model):
     id = models.AutoField(primary_key=True, editable=False)
