@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/#projects", label: "projects", id: "projects" },
   { href: "/#blogs", label: "blog", id: "blogs" },
   { href: "/#contact", label: "contact", id: "contact" },
+  { href: "/maps", label: "maps", id: "maps" },
 ]
 
 function ThemeToggle() {

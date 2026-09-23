@@ -1,6 +1,6 @@
 import { backendUrl } from '@/lib/constants';
 import type { BlogType } from '@/lib/types/Blog.types'
-import {experienceData,projectData,skillData,portfolioData} from '@/data';
+import {experienceData,projectData,skillData,portfolioData,mapsData} from '@/data';
 
 type FetchResult<T> = {
   data: T;
@@ -55,4 +55,7 @@ export const getProjects = async () => {
 
 export const getExperience = async () => {
   return { data: experienceData, error: null };
+};
+export const getMaps = async () => {
+  return { data: mapsData, error: null };
 };
