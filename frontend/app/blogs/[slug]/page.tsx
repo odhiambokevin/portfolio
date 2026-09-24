@@ -45,7 +45,7 @@ return (
               sizes="(max-width: 800px) 100vw, 760px" 
             />
           )}
-          <p className="article-intro !text-[14px]">image credit: {article.credit}</p>
+          <p className="article-intro !text-[14px]">{article.credit && <>credit: {article.credit}</>}</p>
           <div className="article-meta">
             <span>
               <Clock size={15} /> {typeof article.read === 'number' ? `${article.read} min read` : article.read}
