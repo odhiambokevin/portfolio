@@ -8,6 +8,8 @@ class Category(models.TextChoices):
     GIS = "gis", "gis"
     Database = "database", "database"
     Backend = "backend", "backend"
+    Analytics = "analytics", "analytics"
+    General = "general", "general"
 
 class Blog(models.Model):
     id = models.AutoField(primary_key=True, editable=False)
@@ -21,7 +23,7 @@ class Blog(models.Model):
     posted_on = models.DateTimeField(auto_now_add=True)
     read = models.PositiveIntegerField(default=4)
     tags = ArrayField(models.CharField(max_length=50),default=list,blank=True,)
-    category = models.CharField(choices=Category.choices,max_length=100,blank=True, null=True,db_column='category')
+    category = models.CharField(choices=Category.choices,default=Category.General,max_length=100,blank=True, null=True,db_column='category')
  
     class Meta:
         ordering = ['-posted_on',]
