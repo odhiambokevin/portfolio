@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest", 
 }
 
-export const viewport: Viewport = { colorScheme: 'light dark', themeColor: [{ media: '(prefers-color-scheme: light)', color: '#f2f0eb' }, { media: '(prefers-color-scheme: dark)', color: '#121413' }] }
+export const viewport: Viewport = { colorScheme: 'dark', themeColor: '#121413' }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en"className='dark'>
       <body className="antialiased">
           <Header />
             {children}

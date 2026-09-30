@@ -16,12 +16,7 @@ const navLinks = [
 ]
 
 function ThemeToggle() {
-  const [dark, setDark] = useState(false)
-  useEffect(() => {
-    const next = window.matchMedia('(prefers-color-scheme: dark)').matches
-    setDark(next)
-    document.documentElement.classList.toggle('dark', next)
-  }, [])
+  const [dark, setDark] = useState(true)
   const toggle = () => { const next = !dark; setDark(next); document.documentElement.classList.toggle('dark', next) }
   return <button className="theme-toggle" onClick={toggle} aria-label={`Switch to ${dark ? 'light' : 'dark'} mode`}><span>{dark ? <Sun size={15} /> : <Moon size={15} />}</span><small>{dark ? 'light' : 'dark'}</small></button>
 }
