@@ -10,7 +10,7 @@ export const skillData: SkillType[] = [
     {
         id:2,
         title:'data warehousing',
-        description:'snowflake, aws, azure, scalable data models for downstream analytics',
+        description:'databricks, snowflake, aws, azure, scalable data models for downstream analytics',
     },
     {
         id:3,
