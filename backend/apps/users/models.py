@@ -32,6 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.username
 
-    @property
-    def get_full_name(self):
+    def get_full_name(self): #changed to a method because wagtail/django call user.get_full_name()
         return f"{self.first_name.title()} {self.last_name.title()}"
+
+   

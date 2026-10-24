@@ -1,0 +1,54 @@
+{% extends "wagtailadmin/base.html" %}
+{% block titletag %}Import markdown{% endblock %}
+
+{% block content %}
+  {% include "wagtailadmin/shared/header.html" with title="Import markdown" icon="upload" %}
+
+  <div class="nice-padding">
+    <p>
+      Upload <code>.md</code> / <code>.mdx</code> files to create blog posts. Optional front matter at the top of a file
+      (<code>title, intro, slug, category, tags, author, credit, date, read</code>) fills in the post details,
+      everything else is worked out from the content.
+    </p>
+
+    {% if results %}
+      <table class="listing">
+        <thead>
+          <tr><th>File</th><th>Result</th><th>Post</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          {% for r in results %}
+            <tr>
+              <td>{{ r.filename }}</td>
+              <td><strong>{{ r.status|title }}</strong></td>
+              <td>
+                {% if r.edit_url %}<a href="{{ r.edit_url }}">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}
+                {% if r.slug %}<br><small>/{{ r.slug }}</small>{% endif %}
+              </td>
+              <td>{% for note in r.notes %}{{ note }}{% if not forloop.last %}<br>{% endif %}{% endfor %}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <hr>
+    {% endif %}
+
+    <form action="{% url 'blogs_import_markdown' %}" method="post" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      {% if form.non_field_errors %}<p class="error-message">{{ form.non_field_errors }}</p>{% endif %}
+
+      {% for f in form %}
+        {% if f.name != "publish_now" or can_publish %}
+          <div style="margin-bottom: 1.25rem;">
+            <label for="{{ f.id_for_label }}"><strong>{{ f.label }}</strong></label><br>
+            {{ f }}
+            {% if f.help_text %}<p class="help"><small>{{ f.help_text }}</small></p>{% endif %}
+            {% for error in f.errors %}<p class="error-message"><span>{{ error }}</span></p>{% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <button type="submit" class="button">Import</button>
+    </form>
+  </div>
+{% endblock %}

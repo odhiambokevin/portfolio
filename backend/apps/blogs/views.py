@@ -8,12 +8,11 @@ from.exceptions import BlogNotFound
 from .models import Blog
 from .serializers import BlogSerializer
 
-
-
-class BlogListAPIView(generics.ListCreateAPIView):
+class BlogListAPIView(generics.ListAPIView):
     #use this if authentication needed before accessing api permission_classes = [permissions.IsAuthenticated]
+    """read-only. posts are created in wagtail (/cms/), only published ones are served here"""
     permission_classes = [permissions.AllowAny]
-    queryset = Blog.objects.all()
+    queryset = Blog.objects.published()
     serializer_class = BlogSerializer
     pagination_class = BlogPagination
     filter_backends = [ filters.SearchFilter]
@@ -22,7 +21,7 @@ class BlogDetailView(APIView):
     permission_classes = [permissions.AllowAny]
     def get(self, request,slug):
         try:
-            blog = Blog.objects.get(slug=slug)
+            blog = Blog.objects.published().get(slug=slug)
         except Blog.DoesNotExist:
             raise BlogNotFound
 
@@ -33,7 +32,7 @@ class RelatedBlogsView(APIView):
     permission_classes = [permissions.AllowAny]
     def get(self, request, slug):
         try:
-            blog = Blog.objects.get(slug=slug)
+            blog = Blog.objects.published().get(slug=slug)
         except Blog.DoesNotExist:
             raise BlogNotFound
 
@@ -41,7 +40,7 @@ class RelatedBlogsView(APIView):
             related = Blog.objects.none()
         else:
             related = (
-                Blog.objects
+                Blog.objects.published()
                 .filter(tags__overlap=blog.tags)
                 .exclude(pk=blog.pk)
                 .order_by('-posted_on')[:3]

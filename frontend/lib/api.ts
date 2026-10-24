@@ -5,6 +5,7 @@ import {experienceData,projectData,skillData,portfolioData,mapsData} from '@/dat
 type FetchResult<T> = {
   data: T;
   error: string | null;
+  status?: number
 }
 
 
@@ -18,7 +19,7 @@ async function safeGet<T>(path: string, fallback: T): Promise<FetchResult<T>> {
       const message = `Failed to load data (${res.status})`;
       console.error(`Failed to fetch ${path}: ${res.status} ${res.statusText}`);
       //fallback returns an empty array in case any url fails so one failure does not crash the entire page
-      return { data: fallback, error: message };
+      return { data: fallback, error: message,status: res.status};
     }
 
     const data = await res.json();

@@ -16,9 +16,11 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
 
   const article = articleResult.data
   const relatedBlogs = relatedResult.data
+
  //load 404 - the custom 404 will be loaded- if article not found
   if (!article) {
-    notFound()
+    if (articleResult.status === 404) notFound()
+  throw new Error(articleResult.error ?? 'failed to load article')
   }
 
 return (

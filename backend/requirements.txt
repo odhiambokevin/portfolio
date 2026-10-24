@@ -42,3 +42,4 @@ uritemplate==4.2.0
 urllib3==2.5.0
 wheel==0.45.1
 whitenoise==6.11.0
+wagtail>=7.4,<7.5

@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast=Csv())
-
+ 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS',cast=Csv())
 CORS_ALLOWED_METHODS = config('CORS_ALLOWED_METHODS',cast=Csv())
@@ -38,6 +38,7 @@ DJANGO_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic", #whitenoise third party app but needs to be above static file
     'django.contrib.staticfiles',
+    'django.contrib.postgres', #needed by wagtail's postgres search backend (blogs already use postgres ArrayField)
     "cloudinary_storage", #third party app for persistent image storage
 
 ]
@@ -49,6 +50,20 @@ THIRD_PARTY_APPS = [
     "cloudinary",
 ]
 
+#wagtail cms (admin lives at /cms/, it manages the blogs app content)
+#note: wagtail.images / wagtail.documents are left out on purpose, blog images stay on cloudinary
+WAGTAIL_APPS = [
+    "wagtail.users",
+    "wagtail.documents",
+    "wagtail.images",     
+    "wagtail.snippets",
+    "wagtail.search",
+    "wagtail.admin",
+    "wagtail",
+    "modelcluster",
+    "taggit",
+]
+
 #my custom defined apps
 MY_APPS = [
     "project",
@@ -57,7 +72,7 @@ MY_APPS = [
     "apps.blogs",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + WAGTAIL_APPS + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -186,3 +201,9 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
     ]
 }
+
+#wagtail settings
+WAGTAIL_SITE_NAME = "Portfolio CMS" #shown on the wagtail admin dashboard
+WAGTAILADMIN_BASE_URL = config("WAGTAILADMIN_BASE_URL", default="localhost:8000") #backend domain used in wagtail emails/links, eg https://api.mysite.com
+WAGTAIL_ENABLE_UPDATE_CHECK = False #no outbound version check on every dashboard load (serverless friendly)
+
